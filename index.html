@@ -44,8 +44,10 @@
     /* Фон-паутина (дизайн в стиле макроса) */
     body::after {
       content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
-      background:url("bg.jpg") center/cover no-repeat fixed;
+      background:url("bg.jpg") center/cover no-repeat;
       opacity:.55;
+      image-rendering:auto;
+      transform:translateZ(0);
     }
     body::before {
       content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
