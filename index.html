@@ -260,6 +260,9 @@
     .pay-status { min-height:1.2em; font-family:var(--mono); font-size:.8rem; color:var(--acid); margin-top:12px; position:relative; }
 
     .contact-form { display:grid; gap:20px; border:1px solid var(--line); background:var(--bg); padding:36px; }
+    .form-avatar { display:flex; justify-content:center; margin:-58px auto 6px; }
+    .form-avatar img { width:88px; height:88px; border-radius:50%; object-fit:cover; border:3px solid var(--acid); box-shadow:0 0 0 4px rgba(233,255,42,.2), 0 14px 34px rgba(0,0,0,.5); background:#0d0d0d; animation:avatarFloat 5s ease-in-out infinite; }
+    @keyframes avatarFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } }
     .contact-form label { display:grid; gap:10px; font-size:.9rem; }
     .contact-form label > span { font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
     .contact-form input, .contact-form textarea {
@@ -900,6 +903,7 @@
           </div>
         </div>
         <form class="contact-form reveal" data-delay="1">
+          <div class="form-avatar"><img src="girl2.jpg" alt="Талисман Fitfuux"></div>
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="gotcha-hp" aria-label="Не заполняйте это поле" aria-hidden="true">
           <label><span>Ваше имя</span><input type="text" name="name" required placeholder="Как к вам обращаться"></label>
           <label><span>Телефон или Telegram</span><input type="text" name="contact" required placeholder="Куда вам ответить"></label>
