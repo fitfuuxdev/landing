@@ -41,6 +41,16 @@
       overflow-x:hidden;
       -webkit-font-smoothing: antialiased;
     }
+    /* Фон-паутина (дизайн в стиле макроса) */
+    body::after {
+      content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
+      background:url("bg.jpg") center/cover no-repeat fixed;
+      opacity:.55;
+    }
+    body::before {
+      content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+      background:linear-gradient(180deg, rgba(5,5,5,.82), rgba(5,5,5,.62) 40%, rgba(5,5,5,.85) 70%, var(--bg));
+    }
     /* Зерно поверх всего */
     .grain {
       position: fixed; inset:0; z-index:60; pointer-events:none; opacity:.06; mix-blend-mode:overlay;
