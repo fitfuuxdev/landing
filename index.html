@@ -88,13 +88,10 @@
     .site-header { position:sticky; top:0; z-index:50; background:rgba(10,10,11,.82); backdrop-filter:blur(16px); border-bottom:1px solid var(--line-soft); }
     .hdr-inner { display:flex; align-items:center; justify-content:space-between; min-height:74px; gap:24px; }
     .logo { display:inline-flex; align-items:center; gap:12px; text-decoration:none; color:var(--text); line-height:1; }
-    .logo .fit {
-      font-family:var(--cond); font-weight:900; text-transform:uppercase;
-      font-size:2rem; letter-spacing:.02em; color:var(--text); transition:letter-spacing .3s var(--ease);
-    }
-    .logo .fit .x { color:var(--acid); }
-    .logo:hover .fit { letter-spacing:.06em; }
-    .logo .tag { font-family:var(--mono); font-size:.62rem; color:var(--muted); letter-spacing:.18em; text-transform:uppercase; border-left:2px solid var(--acid); padding-left:10px; line-height:1.35; }
+    .logo-img { width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid var(--acid); box-shadow:0 0 0 3px rgba(233,255,42,.2), 0 6px 18px rgba(0,0,0,.5); flex-shrink:0; }
+    .logo-txt { font-family:var(--cond); font-weight:900; font-size:1.6rem; letter-spacing:.02em; color:var(--text); transition:letter-spacing .3s var(--ease); white-space:nowrap; }
+    .logo-txt .x { color:var(--acid); }
+    .logo:hover .logo-txt { letter-spacing:.05em; }
     .site-nav { display:flex; align-items:center; gap:32px; }
     .site-nav > a { color:var(--muted); text-decoration:none; font-size:.92rem; font-weight:500; position:relative; padding:6px 0; transition:color .2s ease; }
     .site-nav > a:hover { color:var(--text); }
@@ -323,38 +320,7 @@
     .cursor-dot.grow { width:34px; height:34px; margin:-17px 0 0 -17px; opacity:.5; }
 
     /* Колбаска с логотипом (по правому краю, при прокрутке) */
-    /* Объёмная 3D-колбаска с логотипом (катится при прокрутке) */
-    .logo-roller {
-      position:fixed; top:0; right:14px; z-index:55; pointer-events:none;
-      display:flex; align-items:center; justify-content:center;
-      width:auto; padding:15px 12px; border-radius:999px;
-      background:linear-gradient(90deg,#1b1b1d,#0b0b0c 30%,#2a2a18 50%,#0b0b0c 70%,#1b1b1d);
-      border:1px solid rgba(233,255,42,.45);
-      -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
-      box-shadow:0 10px 34px rgba(0,0,0,.6), 0 0 24px rgba(233,255,42,.18), inset -6px 0 14px rgba(0,0,0,.55), inset 6px 0 14px rgba(255,255,255,.08);
-      transform:translateY(-60px) rotateX(-6deg); transition:top .2s ease;
-      will-change:transform; transform-style:preserve-3d; perspective:600px;
-    }
-    .logo-roller::before,
-    .logo-roller::after {
-      content:""; position:absolute; top:0; bottom:0; width:10px; border-radius:999px;
-      background:linear-gradient(180deg,#3a3c1e,#14150c); border:1px solid rgba(233,255,42,.35);
-    }
-    .logo-roller::before{ left:-6px; }
-    .logo-roller::after{ right:-6px; }
-    .logo-roller .lr-hi,.logo-roller .lr-lo{
-      position:absolute; left:8px; right:8px; border-radius:999px; pointer-events:none;
-    }
-    .logo-roller .lr-hi{ top:3px; height:7px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent); filter:blur(1px); }
-    .logo-roller .lr-lo{ bottom:3px; height:9px; background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.6),transparent 70%); }
-    .logo-roller span {
-      font-family:var(--cond); font-weight:900; text-transform:uppercase; letter-spacing:.05em;
-      color:var(--volt); font-size:.95rem; white-space:nowrap; text-shadow:0 2px 8px rgba(0,0,0,.5);
-      position:relative; z-index:1; transform-style:preserve-3d; will-change:transform;
-    }
-    .logo-roller.on { transform:translateY(0) rotateX(-6deg); }
-    .logo-roller.rolling { animation:lroll .5s var(--ease) infinite; }
-    @keyframes lroll { 0%,100%{ transform:translateY(0) rotateX(-6deg) scaleY(1);} 50%{ transform:translateY(0) rotateX(-6deg) scaleY(.985);} }
+     }
 
     /* Магнитные кнопки */
     .btn-magnet { will-change:transform; transition:transform .25s var(--ease); }
@@ -510,10 +476,6 @@
   <div class="glow-field" aria-hidden="true"></div>
   <div class="read-progress" id="readProgress" aria-hidden="true"></div>
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-  <div class="logo-roller" id="logoRoller" aria-hidden="true">
-    <i class="lr-hi"></i><i class="lr-lo"></i>
-    <span>Fitfuux.</span>
-  </div>
 
   <div class="loader" id="loader" aria-hidden="true">
     <div class="loader__inner">
@@ -527,8 +489,8 @@
   <header class="site-header">
     <div class="container hdr-inner">
       <a class="logo" href="#top">
-        <span class="fit">Fitf<span class="x">uux</span>.</span>
-        <span class="tag">Лендинги<br>под ключ</span>
+        <img class="logo-img" src="logo.jpg" alt="Fitfuux">
+        <span class="logo-txt">Fitfuux<span class="x">.</span></span>
       </a>
       <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
         <i></i><i></i>
@@ -1337,44 +1299,6 @@
 })();
 </script>
 
-<script>
-(function () {
-  var roller = document.getElementById("logoRoller");
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!roller) return;
-  var spin = 0, spinT = 0, lastY = scrollY, moving = 0, movingIdle = 0;
-  function update() {
-    var h = document.documentElement.scrollHeight - innerHeight || 1;
-    var p = Math.min(Math.max(scrollY / h, 0), 1);
-    roller.style.top = (14 + p * (innerHeight - 74 - 14)) + "px";
-    roller.classList.add("on");
-    // колбаска катается: два оборота за полную прокрутку
-    spinT = p * 720;
-  }
-  function onScroll() {
-    var dy = Math.abs(scrollY - lastY); lastY = scrollY;
-    if (dy > 2) { roller.classList.add("rolling"); moving = 40; }
-    update();
-  }
-  function tick() {
-    spin += (spinT - spin) * 0.08;
-    if (Math.abs(spinT - spin) < 0.5) spin = spinT;
-    if (moving > 0) moving--;
-    // эффект качения: наклон + заметное вращение вокруг оси Y и лёгкий доворот по X
-    var rx = -6 + Math.sin(spin * Math.PI / 180) * 4;
-    var sz = 1 - Math.abs(Math.sin(spin * Math.PI / 180)) * 0.06;
-    roller.style.transform = "translateY(0) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + spin.toFixed(1) + "deg) scale(" + sz.toFixed(3) + ")";
-    var span = roller.querySelector("span");
-    if (span) span.style.transform = "rotateY(" + (-spin * 0.4).toFixed(1) + "deg)";
-    if (moving === 0) roller.classList.remove("rolling");
-    requestAnimationFrame(tick);
-  }
-  addEventListener("scroll", onScroll, { passive: true });
-  addEventListener("resize", update);
-  update();
-  if (!reduce) requestAnimationFrame(tick);
-  else roller.style.transform = "none";
-})();
-</script>
+
 </body>
 </html>
