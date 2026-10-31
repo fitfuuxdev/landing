@@ -137,6 +137,8 @@
     }
     .hero-panel::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 50% 20%, rgba(217,70,239,.18), transparent 60%); }
     .hero-panel .big { font-family:var(--cond); font-size:6.5rem; font-weight:900; color:transparent; -webkit-text-stroke:2px var(--acid); line-height:1; animation:sway 6s ease-in-out infinite; }
+    .hero-panel .hp-img { width:70%; max-width:150px; border-radius:50%; object-fit:cover; border:2px solid var(--acid); box-shadow:0 0 0 4px rgba(233,255,42,.18), 0 14px 36px rgba(0,0,0,.55); animation:sway 6s ease-in-out infinite; }
+    .hero-panel .big { margin-top:6px; font-size:4.2rem; }
     @keyframes sway { 0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(3deg)} }
     .hero-panel .bar { width:140px; height:4px; background:var(--line); position:relative; overflow:hidden; }
     .hero-panel .bar::after { content:""; position:absolute; inset:0; width:50%; background:var(--acid); animation:bar 2.6s ease-in-out infinite; transform-origin:left; }
@@ -535,7 +537,8 @@
             </dl>
             <div class="hero-panel">
               <span class="hc-corner hc-tl"></span><span class="hc-corner hc-br"></span>
-              <div class="big">А</div>
+              <img class="hp-img" src="logo.jpg" alt="Fitfuux">
+              <div class="big">F</div>
               <div class="lbl">личный бренд</div>
               <div class="bar"></div>
             </div>
