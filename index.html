@@ -190,8 +190,8 @@
       display:flex; align-items:center; justify-content:center; overflow:hidden;
     }
     .about-photo::before { content:""; position:absolute; inset:0; background:repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 2px, transparent 2px 12px); }
-    .about-photo .mono { font-family:var(--cond); font-size:13rem; font-weight:900; color:transparent; -webkit-text-stroke:2px rgba(255,255,255,.18); line-height:1; position:relative; }
-    .about-photo .mono-over { position:absolute; font-family:var(--cond); font-size:13rem; font-weight:900; color:var(--acid); line-height:1; opacity:0; transform:translateY(20px); transition:opacity .4s ease, transform .4s var(--ease); mix-blend-mode:screen; }
+    .about-photo .about-logo { position:relative; width:88%; max-width:300px; border-radius:22px; object-fit:cover; border:2px solid var(--acid); box-shadow:0 0 0 4px rgba(233,255,42,.18), 0 24px 60px rgba(0,0,0,.5); transition:transform .4s var(--ease); }
+    .about-photo:hover .about-logo { transform:scale(1.03); }
     .about-photo:hover .mono-over { opacity:.9; transform:none; }
     .about-photo .cap { position:absolute; bottom:0; left:0; right:0; padding:18px; display:flex; justify-content:space-between; font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
     .about-photo .cap b { color:var(--acid); }
@@ -658,9 +658,8 @@
         </div>
         </div>
         <div class="about-photo reveal" data-delay="1">
-          <span class="mono">А</span>
-          <span class="mono-over">А</span>
-          <span class="cap"><b>Алек<em>сей</em>.</b><span>Лендинг-дизайнер</span></span>
+          <img class="about-logo" src="logo.jpg" alt="Fitfuux — лендинги под ключ">
+          <span class="cap"><b>Fitfuux.</b><span>Лендинг-дизайнер</span></span>
         </div>
       </div>
     </section>
