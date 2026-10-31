@@ -322,6 +322,23 @@
     .cursor-dot.on { opacity:.85; }
     .cursor-dot.grow { width:34px; height:34px; margin:-17px 0 0 -17px; opacity:.5; }
 
+    /* Колбаска с логотипом (по правому краю, при прокрутке) */
+    .logo-roller {
+      position:fixed; top:0; right:14px; z-index:55; pointer-events:none;
+      display:flex; align-items:center; justify-content:center;
+      padding:14px 10px; border-radius:999px;
+      background:rgba(10,10,11,.8); border:1px solid rgba(233,255,42,.4);
+      -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+      box-shadow:0 8px 30px rgba(0,0,0,.5), 0 0 18px rgba(233,255,42,.15);
+      transform:translateY(-60px); transition:transform .45s var(--ease), top .2s ease;
+      will-change:transform;
+    }
+    .logo-roller span {
+      font-family:var(--cond); font-weight:900; text-transform:uppercase; letter-spacing:.05em;
+      color:var(--volt); font-size:.92rem; white-space:nowrap;
+    }
+    .logo-roller.on { transform:translateY(0); }
+
     /* Магнитные кнопки */
     .btn-magnet { will-change:transform; transition:transform .25s var(--ease); }
     .btn-magnet:hover { transform:translate(var(--mx,0),var(--my,0)); }
@@ -476,6 +493,7 @@
   <div class="glow-field" aria-hidden="true"></div>
   <div class="read-progress" id="readProgress" aria-hidden="true"></div>
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="logo-roller" id="logoRoller" aria-hidden="true"><span>Fitfuux.</span></div>
 
   <div class="loader" id="loader" aria-hidden="true">
     <div class="loader__inner">
@@ -1296,6 +1314,36 @@
     });
   });
   render();
+})();
+</script>
+
+<script>
+(function () {
+  var roller = document.getElementById("logoRoller");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!roller) return;
+  // Колбаска «перекатывается» по правому краю, отмечая текущий блок, и слегка вращается
+  var wrap = document.body, maxTop = (document.documentElement.scrollHeight - innerHeight) || 1;
+  var hint = 0, hintTarget = 0;
+  function update() {
+    var h = document.documentElement.scrollHeight - innerHeight || 1;
+    var p = Math.min(Math.max(scrollY / h, 0), 1);
+    roller.style.top = (14 + p * (innerHeight - 70 - 14)) + "px";
+    roller.classList.add("on");
+    // лёгкое «вращение» — эффект колбаски
+    hintTarget = p * 180;
+  }
+  function tick() {
+    hint += (hintTarget - hint) * 0.12;
+    if (Math.abs(hintTarget - hint) < 0.5) hint = hintTarget;
+    roller.style.transform = "translateY(0) rotate(" + hint.toFixed(1) + "deg)";
+    requestAnimationFrame(tick);
+  }
+  addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  update();
+  if (!reduce) requestAnimationFrame(tick);
+  else roller.style.transform = "none";
 })();
 </script>
 </body>
