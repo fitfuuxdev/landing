@@ -332,8 +332,8 @@
       border:1px solid rgba(233,255,42,.45);
       -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
       box-shadow:0 10px 34px rgba(0,0,0,.6), 0 0 24px rgba(233,255,42,.18), inset -6px 0 14px rgba(0,0,0,.55), inset 6px 0 14px rgba(255,255,255,.08);
-      transform:translateY(-60px) rotateX(-6deg); transition:transform .45s var(--ease), top .2s ease;
-      will-change:transform; transform-style:preserve-3d;
+      transform:translateY(-60px) rotateX(-6deg); transition:top .2s ease;
+      will-change:transform; transform-style:preserve-3d; perspective:600px;
     }
     .logo-roller::before,
     .logo-roller::after {
@@ -350,7 +350,7 @@
     .logo-roller span {
       font-family:var(--cond); font-weight:900; text-transform:uppercase; letter-spacing:.05em;
       color:var(--volt); font-size:.95rem; white-space:nowrap; text-shadow:0 2px 8px rgba(0,0,0,.5);
-      position:relative; z-index:1;
+      position:relative; z-index:1; transform-style:preserve-3d; will-change:transform;
     }
     .logo-roller.on { transform:translateY(0) rotateX(-6deg); }
     .logo-roller.rolling { animation:lroll .5s var(--ease) infinite; }
@@ -1342,25 +1342,30 @@
   var roller = document.getElementById("logoRoller");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!roller) return;
-  var spin = 0, spinT = 0, lastY = scrollY, moving = 0;
+  var spin = 0, spinT = 0, lastY = scrollY, moving = 0, movingIdle = 0;
   function update() {
     var h = document.documentElement.scrollHeight - innerHeight || 1;
     var p = Math.min(Math.max(scrollY / h, 0), 1);
     roller.style.top = (14 + p * (innerHeight - 74 - 14)) + "px";
     roller.classList.add("on");
-    // «прокатывание» колбаски: вращение вокруг своей оси по мере перелистывания
+    // колбаска катается: два оборота за полную прокрутку
     spinT = p * 720;
   }
   function onScroll() {
     var dy = Math.abs(scrollY - lastY); lastY = scrollY;
-    if (dy > 2) { roller.classList.add("rolling"); moving = 60; }
+    if (dy > 2) { roller.classList.add("rolling"); moving = 40; }
     update();
   }
   function tick() {
-    spin += (spinT - spin) * 0.1;
-    if (Math.abs(spinT - spin) < 1) spin = spinT;
+    spin += (spinT - spin) * 0.08;
+    if (Math.abs(spinT - spin) < 0.5) spin = spinT;
     if (moving > 0) moving--;
-    roller.style.transform = "translateY(0) rotateX(-6deg) rotateY(" + spin.toFixed(1) + "deg)";
+    // эффект качения: наклон + заметное вращение вокруг оси Y и лёгкий доворот по X
+    var rx = -6 + Math.sin(spin * Math.PI / 180) * 4;
+    var sz = 1 - Math.abs(Math.sin(spin * Math.PI / 180)) * 0.06;
+    roller.style.transform = "translateY(0) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + spin.toFixed(1) + "deg) scale(" + sz.toFixed(3) + ")";
+    var span = roller.querySelector("span");
+    if (span) span.style.transform = "rotateY(" + (-spin * 0.4).toFixed(1) + "deg)";
     if (moving === 0) roller.classList.remove("rolling");
     requestAnimationFrame(tick);
   }
