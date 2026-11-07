@@ -57,41 +57,53 @@
 
   // 3D price cube — drag to rotate
   var cube = document.getElementById('price-cube');
-  if (cube && window.matchMedia && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (cube) {
     var rotX = -16, rotY = 38;
     var drag = false, startX = 0, startY = 0, curX = rotX, curY = rotY;
-    var auto = true, autoTimer = null;
+    var autoTimer = null;
 
     function apply() {
       cube.style.transform = 'rotateX(' + curX + 'deg) rotateY(' + curY + 'deg)';
     }
     function startAuto() {
-      auto = true;
+      if (autoTimer) clearInterval(autoTimer);
       autoTimer = setInterval(function () {
         if (!drag) { curY += 0.4; apply(); }
       }, 30);
     }
-    function stopAuto() { auto = false; if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+    function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
 
-    cube.addEventListener('pointerdown', function (e) {
-      drag = true; stopAuto(); cube.setPointerCapture(e.pointerId);
-      startX = e.clientX; startY = e.clientY; curX = rotX; curY = rotY;
-    });
-    cube.addEventListener('pointermove', function (e) {
+    function onDown(x, y) {
+      drag = true; stopAuto(); startX = x; startY = y; curX = rotX; curY = rotY;
+    }
+    function onMove(x, y) {
       if (!drag) return;
-      var dx = e.clientX - startX, dy = e.clientY - startY;
-      curX = rotX - dy * 0.5;
-      curY = rotY + dx * 0.5;
+      curX = rotX - (y - startY) * 0.5;
+      curY = rotY + (x - startX) * 0.5;
       apply();
-    });
-    function end(e) {
+    }
+    function onUp() {
       if (!drag) return; drag = false;
       rotX = curX; rotY = curY;
       startAuto();
     }
-    cube.addEventListener('pointerup', end);
-    cube.addEventListener('pointercancel', end);
-    cube.addEventListener('pointerleave', end);
+
+    cube.addEventListener('pointerdown', function (e) {
+      onDown(e.clientX, e.clientY);
+      if (cube.setPointerCapture) { try { cube.setPointerCapture(e.pointerId); } catch (err) {} }
+    });
+    cube.addEventListener('pointermove', function (e) { onMove(e.clientX, e.clientY); });
+    cube.addEventListener('pointerup', onUp);
+    cube.addEventListener('pointercancel', onUp);
+
+    // Touch fallback (older mobile browsers / partial PointerEvent support)
+    cube.addEventListener('touchstart', function (e) {
+      if (e.touches && e.touches[0]) onDown(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
+    cube.addEventListener('touchmove', function (e) {
+      if (e.touches && e.touches[0]) { e.preventDefault(); onMove(e.touches[0].clientX, e.touches[0].clientY); }
+    }, { passive: false });
+    cube.addEventListener('touchend', onUp);
 
     startAuto();
   }
