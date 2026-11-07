@@ -329,6 +329,13 @@ a:hover { text-decoration: underline; }
 .price { font-family: var(--display); font-weight: 500; font-size: 34px; line-height: 1; }
 .price small { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--faint); }
 .price-card.featured .price small { color: #a9a9ae; }
+.price-breakdown {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 11px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .04em; color: var(--muted);
+}
+.price-breakdown i { font-style: normal; color: var(--accent); }
+.price-card.featured .price-breakdown { color: #a9a9ae; }
+.price-card.featured .price-breakdown i { color: var(--accent); }
 .price-card ul { list-style: none; margin: 22px 0 28px; padding: 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .price-card li { padding-left: 24px; position: relative; font-size: 15px; }
 .price-card li::before { content: "·"; position: absolute; left: 6px; top: 0; font-family: var(--mono); color: var(--accent); font-size: 18px; }
