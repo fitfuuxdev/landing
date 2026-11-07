@@ -117,6 +117,11 @@ a:hover { text-decoration: underline; }
 .hero { padding: calc(var(--header-h) + 40px) 0 72px; }
 .hero__stage { position: relative; display: flex; align-items: center; justify-content: center; min-height: 380px; }
 .hero__word { display: flex; justify-content: center; user-select: none; }
+.hero__logo {
+  width: min(300px, 46vw); height: auto; aspect-ratio: 1/1; object-fit: cover;
+  border-radius: 24px; border: 2px solid var(--line); box-shadow: 0 26px 60px rgba(15,15,17,.22);
+  animation: wordIn .7s cubic-bezier(.2,.7,.2,1) both;
+}
 .hero__word .ch {
   font-family: var(--display); font-weight: 600;
   font-size: clamp(56px, 12.5vw, 168px);
