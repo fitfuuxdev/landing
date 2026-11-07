@@ -344,7 +344,8 @@ a:hover { text-decoration: underline; }
 .cube-wrap { perspective: 1100px; width: 100%; display: grid; place-items: center; }
 .cube {
   position: relative; width: 240px; height: 240px; transform-style: preserve-3d;
-  transform: rotateX(-16deg) rotateY(38deg); cursor: grab;
+  transform: rotateX(-16deg) rotateY(38deg); cursor: grab; touch-action: none;
+  -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;
 }
 .cube:active { cursor: grabbing; }
 .cube-face {
