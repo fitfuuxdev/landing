@@ -5,135 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Магазин цветов «Букет» — демо-лендинг</title>
   <meta name="description" content="Свежие цветы с доставкой по городу за 60 минут. Демо-лендинг для цветочного магазина от Fitfuux.">
-  <meta name="theme-color" content="#0a0a0b">
+  <meta name="theme-color" content="#fbf6f0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=JetBrains+Mono:wght@400;500;700&family=Onest:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
   <style>
-    :root {
-      --bg:#0a0a0b; --bg-2:#101012; --line:rgba(255,255,255,.1); --line-soft:rgba(255,255,255,.06);
-      --text:#f2f2f3; --muted:#8a8a93; --acid:#ff5a9e; --acid-dim:rgba(255,90,158,.55);
-      --cond:"Fira Sans Extra Condensed","Arial Narrow",sans-serif; --mono:"JetBrains Mono",monospace; --body:"Onest",system-ui,sans-serif;
-      --container:1160px; --ease:cubic-bezier(.22,1,.36,1);
+    :root{
+      --bg:#fbf6f0; --paper:#ffffff; --ink:#3a2f28; --muted:#8a7a6c;
+      --rose:#d98a9e; --rose-deep:#b96a82; --green:#7c9a76; --line:rgba(58,47,40,.12);
+      --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",system-ui,sans-serif; --mono:"JetBrains Mono",monospace;
+      --ease:cubic-bezier(.22,1,.36,1);
     }
     *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth;overflow-x:hidden}
-    body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-    .grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
-    .container{max-width:var(--container);margin:0 auto;padding:0 28px}
-    ::selection{background:var(--acid);color:#0a0a0b}
-    h1,h2,h3{font-family:var(--cond);font-weight:800;line-height:1.02;text-transform:uppercase;letter-spacing:.01em}
-    .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:10px;margin-bottom:22px}
-    .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--acid);box-shadow:0 0 12px var(--acid);animation:pulse 2s infinite}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-    .h-xl{font-size:clamp(2.4rem,6vw,4.2rem);margin-bottom:20px}
-    .section{padding:110px 0;position:relative}
-    .section__head{margin-bottom:56px}
-    .btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;font-family:var(--body);font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s var(--ease),background .2s ease,color .2s ease,border-color .2s ease;position:relative;overflow:hidden}
-    .btn .ico{width:16px;height:16px;flex-shrink:0;transition:transform .25s var(--ease)}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    .container{max-width:1140px;margin:0 auto;padding:0 28px}
+    ::selection{background:var(--rose);color:#fff}
+    h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;color:var(--ink)}
+    .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+    .eyebrow::before{content:"";width:34px;height:1px;background:var(--rose)}
+    .h-xl{font-family:var(--serif);font-size:clamp(2.6rem,6vw,4.6rem);font-weight:600;margin-bottom:18px;color:var(--ink)}
+    .h-xl em{font-style:italic;color:var(--rose-deep)}
+    .section{padding:96px 0}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;font-family:var(--sans);font-weight:700;font-size:.92rem;letter-spacing:.02em;text-decoration:none;border:1.5px solid transparent;border-radius:999px;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s ease,background .25s ease;position:relative}
+    .btn .ico{width:16px;height:16px;transition:transform .25s var(--ease)}
     .btn:hover .ico{transform:translateX(4px)}
-    .btn--acid{background:var(--acid);color:#0a0a0b}
-    .btn--acid:hover{transform:translateY(-2px);box-shadow:0 16px 40px var(--acid-dim)}
-    .btn--ghost{border-color:var(--line);color:var(--text);background:transparent}
-    .btn--ghost:hover{border-color:var(--acid);color:var(--acid);transform:translateY(-2px)}
-    .btn--sm{padding:12px 20px;font-size:.88rem}
-    .btn::before{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:sheen 4.5s infinite}
-    @keyframes sheen{0%,60%{left:-100%}100%{left:200%}}
-    .site-header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft)}
+    .btn--rose{background:var(--rose);color:#fff}
+    .btn--rose:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(217,138,158,.4);background:var(--rose-deep)}
+    .btn--ghost{border-color:var(--line);color:var(--ink);background:var(--paper)}
+    .btn--ghost:hover{border-color:var(--rose);color:var(--rose-deep);transform:translateY(-2px)}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(251,246,240,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
     .hdr-inner{display:flex;align-items:center;justify-content:space-between;min-height:74px;gap:24px}
-    .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);line-height:1}
-    .logo .fit{font-family:var(--cond);font-weight:900;text-transform:uppercase;font-size:2rem;letter-spacing:.02em;color:var(--text);transition:letter-spacing .3s var(--ease)}
-    .logo .fit .x{color:var(--acid)}
-    .logo:hover .fit{letter-spacing:.06em}
-    .site-nav{display:flex;align-items:center;gap:32px}
-    .site-nav>a{color:var(--muted);text-decoration:none;font-size:.92rem;font-weight:500;position:relative;padding:6px 0;transition:color .2s ease}
-    .site-nav>a:hover{color:var(--text)}
-    .site-nav>a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--acid);transition:width .3s var(--ease)}
+    .logo{display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--ink);line-height:1}
+    .logo .fit{font-family:var(--serif);font-weight:700;font-size:1.9rem;color:var(--ink)}
+    .logo .fit .x{color:var(--rose-deep);font-weight:600}
+    .site-nav{display:flex;align-items:center;gap:30px}
+    .site-nav>a{color:var(--muted);text-decoration:none;font-size:.92rem;font-weight:600;position:relative;padding:6px 0;transition:color .2s ease}
+    .site-nav>a:hover{color:var(--ink)}
+    .site-nav>a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--rose);border-radius:2px;transition:width .3s var(--ease)}
     .site-nav>a:hover::after{width:100%}
     .site-nav>a.btn::after{display:none}
-    .burger{display:none;flex-direction:column;gap:6px;background:none;border:1px solid var(--line);padding:13px 12px;cursor:pointer;border-radius:4px}
-    .burger i{width:22px;height:2px;background:var(--text);transition:transform .25s var(--ease),opacity .2s ease}
+    .burger{display:none;flex-direction:column;gap:6px;background:none;border:1px solid var(--line);border-radius:10px;padding:13px 12px;cursor:pointer}
+    .burger i{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s var(--ease)}
     .burger.is-open i:nth-child(1){transform:translateY(8px) rotate(45deg)}
     .burger.is-open i:nth-child(2){transform:translateY(0) rotate(-45deg)}
-    .hero{position:relative;padding:120px 0 90px;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(700px 520px at 80% 0%,var(--acid-dim),transparent 60%),radial-gradient(600px 500px at 8% 90%,rgba(255,255,255,.035),transparent 60%)}
-    .hero-type{font-family:var(--cond);font-weight:900;line-height:.9;text-transform:uppercase;font-size:clamp(3.4rem,11vw,9rem);letter-spacing:-.01em;margin:-10px 0 6px}
+    .hero{position:relative;overflow:hidden;padding:90px 0 60px}
+    .hero::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(600px 400px at 85% 10%,rgba(217,138,158,.28),transparent 60%),radial-gradient(500px 400px at 5% 90%,rgba(124,154,118,.18),transparent 60%)}
+    .hero .container{position:relative;z-index:1}
+    .hero-type{font-family:var(--serif);font-weight:600;line-height:.98;font-size:clamp(3rem,9vw,6.6rem);margin:10px 0 8px}
     .hero-type .t-line{display:block;overflow:hidden}
     .hero-type .t-line>span{display:inline-block;animation:rise 1s var(--ease) both}
-    .hero-type .t-line--2{color:transparent;-webkit-text-stroke:1.5px var(--acid);margin-bottom:30px}
+    .hero-type .t-line--2{color:transparent;-webkit-text-stroke:1.5px var(--rose-deep);margin-bottom:26px}
     @keyframes rise{from{transform:translateY(110%);opacity:0}to{transform:none;opacity:1}}
     .hero-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
-    .hero-lead{color:var(--muted);font-size:clamp(1rem,1.7vw,1.18rem);max-width:600px;margin-bottom:36px}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:50px}
-    .hero-stats{display:flex;flex-wrap:wrap;gap:56px;border-top:1px solid var(--line);padding-top:34px}
-    .hero-stat dt{font-family:var(--cond);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:800;color:var(--acid);line-height:1}
-    .hero-stat dd{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-top:6px;letter-spacing:.05em}
-    .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);overflow:hidden}
-    .ticker__track{display:flex;width:max-content;white-space:nowrap;animation:tick 26s linear infinite;padding:18px 0}
-    .ticker:hover .ticker__track{animation-play-state:paused}
-    .ticker__track span{font-family:var(--cond);font-style:italic;font-weight:800;text-transform:uppercase;font-size:1.6rem;color:var(--muted);margin:0 40px}
-    .ticker__track b{color:var(--acid);font-weight:900}
-    @keyframes tick{to{transform:translateX(-50%)}}
-    .cards{list-style:none;border:1px solid var(--line)}
-    .card{display:grid;grid-template-columns:80px 1fr;gap:26px;padding:34px 36px;border-bottom:1px solid var(--line);align-items:start;transition:padding-left .3s var(--ease),background .3s ease}
-    .card:last-child{border-bottom:none}
-    .card:hover{padding-left:48px;background:var(--bg-2)}
-    .card .n{font-family:var(--mono);font-size:.8rem;color:var(--acid);padding-top:6px}
-    .card h3{font-size:1.6rem;margin-bottom:10px}
-    .card p{color:var(--muted);font-size:.95rem;max-width:560px}
-    .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line)}
-    .price-card{padding:40px 36px;border-right:1px solid var(--line);background:var(--bg);position:relative;transition:background .3s ease}
-    .price-card:last-child{border-right:none}
-    .price-card:hover{background:var(--bg-2)}
-    .price-card h3{font-size:1.4rem;margin-bottom:12px}
-    .price-card p{color:var(--muted);font-size:.92rem;margin-bottom:26px}
-    .price-card .val{font-family:var(--cond);font-size:2.6rem;font-weight:800}
-    .price-card .val small{font-family:var(--mono);font-size:.7rem;color:var(--muted);font-weight:400;display:block;margin-bottom:2px}
-    .price-card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--acid);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
-    .price-card:hover::after{transform:scaleX(1)}
-    .rnd{border-radius:100%}
-    .cta{text-align:center;padding:100px 0 90px;position:relative;overflow:hidden}
-    .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 300px at 50% 50%,var(--acid-dim),transparent 70%)}
-    .cta .big{display:inline-block;font-family:var(--cond);font-weight:900;text-transform:uppercase;font-size:clamp(2.6rem,8vw,6.5rem);color:var(--text);text-decoration:none;line-height:1;transition:color .3s ease;position:relative}
-    .cta .big:hover{color:var(--acid)}
+    .hero-lead{color:var(--muted);font-size:clamp(1rem,1.6vw,1.2rem);max-width:620px;margin-bottom:34px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:52px}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--line);padding-top:30px}
+    .hero-stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px 24px}
+    .hero-stat dt{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--rose-deep);line-height:1}
+    .hero-stat dd{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:8px;letter-spacing:.04em}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .serv-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:34px 30px;transition:transform .3s var(--ease),box-shadow .3s ease}
+    .serv-card:hover{transform:translateY(-6px);box-shadow:0 22px 40px rgba(58,47,40,.1)}
+    .serv-card .n{font-family:var(--mono);font-size:.75rem;color:var(--rose-deep);letter-spacing:.1em}
+    .serv-card .bloom{width:44px;height:44px;border-radius:50%;background:linear-gradient(150deg,var(--rose),var(--rose-deep));display:grid;place-items:center;color:#fff;font-family:var(--serif);font-size:1.4rem;margin:20px 0 16px}
+    .serv-card h3{font-size:1.6rem;margin-bottom:10px}
+    .serv-card p{color:var(--muted);font-size:.95rem;margin:0}
+    .price-band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .price-card{border:1px solid var(--line);border-radius:22px;padding:36px 32px;background:var(--bg);text-align:center;position:relative;overflow:hidden;transition:transform .3s var(--ease)}
+    .price-card:hover{transform:translateY(-6px)}
+    .price-card::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--rose),var(--rose-deep))}
+    .price-card h3{font-size:1.5rem;margin-bottom:8px}
+    .price-card p{color:var(--muted);font-size:.92rem;margin-bottom:24px}
+    .price-card .val{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--ink)}
+    .price-card .val small{display:block;font-family:var(--mono);font-size:.68rem;color:var(--muted);font-weight:400;letter-spacing:.08em;margin-bottom:4px}
+    .cta{text-align:center;padding:96px 0;position:relative;overflow:hidden}
+    .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 320px at 50% 60%,rgba(217,138,158,.3),transparent 70%)}
+    .cta .container{position:relative}
+    .cta .big{display:inline-block;font-family:var(--serif);font-weight:700;text-decoration:none;color:var(--ink);font-size:clamp(2.4rem,7vw,5rem);line-height:1.05;transition:color .3s ease}
+    .cta .big:hover{color:var(--rose-deep)}
     .cta .big span{display:block}
-    .cta .big-sub{font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;color:var(--muted);margin-top:16px;display:flex;align-items:center;gap:20px;justify-content:center;flex-wrap:wrap}
-    .cta .big-sub a{color:var(--text);text-decoration:none}
-    .cta .big-sub a:hover{color:var(--acid)}
-    .site-footer{border-top:1px solid var(--line)}
-    .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;color:var(--muted);font-size:.84rem;font-family:var(--mono);padding:34px 0}
+    .cta .big-sub{font-family:var(--mono);font-size:.82rem;letter-spacing:.05em;color:var(--muted);margin-top:18px;display:flex;align-items:center;gap:18px;justify-content:center;flex-wrap:wrap}
+    .cta .big-sub a{color:var(--ink);text-decoration:none}
+    .cta .big-sub a:hover{color:var(--rose-deep)}
+    .cta .demo-note{color:var(--muted);font-size:.85rem;margin-top:24px}
+    .site-footer{border-top:1px solid var(--line);background:var(--paper)}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;color:var(--muted);font-size:.84rem;font-family:var(--mono);padding:32px 0}
     .footer-inner a{color:var(--muted);text-decoration:none}
-    .footer-inner a:hover{color:var(--acid)}
-    .reveal{opacity:0;transform:translateY(44px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+    .footer-inner a:hover{color:var(--rose-deep)}
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
     .reveal.in{opacity:1;transform:none}
-    [data-delay="1"]{transition-delay:.1s}[data-delay="2"]{transition-delay:.2s}[data-delay="3"]{transition-delay:.3s}
-    @media(max-width:960px){
+    [data-delay="1"]{transition-delay:.12s}[data-delay="2"]{transition-delay:.24s}[data-delay="3"]{transition-delay:.36s}
+    @media(max-width:900px){
       .burger{display:flex}
-      .site-nav{position:absolute;top:74px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg-2);border-bottom:1px solid var(--line);padding:16px 28px 24px;transform:translateY(-10px);opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s var(--ease)}
+      .site-nav{position:absolute;top:74px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:16px 28px 24px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s var(--ease)}
       .site-nav.is-open{opacity:1;pointer-events:auto;transform:none}
-      .site-nav>a{padding:14px 0;border-bottom:1px solid var(--line-soft);font-size:1rem}
-      .site-nav>a.btn{margin-top:18px;text-align:center;border-bottom:none;justify-content:center}
-      .hero{padding:70px 0 70px}
-      .hero-stats{gap:28px}
-      .card{grid-template-columns:1fr;gap:10px;padding:28px}
-      .price-grid{grid-template-columns:1fr}
-      .price-card{border-right:none;border-bottom:1px solid var(--line)}
-      .price-card:last-child{border-bottom:none}
-      .section{padding:80px 0}
+      .site-nav>a{padding:14px 0;border-bottom:1px solid var(--line);font-size:1rem}
+      .site-nav>a.btn{color:#fff;margin-top:18px;text-align:center;border-bottom:none;justify-content:center}
+      .services-grid,.price-grid,.hero-stats{grid-template-columns:1fr 1fr}
+      .hero{padding:50px 0 50px}
     }
+    @media(max-width:560px){.services-grid,.price-grid,.hero-stats{grid-template-columns:1fr}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
   </style>
 </head>
 <body>
-<div class="grain" aria-hidden="true"></div>
-
 <header class="site-header">
   <div class="container hdr-inner">
     <a class="logo" href="#top"><span class="fit">Букет<span class="x">.</span></span></a>
     <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false"><i></i><i></i></button>
     <nav class="site-nav">
       <a href="#services">Букеты</a><a href="#prices">Цены</a><a href="#contact">Контакты</a>
-      <a class="btn btn--acid btn--sm" href="#contact">Заказать букет</a>
+      <a class="btn btn--rose btn--ghost" href="#contact">Заказать букет</a>
     </nav>
   </div>
 </header>
@@ -141,7 +125,7 @@
 <main id="top">
   <section class="hero">
     <div class="container">
-      <p class="eyebrow"><span class="dot"></span>Свежие цветы с доставкой по городу</p>
+      <p class="eyebrow">Свежие цветы с доставкой по городу</p>
       <div class="hero-type">
         <span class="t-line"><span style="animation-delay:.05s">Букеты,</span></span>
         <span class="t-line"><span style="animation-delay:.15s">от которых</span></span>
@@ -150,7 +134,7 @@
       <h1 class="hero-sr">Магазин цветов «Букет» — доставка за 60 минут</h1>
       <p class="hero-lead">Собираем букеты из свежих цветов и привозим за 60 минут. Оформляем свадьбы, дни рождения и любые поводы — от «просто так» до «навсегда».</p>
       <div class="hero-actions">
-        <a class="btn btn--acid" href="#prices">Выбрать букет <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></a>
+        <a class="btn btn--rose" href="#prices">Выбрать букет <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></a>
         <a class="btn btn--ghost" href="#contact">Как нас найти</a>
       </div>
       <dl class="hero-stats">
@@ -161,32 +145,25 @@
     </div>
   </section>
 
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker__track">
-      <span>Авторские букеты<b> →</b></span><span>Доставка за 60 минут<b> →</b></span><span>Оформление событий<b> →</b></span><span>Свежие цветы<b> →</b></span>
-      <span>Авторские букеты<b> →</b></span><span>Доставка за 60 минут<b> →</b></span><span>Оформление событий<b> →</b></span><span>Свежие цветы<b> →</b></span>
-    </div>
-  </div>
-
   <section class="section" id="services">
     <div class="container">
-      <div class="section__head">
-        <p class="eyebrow reveal"><span class="dot"></span>01 / Что мы делаем</p>
-        <h2 class="h-xl reveal" data-delay="1">Цветы под<br>ваш повод</h2>
+      <div class="section__head" style="margin-bottom:44px">
+        <p class="eyebrow reveal">01 / Что мы делаем</p>
+        <h2 class="h-xl reveal" data-delay="1">Цветы под<br><em>ваш повод</em></h2>
       </div>
-      <ol class="cards">
-        <li class="card reveal"><span class="n">01</span><div><h3>Авторские букеты</h3><p>Соберём композицию под повод, вкус и бюджет — от классических роз до трендовых дизайнерских букетов.</p></div></li>
-        <li class="card reveal" data-delay="1"><span class="n">02</span><div><h3>Доставка за 60 минут</h3><p>Привезём свежие цветы по городу за час. Перед отправкой пришлём фото букета — вы знаете, что едет получателю.</p></div></li>
-        <li class="card reveal" data-delay="2"><span class="n">03</span><div><h3>Оформление событий</h3><p>Свадьбы, дни рождения, открытия: фотозоны, арки и сервировка столов живыми цветами под ключ.</p></div></li>
-      </ol>
+      <div class="services-grid">
+        <article class="serv-card reveal"><span class="n">01</span><span class="bloom">♡</span><h3>Авторские букеты</h3><p>Соберём композицию под повод, вкус и бюджет — от классических роз до трендовых дизайнерских букетов.</p></article>
+        <article class="serv-card reveal" data-delay="1"><span class="n">02</span><span class="bloom">✦</span><h3>Доставка за 60 минут</h3><p>Привезём свежие цветы по городу за час. Перед отправкой пришлём фото букета — вы знаете, что едет получателю.</p></article>
+        <article class="serv-card reveal" data-delay="2"><span class="n">03</span><span class="bloom">❀</span><h3>Оформление событий</h3><p>Свадьбы, дни рождения, открытия: фотозоны, арки и сервировка столов живыми цветами под ключ.</p></article>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="prices" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <section class="section price-band" id="prices">
     <div class="container">
-      <div class="section__head">
-        <p class="eyebrow reveal"><span class="dot"></span>02 / Цены</p>
-        <h2 class="h-xl reveal" data-delay="1">Без праздничных<br>накруток</h2>
+      <div class="section__head" style="margin-bottom:44px">
+        <p class="eyebrow reveal">02 / Цены</p>
+        <h2 class="h-xl reveal" data-delay="1">Без праздничных<br><em>накруток</em></h2>
       </div>
       <div class="price-grid">
         <div class="price-card reveal" data-delay="1"><h3>«Повод есть»</h3><p>Авторская сборка на каждый день.</p><div class="val"><small>стоимость</small>от 1 900 ₽</div></div>
@@ -198,14 +175,14 @@
 
   <section class="cta" id="contact">
     <div class="container">
-      <p class="eyebrow"><span class="dot"></span>03 / Закажите букет</p>
+      <p class="eyebrow" style="justify-content:center">03 / Закажите букет</p>
       <a class="big" href="tel:+78000000000"><span>Позвоните нам</span></a>
       <p class="big-sub">
         <a href="tel:+78000000000">+7 (800) 000-00-00</a>
         <span>·</span>
         <a href="https://t.me/Fitfuux">@Fitfuux</a>
       </p>
-      <p style="color:var(--muted);font-size:.85rem;margin-top:26px">Демо-страница: на рабочем сайте здесь будут ваши настоящие контакты.</p>
+      <p class="demo-note">Демо-страница: на рабочем сайте здесь будут ваши настоящие контакты.</p>
     </div>
   </section>
 </main>
@@ -213,7 +190,7 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <p>© <span class="year">2026</span> Букет — демо-лендинг</p>
-    <p>Создано <a href="https://lecalecaleca228-cmyk.github.io/landing/#contact">Fitfuux</a> · лендинги под ключ</p>
+    <p>Создано <a href="https://fitfuuxdev.github.io/landing/#contact">Fitfuux</a> · лендинги под ключ</p>
   </div>
 </footer>
 
