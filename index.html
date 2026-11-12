@@ -81,8 +81,9 @@ h2{font-size:clamp(38px,5.6vw,86px)}
 .mopen .mnav{clip-path:circle(150% at calc(100% - 50px) 38px);visibility:visible}
 .mnav a{font:500 clamp(38px,11vw,62px)/1.15 var(--serif);opacity:0;transform:translateY(30px);transition:opacity .5s,transform .7s cubic-bezier(.2,.7,.2,1)}
 .mopen .mnav a{opacity:1;transform:none;transition-delay:calc(var(--i)*70ms + .25s)}
-.duo{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;padding:calc(60px + 20px) 0 20px}
-.duo::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 78% 12%,rgba(255,20,40,.13),transparent 55%),radial-gradient(80% 70% at 10% 90%,rgba(227,23,43,.08),transparent 60%)}
+.duo{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;padding:calc(60px + 20px) 0 20px;
+  background:linear-gradient(180deg,rgba(7,7,7,.86),rgba(7,7,7,.68) 40%,rgba(7,7,7,.9)),url("hero-bg.jpg") center/cover no-repeat}
+.duo::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 78% 12%,rgba(255,20,40,.12),transparent 55%)}
 .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:end;column-gap:40px}
 .h-main{max-width:760px}
 .kick{margin-bottom:20px;font:500 11px var(--body);letter-spacing:.24em;text-transform:uppercase;color:rgba(243,239,233,.8)}
