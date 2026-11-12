@@ -207,6 +207,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 /* Section numbers little bounce on reveal */
 .idx.up.in{animation:idxIn .7s cubic-bezier(.2,.7,.2,1) both}
 @keyframes idxIn{from{transform:rotate(-14deg) translateY(30px);opacity:0}to{transform:rotate(-4deg) translateY(0);opacity:1}}
+
+/* 3D cube */
+.cube-box{margin-top:64px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.cube-hint{font:500 11px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 30px}
+.cube-stage{perspective:1100px;width:100%;display:grid;place-items:center}
+.cube{position:relative;width:200px;height:200px;transform-style:preserve-3d;transform:rotateX(-18deg) rotateY(40deg);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.cube:active{cursor:grabbing}
+.cube .face{position:absolute;inset:0;display:grid;place-items:center;border-radius:12px;background:linear-gradient(150deg,#1c1d20,#111113);border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 50px rgba(0,0,0,.5);font:600 clamp(18px,2vw,24px)/1 var(--serif);backface-visibility:visible;will-change:transform}
+.cube .t1{transform:translateZ(100px)}
+.cube .t2{transform:rotateY(90deg) translateZ(100px)}
+.cube .t3{transform:rotateY(180deg) translateZ(100px)}
+.cube .l{transform:rotateY(270deg) translateZ(100px)}
+.cube .p{transform:rotateX(90deg) translateZ(100px)}
+.cube .c{transform:rotateX(-90deg) translateZ(100px)}
+@media (max-width:560px){.cube{width:160px;height:160px}.cube .t1{transform:translateZ(80px)}.cube .t2{transform:rotateY(90deg) translateZ(80px)}.cube .t3{transform:rotateY(180deg) translateZ(80px)}.cube .l{transform:rotateY(270deg) translateZ(80px)}.cube .p{transform:rotateX(90deg) translateZ(80px)}.cube .c{transform:rotateX(-90deg) translateZ(80px)}}
 </style>
 </head>
 <body>
@@ -320,6 +335,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li class="tile up" style="--o:120ms"><span class="n">02</span><h3>Продающий лендинг</h3><p>Полный цикл: структура под аудиторию, продающие тексты, анимации.</p><div style="margin-top:22px" class="pz"><b style="font:600 clamp(26px,2.6vw,36px)/1 var(--serif);color:var(--red2)">12 000 ₽</b><div style="color:var(--muted);font-size:13px">полный цикл</div></div></li>
       <li class="tile up" style="--o:240ms"><span class="n">03</span><h3>Доработка сайта</h3><p>Адаптив, ускорение, редизайн отдельных блоков уже готового.</p><div style="margin-top:22px" class="pz"><b style="font:600 clamp(26px,2.6vw,36px)/1 var(--serif)">2 000 ₽</b><div style="color:var(--muted);font-size:13px">за работу</div></div></li>
     </ul>
+    <div class="cube-box up">
+      <p class="cube-hint">Крутаните куб — потяните мышью</p>
+      <div class="cube-stage"><div class="cube" id="fxCube" tabindex="0" role="img" aria-label="Куб с услугами">
+        <div class="face t1"><b>Лендинги</b></div>
+        <div class="face t2"><i style="font-style:italic;color:var(--red2)">Дизайн</i></div>
+        <div class="face t3"><b>Код</b></div>
+        <div class="face l"><b>Заявки</b></div>
+        <div class="face p"><b>Оплата</b></div>
+        <div class="face c"><b>3D</b></div>
+      </div></div>
+    </div>
   </div>
 </section>
 
@@ -394,6 +420,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       ctx.shadowBlur=0;requestAnimationFrame(frame);
     }
     frame();
+  }
+
+  // 3D cube — drag to rotate
+  var fxCube=document.getElementById('fxCube');
+  if(fxCube && !(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){
+    var crx=-18,cry=40,drag=false,sx=0,sy=0,cx=crx,cy=cry,timer;
+    function cApply(){fxCube.style.transform='rotateX('+cx+'deg) rotateY('+cy+'deg)'}
+    function cAuto(){timer=setInterval(function(){if(!drag){cy+=0.5;cApply()}},30)}
+    function cStop(){if(timer){clearInterval(timer);timer=null}}
+    fxCube.addEventListener('pointerdown',function(e){drag=true;cStop();sx=e.clientX;sy=e.clientY;cx=crx;cy=cry;if(fxCube.setPointerCapture)try{fxCube.setPointerCapture(e.pointerId)}catch(err){}});
+    fxCube.addEventListener('pointermove',function(e){if(!drag)return;cx=crx-(e.clientY-sy)*0.5;cy=cry+(e.clientX-sx)*0.5;cApply()});
+    function cEnd(){if(!drag)return;drag=false;crx=cx;cry=cy;cAuto()}
+    fxCube.addEventListener('pointerup',cEnd);fxCube.addEventListener('pointercancel',cEnd);
+    fxCube.addEventListener('touchstart',function(e){if(e.touches&&e.touches[0]){drag=true;cStop();sx=e.touches[0].clientX;sy=e.touches[0].clientY}},{passive:true});
+    fxCube.addEventListener('touchmove',function(e){if(e.touches&&e.touches[0]&&drag){e.preventDefault();cx=crx-(e.touches[0].clientY-sy)*0.5;cy=cry+(e.touches[0].clientX-sx)*0.5;cApply()}},{passive:false});
+    fxCube.addEventListener('touchend',cEnd);cAuto();
   }
 
   // 3D tilt on cards (services & works)
