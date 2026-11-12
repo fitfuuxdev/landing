@@ -81,7 +81,7 @@ h2{font-size:clamp(38px,5.6vw,86px)}
 .mopen .mnav{clip-path:circle(150% at calc(100% - 50px) 38px);visibility:visible}
 .mnav a{font:500 clamp(38px,11vw,62px)/1.15 var(--serif);opacity:0;transform:translateY(30px);transition:opacity .5s,transform .7s cubic-bezier(.2,.7,.2,1)}
 .mopen .mnav a{opacity:1;transform:none;transition-delay:calc(var(--i)*70ms + .25s)}
-.duo{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:calc(76px + 30px) 0 30px}
+.duo{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;padding:calc(60px + 20px) 0 20px}
 .duo::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 78% 12%,rgba(255,20,40,.13),transparent 55%),radial-gradient(80% 70% at 10% 90%,rgba(227,23,43,.08),transparent 60%)}
 .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:end;column-gap:40px}
 .h-main{max-width:760px}
@@ -98,6 +98,18 @@ h2{font-size:clamp(38px,5.6vw,86px)}
 .sec{padding-block:clamp(70px,9vw,120px)}
 .light{background:var(--paper);color:var(--ink)}
 .light .lbl{color:#6a6460}.light h1,.light h2{color:var(--ink)}
+/* editorial headers */
+.sec-head{display:grid;grid-template-columns:auto max-content;gap:10px clamp(18px,3vw,44px);align-items:baseline;margin-bottom:clamp(28px,4vw,56px)}
+.sec-head .idx{font:400 clamp(60px,8vw,130px)/0.8 var(--brush);color:var(--red2);transform:rotate(-4deg);transform-origin:0 100%;grid-row:1/3}
+.sec-head h2{grid-column:2}
+.sec-head .rule{grid-column:2;width:52px;height:2px;background:var(--red)}
+.outline{font:700 clamp(44px,11vw,150px)/0.85 var(--cond);text-transform:uppercase;letter-spacing:-.01em;color:transparent;-webkit-text-stroke:1px rgba(243,239,233,.28);user-select:none;pointer-events:none}
+.light .outline{-webkit-text-stroke:1px rgba(13,13,13,.25)}
+.duo-fill{position:absolute;right:var(--gut);bottom:40px;text-align:right;line-height:.82;z-index:1;opacity:.9}
+.ghost{position:absolute;top:50%;left:var(--gut);transform:translateY(-50%);font:700 clamp(120px,20vw,340px)/0.8 var(--cond);text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(243,239,233,.06);z-index:0;pointer-events:none;user-select:none}
+.light .ghost{-webkit-text-stroke:1px rgba(13,13,13,.08)}
+[id="about"] .wrap,[id="steps"] .wrap,[id="prices"] .wrap,.final .wrap{position:relative;z-index:2}
+.bigline{font:700 clamp(44px,9vw,120px)/.9 var(--cond);text-transform:uppercase;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(243,239,233,.25);margin-top:60px;user-select:none;max-width:100%;overflow:hidden}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none}
 .tile{position:relative;background:var(--panel);border:1px solid var(--line);padding:26px;overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1),background .3s}
 .tile::before{content:'';position:absolute;inset:0;background:radial-gradient(240px circle at var(--mx,50%) var(--my,0%),rgba(227,23,43,.16),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
@@ -150,6 +162,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
  .up{opacity:1;transform:none}/* никогда не прячем на мобильных */
  .hbtn{flex-direction:column}.hbtn .pill{width:100%}
  .st{grid-template-columns:64px minmax(0,1fr);align-items:start}
+ .sec-head{grid-template-columns:auto max-content;gap:6px 14px}
+ .sec-head .idx{font-size:52px}
+ .ghost{left:0;right:0;text-align:center;top:14px;transform:none;font-size:24vw;opacity:.5;-webkit-text-stroke-width:.5px}
+ .duo-fill{display:none}
 }
 @media(prefers-reduced-motion:reduce){.grain{animation:none}.scrollhint i{animation:none}}
 @media(min-width:1800px){body{font-size:18px}}
@@ -191,13 +207,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     </div>
     <div class="sig up" style="--o:400ms">Fitfuux</div>
   </div>
+  <div class="outline duo-fill" aria-hidden="true">САЙТЫ<br>ПОД КЛЮЧ</div>
   <div class="scrollhint" aria-hidden="true"><span>Листайте</span><i></i></div>
 </section>
 
 <section class="sec" id="about">
   <div class="wrap">
-    <span class="lbl up">Что я делаю</span>
-    <h2 class="up">Сайты, которые <em style="font-style:italic;color:var(--red2)">работают</em></h2>
+    <div class="sec-head">
+      <span class="idx up">01</span>
+      <span class="lbl up">Что я делаю</span>
+      <h2 class="up">Сайты, которые <em style="font-style:italic;color:var(--red2)">работают</em></h2>
+      <span class="rule"></span>
+    </div>
     <ul class="tiles">
       <li class="tile up"><span class="n">01</span><h3>Лендинг целиком</h3><p>Дизайн, тексты, формы, мобильная версия и размещение в интернете.</p></li>
       <li class="tile up" style="--o:120ms"><span class="n">02</span><h3>Продающая логика</h3><p>Сначала решаю, что должен сделать посетитель, и строю страницу под это.</p></li>
@@ -205,12 +226,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     </ul>
     <div class="bigline" aria-hidden="true">Лендинги · Логика · Результат</div>
   </div>
+  <div class="ghost" aria-hidden="true">ЛЕНДИНГИ</div>
 </section>
 
 <section class="sec light" id="work">
   <div class="wrap">
-    <span class="lbl up">Портфолио</span>
-    <h2 class="up">Работы — <em style="font-style:italic;color:var(--red)">демо и настоящие</em></h2>
+    <div class="sec-head">
+      <span class="idx up">02</span>
+      <span class="lbl up">Портфолио</span>
+      <h2 class="up">Работы — <em style="font-style:italic;color:var(--red)">демо и настоящие</em></h2>
+      <span class="rule"></span>
+    </div>
     <p class="up" style="--o:120ms;color:#6a6460;max-width:42em;margin-top:14px">Откройте любой — и вы увидите, как может выглядеть сайт вашей компании.</p>
     <ul class="works">
       <li class="work up"><a href="massage.html" target="_blank" rel="noopener"><div class="shot" style="background:linear-gradient(150deg,#3fae5a,#2f9e63)"><span class="mock">+</span></div><div class="wcap"><b>Массаж-сайт</b><span>Открыть →</span></div></a></li>
@@ -223,8 +249,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <section class="sec" id="steps">
   <div class="wrap">
-    <span class="lbl up">Как заказать</span>
-    <h2 class="up">Четыре шага до <em style="font-style:italic;color:var(--red2)">вашего сайта</em></h2>
+    <div class="sec-head">
+      <span class="idx up">03</span>
+      <span class="lbl up">Как заказать</span>
+      <h2 class="up">Четыре шага до <em style="font-style:italic;color:var(--red2)">вашего сайта</em></h2>
+      <span class="rule"></span>
+    </div>
     <ol class="steps">
       <li class="st up"><b>01</b><div><h3>Пишете в Telegram</h3><p>Коротко опишите проект и пришлите сайты, которые нравятся.</p></div></li>
       <li class="st up" style="--o:80ms"><b>02</b><div><h3>Обсуждаем</h3><p>Задаю вопросы, предлагаю решение, называю срок и цену.</p></div></li>
@@ -232,18 +262,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li class="st up" style="--o:240ms"><b>04</b><div><h3>Запускаем</h3><p>Выкладываю сайт, подключаю заявки и показываю, как всем пользоваться.</p></div></li>
     </ol>
   </div>
+  <div class="ghost" aria-hidden="true">ШАГИ</div>
 </section>
 
 <section class="sec" id="prices">
   <div class="wrap">
-    <span class="lbl up">Услуги и цены</span>
-    <h2 class="up">Фиксированная цена <em style="font-style:italic;color:var(--red2)">под ключ</em></h2>
+    <div class="sec-head">
+      <span class="idx up">04</span>
+      <span class="lbl up">Услуги и цены</span>
+      <h2 class="up">Фиксированная цена <em style="font-style:italic;color:var(--red2)">под ключ</em></h2>
+      <span class="rule"></span>
+    </div>
     <ul class="tiles" style="margin-top:16px">
       <li class="tile up"><span class="n">01</span><h3>Лендинг «Старт»</h3><p>Сайт-визитка: дизайн, адаптив, форма заявки, публикация.</p><div style="margin-top:22px" class="pz"><b style="font:600 clamp(26px,2.6vw,36px)/1 var(--serif)">8 000 ₽</b><div style="color:var(--muted);font-size:13px">сайт 6 500 ₽ + логотип 1 500 ₽</div></div></li>
       <li class="tile up" style="--o:120ms"><span class="n">02</span><h3>Продающий лендинг</h3><p>Полный цикл: структура под аудиторию, продающие тексты, анимации.</p><div style="margin-top:22px" class="pz"><b style="font:600 clamp(26px,2.6vw,36px)/1 var(--serif);color:var(--red2)">12 000 ₽</b><div style="color:var(--muted);font-size:13px">полный цикл</div></div></li>
       <li class="tile up" style="--o:240ms"><span class="n">03</span><h3>Доработка сайта</h3><p>Адаптив, ускорение, редизайн отдельных блоков уже готового.</p><div style="margin-top:22px" class="pz"><b style="font:600 clamp(26px,2.6vw,36px)/1 var(--serif)">2 000 ₽</b><div style="color:var(--muted);font-size:13px">за работу</div></div></li>
     </ul>
   </div>
+  <div class="ghost" aria-hidden="true">ЦЕНЫ</div>
 </section>
 
 <section class="final" id="contact">
