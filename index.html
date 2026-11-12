@@ -196,6 +196,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .tile:hover{transform:translateY(-6px);box-shadow:0 30px 60px -20px rgba(0,0,0,.65),0 0 0 1px rgba(255,51,65,.35)}
 .work:hover{box-shadow:0 40px 70px -30px rgba(0,0,0,.7),0 0 0 2px var(--red)}
 
+/* 3D tilt on cards */
+.tilt3d{transform-style:preserve-3d;will-change:transform;transition:transform .18s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.tilt3d>*{transform:translateZ(24px)}
+@media (prefers-reduced-motion:reduce){.tilt3d{transform:none!important}}
+
 /* Big word parallax on scroll */
 .ghost{will-change:transform}
 
@@ -389,6 +394,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       ctx.shadowBlur=0;requestAnimationFrame(frame);
     }
     frame();
+  }
+
+  // 3D tilt on cards (services & works)
+  var tiltEls=document.querySelectorAll('.tile, .work');
+  if(tiltEls.length && window.matchMedia('(hover:hover)').matches && !(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){
+    tiltEls.forEach(function(c){
+      c.classList.add('tilt3d');
+      c.addEventListener('pointermove',function(e){
+        var r=c.getBoundingClientRect();
+        var px=(e.clientX-r.left)/r.width-0.5, py=(e.clientY-r.top)/r.height-0.5;
+        c.style.transform='perspective(900px) rotateY('+(px*8)+'deg) rotateX('+(-py*8)+'deg) translateY(-4px)';
+      });
+      c.addEventListener('pointerleave',function(){c.style.transform=''});
+    });
   }
 
   // Parallax: ghost words drift on scroll
