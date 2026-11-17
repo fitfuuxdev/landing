@@ -1,23 +1,26 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Дента — стоматология без боли | план лечения с ценой до начала, консультация 0 ₽</title>
-<meta name="description" content="Семейная стоматология «Дента»: лечение без боли, точный план и цена до начала приёма, бесплатная консультация 0 ₽. Гигиена, кариес, микроскоп, имплантация, виниры.">
-<meta name="theme-color" content="#F5FAFB">
-<meta name="color-scheme" content="light">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ru_RU">
-<meta property="og:site_name" content="Дента">
-<meta property="og:title" content="Дента — стоматология без боли">
-<meta property="og:description" content="План лечения и цена — до начала. Бесплатная консультация 0 ₽.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Дента — стоматология без боли | план лечения с ценой до начала, консультация 0 ₽</title>
+  <meta name="description" content="Семейная стоматология «Дента»: лечение без боли, точный план и цена до начала приёма, бесплатная консультация 0 ₽. Гигиена, кариес, микроскоп, имплантация, виниры.">
+  <meta name="theme-color" content="#F5FAFB">
+  <meta name="color-scheme" content="light">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Дента">
+  <meta property="og:title" content="Дента — стоматология без боли">
+  <meta property="og:description" content="План лечения и цена — до начала. Бесплатная консультация 0 ₽.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
     :root{
       --bg:#F5FAFB;
       --bg-soft:#FFFFFF;
@@ -40,10 +43,20 @@
       --font-d:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
       --font-t:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
     }
+
     *,*::before,*::after{box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
     html,body{overflow-x:hidden}
-    body{margin:0;font-family:var(--font-t);font-size:16px;line-height:1.6;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    body{
+      margin:0;
+      font-family:var(--font-t);
+      font-size:16px;
+      line-height:1.6;
+      color:var(--ink);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
     button{font-family:inherit;cursor:pointer}
@@ -51,13 +64,26 @@
     p{margin:0}
     ul{margin:0;padding:0;list-style:none}
     ::selection{background:var(--accent);color:#fff}
+
     :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
-    .skip{position:absolute;left:16px;top:-48px;z-index:200;background:var(--ink);color:#fff;padding:10px 18px;border-radius:12px;transition:top .3s var(--ease)}
+
+    .skip{
+      position:absolute;left:16px;top:-48px;z-index:200;
+      background:var(--ink);color:#fff;padding:10px 18px;border-radius:12px;
+      transition:top .3s var(--ease);
+    }
     .skip:focus{top:16px}
+
+    /* ---------- layout ---------- */
     .container{width:100%;max-width:1200px;margin:0 auto;padding:0 28px}
     .section{padding:104px 0;position:relative;scroll-margin-top:var(--header-h)}
     .section--tight{padding:88px 0}
-    .overline{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-d);font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep)}
+
+    .overline{
+      display:inline-flex;align-items:center;gap:12px;
+      font-family:var(--font-d);font-size:12.5px;font-weight:700;
+      letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);
+    }
     .overline::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
     .h2{font-size:clamp(30px,4.3vw,52px);font-weight:800;letter-spacing:-0.03em;margin:18px 0 16px}
     .lead{color:var(--ink-soft);font-size:clamp(16px,1.5vw,18.5px);max-width:640px}
@@ -65,7 +91,15 @@
     .center .lead{margin-left:auto;margin-right:auto}
     .center .overline{justify-content:center}
     .center .overline::after{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;border:1px solid transparent;font-family:var(--font-d);font-size:16px;font-weight:700;letter-spacing:.01em;transition:transform .45s var(--ease),box-shadow .45s var(--ease),background .45s var(--ease),color .45s var(--ease),border-color .45s var(--ease);white-space:nowrap;user-select:none}
+
+    /* ---------- buttons ---------- */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:56px;padding:0 28px;border-radius:999px;border:1px solid transparent;
+      font-family:var(--font-d);font-size:16px;font-weight:700;letter-spacing:.01em;
+      transition:transform .45s var(--ease),box-shadow .45s var(--ease),background .45s var(--ease),color .45s var(--ease),border-color .45s var(--ease);
+      white-space:nowrap;user-select:none;
+    }
     .btn svg{flex:0 0 auto}
     .btn:active{transform:translateY(1px) scale(.99)}
     .btn--primary{background:var(--ink);color:#fff;box-shadow:0 16px 34px -18px rgba(14,42,51,.55)}
@@ -78,30 +112,65 @@
     .btn--white:hover{border-color:transparent;box-shadow:var(--shadow-md);transform:translateY(-2px)}
     .btn .arr{transition:transform .45s var(--ease)}
     .btn:hover .arr{transform:translateX(3px)}
-    .header{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--header-h);display:flex;align-items:center;background:rgba(245,250,251,.82);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid transparent;transition:border-color .4s var(--ease),box-shadow .4s var(--ease),background .4s var(--ease)}
+
+    /* ---------- header ---------- */
+    .header{
+      position:fixed;top:0;left:0;right:0;z-index:100;height:var(--header-h);
+      display:flex;align-items:center;
+      background:rgba(245,250,251,.82);
+      backdrop-filter:saturate(160%) blur(14px);
+      -webkit-backdrop-filter:saturate(160%) blur(14px);
+      border-bottom:1px solid transparent;
+      transition:border-color .4s var(--ease),box-shadow .4s var(--ease),background .4s var(--ease);
+    }
     .header.is-scrolled{border-color:var(--line-soft);box-shadow:0 8px 30px -22px rgba(14,42,51,.28);background:rgba(245,250,251,.9)}
     .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
     .brand{display:inline-flex;align-items:center;gap:12px}
-    .brand-mark{width:42px;height:42px;border-radius:13px;flex:0 0 auto;display:grid;place-items:center;color:#fff;background:var(--ink);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 8px 18px -8px rgba(14,42,51,.5)}
+    .brand-mark{
+      width:42px;height:42px;border-radius:13px;flex:0 0 auto;
+      display:grid;place-items:center;color:#fff;background:var(--ink);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 8px 18px -8px rgba(14,42,51,.5);
+    }
     .brand-mark svg{width:22px;height:22px}
     .brand-name{font-family:var(--font-d);font-weight:800;font-size:20px;letter-spacing:-0.02em;line-height:1}
     .brand-sub{display:block;font-family:var(--font-t);font-weight:500;font-size:10.5px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
     .nav{display:flex;align-items:center;gap:6px}
-    .nav a{position:relative;padding:9px 14px;border-radius:10px;font-family:var(--font-d);font-weight:600;font-size:15px;color:var(--ink-soft);transition:color .3s var(--ease),background .3s var(--ease)}
+    .nav a{
+      position:relative;padding:9px 14px;border-radius:10px;font-family:var(--font-d);
+      font-weight:600;font-size:15px;color:var(--ink-soft);
+      transition:color .3s var(--ease),background .3s var(--ease);
+    }
     .nav a:hover{color:var(--ink);background:var(--accent-ghost)}
     .header-cta{display:flex;align-items:center;gap:14px}
     .header-cta .btn{min-height:46px;padding:0 22px;font-size:15px}
     .header-phone{display:none;font-family:var(--font-d);font-weight:700;font-size:15px;color:var(--ink);white-space:nowrap}
     .header-phone:hover{color:var(--accent-deep)}
-    .menu-btn{display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);place-items:center;flex-direction:column;gap:5px}
+
+    .menu-btn{
+      display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);
+      background:#fff;color:var(--ink);place-items:center;flex-direction:column;gap:5px;
+    }
     .menu-btn span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px;transition:transform .4s var(--ease),opacity .3s var(--ease)}
     .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
     .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    /* ---------- hero ---------- */
     .hero{position:relative;padding:calc(var(--header-h) + 56px) 0 72px;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;background-image:linear-gradient(to right,var(--accent-ghost) 1px,transparent 1px);background-size:120px 100%;mask-image:linear-gradient(to bottom,transparent,rgba(0,0,0,.5) 18%,rgba(0,0,0,.5) 82%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,rgba(0,0,0,.5) 18%,rgba(0,0,0,.5) 82%,transparent)}
+    .hero::before{
+      content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
+      background-image:linear-gradient(to right,var(--accent-ghost) 1px,transparent 1px);
+      background-size:120px 100%;
+      mask-image:linear-gradient(to bottom,transparent,rgba(0,0,0,.5) 18%,rgba(0,0,0,.5) 82%,transparent);
+      -webkit-mask-image:linear-gradient(to bottom,transparent,rgba(0,0,0,.5) 18%,rgba(0,0,0,.5) 82%,transparent);
+    }
     .hero-inner{position:relative;display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
-    .hero-tag{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);font-family:var(--font-d);font-weight:600;font-size:13.5px;color:var(--ink-soft);box-shadow:var(--shadow-sm);margin-bottom:26px}
+    .hero-tag{
+      display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;
+      background:#fff;border:1px solid var(--line);font-family:var(--font-d);
+      font-weight:600;font-size:13.5px;color:var(--ink-soft);
+      box-shadow:var(--shadow-sm);margin-bottom:26px;
+    }
     .hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-ghost)}
     .hero h1{font-size:clamp(38px,5.4vw,66px);font-weight:800;letter-spacing:-0.035em;line-height:1.04;margin-bottom:22px}
     .hero h1 .accent{color:var(--accent-deep);position:relative;white-space:nowrap}
@@ -111,28 +180,51 @@
     .hero-trust{display:flex;flex-wrap:wrap;gap:12px 24px}
     .trust-item{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-d);font-weight:600;font-size:14px;color:var(--ink-soft)}
     .trust-item svg{width:18px;height:18px;color:var(--accent);flex:0 0 auto}
+
     .hero-visual{position:relative;height:560px;border-radius:var(--radius);overflow:hidden}
     .hero-fallback{position:absolute;inset:0;transition:opacity .8s var(--ease)}
     .hero-fallback svg{width:100%;height:100%}
     .hero-visual canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;pointer-events:none;transition:opacity .9s var(--ease)}
     .hero-visual.is-webgl canvas{opacity:1}
     .hero-visual.is-webgl .hero-fallback{opacity:0;pointer-events:none}
-    .gyro-toggle{position:absolute;left:16px;bottom:16px;z-index:5;display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid var(--line);color:var(--ink-soft);font-family:var(--font-d);font-weight:600;font-size:13px;backdrop-filter:blur(6px);transition:color .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease)}
+
+    .gyro-toggle{
+      position:absolute;left:16px;bottom:16px;z-index:5;
+      display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;
+      background:rgba(255,255,255,.92);border:1px solid var(--line);color:var(--ink-soft);
+      font-family:var(--font-d);font-weight:600;font-size:13px;backdrop-filter:blur(6px);
+      transition:color .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease);
+    }
     .gyro-toggle svg{width:16px;height:16px}
     .gyro-toggle.is-on{color:var(--accent-deep);border-color:var(--accent);background:var(--accent-soft)}
     .gyro-toggle[hidden]{display:none}
+
+    /* ---------- stats ---------- */
     .stats{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:rgba(255,255,255,.55)}
     .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
     .stat{background:var(--bg-soft);padding:34px 28px;text-align:center}
     .stat-value{font-family:var(--font-d);font-weight:800;font-size:clamp(34px,4vw,50px);letter-spacing:-0.03em;line-height:1;color:var(--ink)}
     .stat-value .accent{color:var(--accent)}
     .stat-label{margin-top:10px;font-size:14.5px;font-weight:500;color:var(--muted)}
+
+    /* ---------- services ---------- */
     .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
-    .service-card{position:relative;display:flex;flex-direction:column;gap:18px;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px;overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+    .service-card{
+      position:relative;display:flex;flex-direction:column;gap:18px;
+      background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);
+      padding:32px 30px;overflow:hidden;
+      transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);
+    }
     .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:rgba(35,169,194,.34)}
-    .service-card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+    .service-card::after{
+      content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);
+      transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease);
+    }
     .service-card:hover::after{transform:scaleX(1)}
-    .service-icon{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;color:var(--accent-deep);background:var(--accent-soft)}
+    .service-icon{
+      width:52px;height:52px;border-radius:15px;display:grid;place-items:center;
+      color:var(--accent-deep);background:var(--accent-soft);
+    }
     .service-icon svg{width:25px;height:25px}
     .service-card h3{font-size:20px;font-weight:700}
     .service-card p{color:var(--muted);font-size:15px;flex:1}
@@ -141,35 +233,61 @@
     .service-price .val{font-family:var(--font-d);font-weight:800;font-size:22px;letter-spacing:-0.01em}
     .service-price .free{font-family:var(--font-d);font-weight:800;font-size:22px;color:var(--accent-deep)}
     .service-price .badge{margin-left:auto;font-size:11.5px;font-weight:600;color:var(--accent-deep);background:var(--accent-soft);padding:4px 10px;border-radius:999px}
+
+    /* ---------- painless ---------- */
     .painless{background:var(--ink);color:#fff;overflow:hidden}
-    .painless::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(60% 70% at 80% 20%,rgba(35,169,194,.18),transparent 60%)}
+    .painless::before{
+      content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+      background-image:radial-gradient(60% 70% at 80% 20%,rgba(35,169,194,.18),transparent 60%);
+    }
     .painless .overline{color:#6FD3E4}
     .painless .overline::before,.painless .overline::after{background:#6FD3E4}
     .painless .h2{color:#fff}
     .painless .lead{color:rgba(255,255,255,.68)}
     .painless-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
-    .pain-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:34px 30px;transition:transform .5s var(--ease),background .5s var(--ease),border-color .5s var(--ease)}
+    .pain-card{
+      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);
+      padding:34px 30px;transition:transform .5s var(--ease),background .5s var(--ease),border-color .5s var(--ease);
+    }
     .pain-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.08);border-color:rgba(111,211,228,.4)}
     .pain-icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;color:#6FD3E4;background:rgba(111,211,228,.12);margin-bottom:22px}
     .pain-icon svg{width:26px;height:26px}
     .pain-card h3{font-size:19px;font-weight:700;color:#fff;margin-bottom:12px}
     .pain-card p{color:rgba(255,255,255,.66);font-size:15px}
-    .plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}
-    .step-card{position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+
+    /* ---------- plan ---------- */
+    .plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px;counter-reset:step}
+    .step-card{
+      position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);
+      padding:32px 28px;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);
+    }
     .step-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(35,169,194,.34)}
-    .step-num{font-family:var(--font-d);font-weight:800;font-size:44px;line-height:1;letter-spacing:-0.03em;color:transparent;-webkit-text-stroke:1.5px var(--accent);margin-bottom:20px}
+    .step-num{
+      font-family:var(--font-d);font-weight:800;font-size:44px;line-height:1;letter-spacing:-0.03em;
+      color:transparent;-webkit-text-stroke:1.5px var(--accent);margin-bottom:20px;
+    }
     .step-card h3{font-size:17.5px;font-weight:700;margin-bottom:10px}
     .step-card p{color:var(--muted);font-size:14.5px}
     .step-line{position:absolute;top:50%;right:-11px;width:22px;height:2px;background:var(--line);z-index:1}
     .step-card:last-child .step-line{display:none}
+
+    /* ---------- about / doctors ---------- */
     .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;margin-top:56px}
     .about-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-content:center}
     .about-photos .photo-panel{aspect-ratio:4/3}
     .about-photos .photo-panel--wide{grid-column:1/-1;aspect-ratio:16/9}
-    .photo-panel{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,#E9F6F9 0%,#CFEAF1 55%,#B9E2EA 100%);box-shadow:var(--shadow-lg)}
+    .photo-panel{
+      position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;
+      background:linear-gradient(135deg,#E9F6F9 0%,#CFEAF1 55%,#B9E2EA 100%);
+      box-shadow:var(--shadow-lg);
+    }
     .photo-panel img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
     .photo-panel:hover img{transform:scale(1.04)}
-    .photo-panel .chip{position:absolute;left:20px;bottom:20px;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-radius:999px;padding:9px 16px;font-family:var(--font-d);font-weight:700;font-size:13.5px;color:var(--ink);box-shadow:var(--shadow-sm)}
+    .photo-panel .chip{
+      position:absolute;left:20px;bottom:20px;display:inline-flex;align-items:center;gap:8px;
+      background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-radius:999px;padding:9px 16px;
+      font-family:var(--font-d);font-weight:700;font-size:13.5px;color:var(--ink);box-shadow:var(--shadow-sm);
+    }
     .photo-panel .chip svg{width:16px;height:16px;color:var(--accent)}
     .about-copy h3{font-size:clamp(24px,2.6vw,32px);font-weight:800;margin-bottom:16px}
     .about-copy p{color:var(--ink-soft);margin-bottom:14px}
@@ -179,43 +297,80 @@
     .feat-icon svg{width:18px;height:18px}
     .feat b{font-family:var(--font-d);font-weight:700;font-size:15.5px;display:block}
     .feat span{font-size:14px;color:var(--muted)}
+
     .doctors{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px}
-    .doctor-card{display:grid;grid-template-columns:116px 1fr;gap:20px;align-items:center;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+    .doctor-card{
+      display:grid;grid-template-columns:116px 1fr;gap:20px;align-items:center;
+      background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+      transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);
+    }
     .doctor-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:rgba(35,169,194,.34)}
-    .doctor-ava{width:116px;height:116px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(150deg,var(--accent-soft),#CFEAF1);color:var(--accent-deep);font-family:var(--font-d);font-weight:800;font-size:34px;letter-spacing:-0.02em}
+    .doctor-ava{
+      width:116px;height:116px;border-radius:18px;display:grid;place-items:center;
+      background:linear-gradient(150deg,var(--accent-soft),#CFEAF1);
+      color:var(--accent-deep);font-family:var(--font-d);font-weight:800;font-size:34px;letter-spacing:-0.02em;
+    }
     .doctor-card h3{font-size:18px;font-weight:700;margin-bottom:4px}
     .doctor-role{font-size:13.5px;color:var(--accent-deep);font-weight:600;margin-bottom:8px}
     .doctor-card .exp{font-size:13.5px;color:var(--muted)}
+
+    /* ---------- reviews ---------- */
     .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:56px}
-    .review-card{position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:36px 34px;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+    .review-card{
+      position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);
+      padding:36px 34px;transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+    }
     .review-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
-    .review-quote{position:absolute;top:26px;right:30px;font-family:var(--font-d);font-size:64px;line-height:1;font-weight:800;color:var(--accent-ghost);letter-spacing:-0.04em}
+    .review-quote{
+      position:absolute;top:26px;right:30px;font-family:var(--font-d);font-size:64px;line-height:1;
+      font-weight:800;color:var(--accent-ghost);letter-spacing:-0.04em;
+    }
     .review-stars{display:flex;gap:3px;color:var(--accent);margin-bottom:16px}
     .review-stars svg{width:17px;height:17px}
     .review-text{font-size:16.5px;color:var(--ink);line-height:1.6;margin-bottom:24px;font-weight:500}
     .review-author{display:flex;align-items:center;gap:14px}
-    .review-ava{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;background:var(--accent-soft);color:var(--accent-deep);font-family:var(--font-d);font-weight:800;font-size:17px}
+    .review-ava{
+      width:46px;height:46px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;
+      background:var(--accent-soft);color:var(--accent-deep);font-family:var(--font-d);font-weight:800;font-size:17px;
+    }
     .review-author b{font-family:var(--font-d);font-weight:700;font-size:15px;display:block}
     .review-author span{font-size:13px;color:var(--muted)}
+
+    /* ---------- contacts ---------- */
     .contacts{background:var(--ink);color:#fff;overflow:hidden}
-    .contacts::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(55% 80% at 15% 90%,rgba(35,169,194,.16),transparent 60%)}
+    .contacts::before{
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background-image:radial-gradient(55% 80% at 15% 90%,rgba(35,169,194,.16),transparent 60%);
+    }
     .contacts .overline{color:#6FD3E4}
     .contacts .overline::before{background:#6FD3E4}
     .contacts .h2{color:#fff}
     .contacts .lead{color:rgba(255,255,255,.68)}
     .contacts-grid{position:relative;display:grid;grid-template-columns:1fr .9fr;gap:56px;align-items:center;margin-top:56px}
     .contact-list{display:grid;gap:14px}
-    .contact-row{display:flex;align-items:center;gap:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:18px 22px;transition:background .4s var(--ease),border-color .4s var(--ease),transform .4s var(--ease)}
+    .contact-row{
+      display:flex;align-items:center;gap:18px;background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:18px 22px;
+      transition:background .4s var(--ease),border-color .4s var(--ease),transform .4s var(--ease);
+    }
     a.contact-row:hover{background:rgba(255,255,255,.09);border-color:rgba(111,211,228,.4);transform:translateX(4px)}
     .contact-icon{width:48px;height:48px;border-radius:14px;flex:0 0 auto;display:grid;place-items:center;color:#6FD3E4;background:rgba(111,211,228,.12)}
     .contact-icon svg{width:23px;height:23px}
     .contact-row .k{display:block;font-size:12.5px;color:rgba(255,255,255,.55);font-weight:500;letter-spacing:.02em}
     .contact-row .v{font-family:var(--font-d);font-weight:700;font-size:17.5px;color:#fff;letter-spacing:-0.01em}
-    .contacts-cta{position:relative;background:linear-gradient(160deg,#0F333E,#0E2A33);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:44px 40px;box-shadow:var(--shadow-lg)}
-    .contacts-cta::after{content:"";position:absolute;inset:0;border-radius:var(--radius);pointer-events:none;background:linear-gradient(140deg,rgba(35,169,194,.14),transparent 55%)}
+    .contacts-cta{
+      position:relative;background:linear-gradient(160deg,#0F333E,#0E2A33);border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--radius);padding:44px 40px;box-shadow:var(--shadow-lg);
+    }
+    .contacts-cta::after{
+      content:"";position:absolute;inset:0;border-radius:var(--radius);pointer-events:none;
+      background:linear-gradient(140deg,rgba(35,169,194,.14),transparent 55%);
+    }
     .contacts-cta h3{font-size:26px;font-weight:800;color:#fff;margin-bottom:12px;position:relative;z-index:1}
     .contacts-cta p{color:rgba(255,255,255,.66);margin-bottom:28px;position:relative;z-index:1}
     .contacts-cta .btn{position:relative;z-index:1;width:100%}
+
+    /* ---------- footer ---------- */
     .footer{background:#0A1E24;color:rgba(255,255,255,.62);padding:64px 0 36px}
     .footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer .brand-name{color:#fff}
@@ -225,64 +380,173 @@
     .footer-nav{display:grid;gap:11px}
     .footer-nav a{font-size:14.5px;color:rgba(255,255,255,.62);transition:color .3s var(--ease)}
     .footer-nav a:hover{color:#6FD3E4}
-    .footer-bottom{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding-top:30px;font-size:13.5px}
+    .footer-bottom{
+      display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+      padding-top:30px;font-size:13.5px;
+    }
     .credit{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.7);font-weight:600;transition:color .3s var(--ease)}
     .credit:hover{color:#6FD3E4}
     .credit svg{width:16px;height:16px}
-    .demo-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:rgba(111,211,228,.14);color:#6FD3E4;font-family:var(--font-d);font-weight:700;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
+    .demo-badge{
+      display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;
+      background:rgba(111,211,228,.14);color:#6FD3E4;font-family:var(--font-d);font-weight:700;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+    }
     .footer-disclaimer{flex-basis:100%;text-align:center;color:rgba(255,255,255,.4);font-size:12.5px;padding-top:6px}
+
+    /* ---------- reveal ---------- */
     .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
     .reveal.is-inview{opacity:1;transform:none}
     .reduce-motion .reveal{opacity:1;transform:none;transition:none}
-    @media (max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}.plan-grid{grid-template-columns:repeat(2,1fr)}.step-line{display:none}.painless-grid{grid-template-columns:repeat(3,1fr);gap:14px}}
-    @media (max-width:900px){.nav{position:fixed;top:var(--header-h);left:0;right:0;z-index:99;flex-direction:column;align-items:stretch;gap:4px;padding:18px 20px 24px;background:rgba(245,250,251,.98);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft);box-shadow:var(--shadow-lg);transform:translateY(-12px);opacity:0;pointer-events:none;transition:transform .4s var(--ease),opacity .4s var(--ease)}.nav.is-open{transform:none;opacity:1;pointer-events:auto}.nav a{font-size:17px;padding:13px 16px}.menu-btn{display:grid}.header-phone{display:none}.header-cta .btn{display:none}.hero-inner{grid-template-columns:1fr;gap:28px}.hero-visual{height:420px;order:2}.hero-copy{order:1}.stats-grid{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr;gap:36px}.contacts-grid{grid-template-columns:1fr;gap:40px}.footer-top{grid-template-columns:1fr 1fr;gap:32px}}
-    @media (max-width:640px){.container{padding:0 20px}.section{padding:76px 0}.services-grid{grid-template-columns:1fr}.plan-grid{grid-template-columns:1fr}.painless-grid{grid-template-columns:1fr}.doctors{grid-template-columns:1fr}.reviews-grid{grid-template-columns:1fr}.hero{padding:calc(var(--header-h) + 36px) 0 52px}.hero-visual{height:340px}.hero-actions .btn{width:100%}.stats-grid{grid-template-columns:1fr 1fr}.stat{padding:26px 16px}.footer-top{grid-template-columns:1fr}.doctor-card{grid-template-columns:96px 1fr}.doctor-ava{width:96px;height:96px;font-size:28px}.about-photos{grid-template-columns:1fr}.about-photos .photo-panel--wide{grid-column:auto;aspect-ratio:4/3}.about-photos .photo-panel{aspect-ratio:16/9}}
-    @media (max-width:380px){.doctor-card{grid-template-columns:1fr}.hero h1 .accent{white-space:normal}}
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}.reveal{opacity:1;transform:none}}
+
+    /* ---------- responsive ---------- */
+    @media (max-width:1024px){
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .plan-grid{grid-template-columns:repeat(2,1fr)}
+      .step-line{display:none}
+      .painless-grid{grid-template-columns:repeat(3,1fr);gap:14px}
+    }
+    @media (max-width:900px){
+      .nav{position:fixed;top:var(--header-h);left:0;right:0;z-index:99;flex-direction:column;align-items:stretch;gap:4px;padding:18px 20px 24px;background:rgba(245,250,251,.98);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft);box-shadow:var(--shadow-lg);transform:translateY(-12px);opacity:0;pointer-events:none;transition:transform .4s var(--ease),opacity .4s var(--ease)}
+      .nav.is-open{transform:none;opacity:1;pointer-events:auto}
+      .nav a{font-size:17px;padding:13px 16px}
+      .menu-btn{display:grid}
+      .header-phone{display:none}
+      .header-cta .btn{display:none}
+      .hero-inner{grid-template-columns:1fr;gap:28px}
+      .hero-visual{height:420px;order:2}
+      .hero-copy{order:1}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .about-grid{grid-template-columns:1fr;gap:36px}
+      .contacts-grid{grid-template-columns:1fr;gap:40px}
+      .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+    }
+    @media (max-width:640px){
+      .container{padding:0 20px}
+      .section{padding:76px 0}
+      .services-grid{grid-template-columns:1fr}
+      .plan-grid{grid-template-columns:1fr}
+      .painless-grid{grid-template-columns:1fr}
+      .doctors{grid-template-columns:1fr}
+      .reviews-grid{grid-template-columns:1fr}
+      .hero{padding:calc(var(--header-h) + 36px) 0 52px}
+      .hero-visual{height:340px}
+      .hero-actions .btn{width:100%}
+      .stats-grid{grid-template-columns:1fr 1fr}
+      .stat{padding:26px 16px}
+      .footer-top{grid-template-columns:1fr}
+      .doctor-card{grid-template-columns:96px 1fr}
+      .doctor-ava{width:96px;height:96px;font-size:28px}
+      .about-photos{grid-template-columns:1fr}
+      .about-photos .photo-panel--wide{grid-column:auto;aspect-ratio:4/3}
+      .about-photos .photo-panel{aspect-ratio:16/9}
+    }
+    @media (max-width:380px){
+      .doctor-card{grid-template-columns:1fr}
+      .hero h1 .accent{white-space:normal}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+      .reveal{opacity:1;transform:none}
+    }
   </style>
 </head>
 <body>
   <a class="skip" href="#main">Перейти к содержимому</a>
+
+  <!-- ===== SVG sprite ===== -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
-      <symbol id="i-tooth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.4c1.9 0 3.5.8 4.7 2.1 1 1.1 1.6 2.5 1.6 4.1 0 2.2-.4 4.7-.8 6.8-.1.5-.3.9-.6 1.2-.3.3-.7.4-1 .4-.5 0-1-.4-1.2-.9-.3-.8-.7-1.4-1.3-1.8-.6-.4-1.3-.4-1.9 0-.6.4-1 1-1.3 1.8-.2.5-.7.9-1.2.9-.3 0-.7-.1-1-.4-.3-.3-.5-.7-.6-1.2-.4-2.1-.8-4.6-.8-6.8 0-1.6.6-3 1.6-4.1C8.5 4.2 10.1 3.4 12 3.4Z"/></symbol>
-      <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H9l-4 4v-4.5A3 3 0 0 1 4 12Z"/><path d="M8.5 12.5l2.2 2.2L15.5 10"/></symbol>
-      <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.4 6 10.2a6 6 0 1 1-12 0C6 9.4 12 3 12 3Z"/><path d="M9.4 13.7a2.6 2.6 0 0 0 2 2.6"/></symbol>
-      <symbol id="i-lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M15.5 15.5 21 21"/><path d="M8 11h6M11 8v6"/></symbol>
-      <symbol id="i-screw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a1.6 1.6 0 0 0-1.6 1.6V6h3.2V3.6A1.6 1.6 0 0 0 12 2Z"/><path d="M10.4 6v2.2M13.6 6v2.2M10.4 9.4v2.2M13.6 9.4v2.2M10.4 12.8v2.2M13.6 12.8v2.2"/><path d="M9.2 16.5l2.8 4.3 2.8-4.3M12 20.8V15.9"/></symbol>
-      <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 7l9 4 9-4-9-4Z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></symbol>
-      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 7.5-7 9-4-1.5-7-4.6-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></symbol>
-      <symbol id="i-numb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.4 6 10.2a6 6 0 1 1-12 0C6 9.4 12 3 12 3Z"/><path d="M9.5 14h5M12 11.5v5"/></symbol>
-      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.5A8.5 8.5 0 1 1 10.5 4a7 7 0 0 0 9.5 9.5Z"/></symbol>
-      <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.6A4 4 0 0 1 12 7a4 4 0 0 1 7 3.4C19 15.6 12 20 12 20Z"/></symbol>
-      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
-      <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 3.5l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8L12 3.5Z"/></symbol>
-      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l1.5 4-2 1.5a11.5 11.5 0 0 0 5 5L14 12.5l4 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
-      <symbol id="i-wa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11a8 8 0 0 0 11.2 7.3L21 20l-1.7-6.7A8 8 0 1 0 3 11Z"/><path d="M9.2 10.2c.3-.9 1-1.4 1.6-1.1.4.2.6.7.8 1.1.2.4.1.9-.2 1.2-.2.2-.4.5-.2.8.3.6.8 1.1 1.4 1.4.3.2.6.1.8-.1.3-.3.8-.4 1.2-.2.4.2.9.4 1.1.8.3.6-.2 1.3-1.1 1.6-1 .3-2.4.1-3.5-.8-1.1-.9-1.7-2-1.8-3.2-.1-.9.2-1.5.5-1.5Z"/></symbol>
-      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.4-6-10a6 6 0 1 1 12 0c0 4.6-6 10-6 10Z"/><circle cx="12" cy="11" r="2.2"/></symbol>
-      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2.5"/></symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-      <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/></symbol>
-      <symbol id="i-gyro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/><path d="M7 7l10 10M17 7 7 17"/></symbol>
+      <symbol id="i-tooth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3.4c1.9 0 3.5.8 4.7 2.1 1 1.1 1.6 2.5 1.6 4.1 0 2.2-.4 4.7-.8 6.8-.1.5-.3.9-.6 1.2-.3.3-.7.4-1 .4-.5 0-1-.4-1.2-.9-.3-.8-.7-1.4-1.3-1.8-.6-.4-1.3-.4-1.9 0-.6.4-1 1-1.3 1.8-.2.5-.7.9-1.2.9-.3 0-.7-.1-1-.4-.3-.3-.5-.7-.6-1.2-.4-2.1-.8-4.6-.8-6.8 0-1.6.6-3 1.6-4.1C8.5 4.2 10.1 3.4 12 3.4Z"/>
+      </symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H9l-4 4v-4.5A3 3 0 0 1 4 12Z"/><path d="M8.5 12.5l2.2 2.2L15.5 10"/>
+      </symbol>
+      <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3s6 6.4 6 10.2a6 6 0 1 1-12 0C6 9.4 12 3 12 3Z"/><path d="M9.4 13.7a2.6 2.6 0 0 0 2 2.6"/>
+      </symbol>
+      <symbol id="i-lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="6"/><path d="M15.5 15.5 21 21"/><path d="M8 11h6M11 8v6"/>
+      </symbol>
+      <symbol id="i-screw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2a1.6 1.6 0 0 0-1.6 1.6V6h3.2V3.6A1.6 1.6 0 0 0 12 2Z"/>
+        <path d="M10.4 6v2.2M13.6 6v2.2M10.4 9.4v2.2M13.6 9.4v2.2M10.4 12.8v2.2M13.6 12.8v2.2"/>
+        <path d="M9.2 16.5l2.8 4.3 2.8-4.3M12 20.8V15.9"/>
+      </symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3 3 7l9 4 9-4-9-4Z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/>
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3l7 3v5c0 4.4-3 7.5-7 9-4-1.5-7-4.6-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/>
+      </symbol>
+      <symbol id="i-numb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3s6 6.4 6 10.2a6 6 0 1 1-12 0C6 9.4 12 3 12 3Z"/><path d="M9.5 14h5M12 11.5v5"/>
+      </symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 13.5A8.5 8.5 0 1 1 10.5 4a7 7 0 0 0 9.5 9.5Z"/>
+      </symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20s-7-4.4-7-9.6A4 4 0 0 1 12 7a4 4 0 0 1 7 3.4C19 15.6 12 20 12 20Z"/>
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12.5l4.5 4.5L19 7.5"/>
+      </symbol>
+      <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M12 3.5l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8L12 3.5Z"/>
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 4h3l1.5 4-2 1.5a11.5 11.5 0 0 0 5 5L14 12.5l4 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 6a2 2 0 0 1 2-2Z"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 21s-6-5.4-6-10a6 6 0 1 1 12 0c0 4.6-6 10-6 10Z"/><circle cx="12" cy="11" r="2.2"/>
+      </symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2.5"/>
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
+      </symbol>
+      <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/>
+      </symbol>
+      <symbol id="i-gyro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/><path d="M7 7l10 10M17 7 7 17"/>
+      </symbol>
     </defs>
   </svg>
+
+  <!-- ===== Header ===== -->
   <header class="header" id="header">
     <div class="container header-inner">
       <a class="brand" href="#main" aria-label="Дента — на главную">
         <span class="brand-mark"><svg aria-hidden="true"><use href="#i-tooth"/></svg></span>
-        <span><span class="brand-name">Дента</span><span class="brand-sub">семейная стоматология</span></span>
+        <span>
+          <span class="brand-name">Дента</span>
+          <span class="brand-sub">семейная стоматология</span>
+        </span>
       </a>
+
       <nav class="nav" id="site-nav" aria-label="Основная навигация">
-        <a href="#services">Услуги</a><a href="#about">О клинике</a><a href="#doctors">Врачи</a><a href="#contacts">Контакты</a>
+        <a href="#services">Услуги</a>
+        <a href="#about">О клинике</a>
+        <a href="#doctors">Врачи</a>
+        <a href="#contacts">Контакты</a>
       </nav>
+
       <div class="header-cta">
         <a class="header-phone" href="tel:+78000000000">+7 (800) 000-00-00</a>
         <a class="btn btn--primary" href="#contacts">Записаться</a>
-        <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+        <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
+
   <main id="main">
+    <!-- ===== Hero ===== -->
     <section class="hero" id="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
@@ -290,8 +554,13 @@
           <h1>Лечение без боли.<br>План и цена — <span class="accent">до начала</span></h1>
           <p class="hero-sub">Заботимся о каждом пациенте: безопасные протоколы, современное оборудование и понятный план лечения с точной стоимостью ещё до первого приёма.</p>
           <div class="hero-actions">
-            <a class="btn btn--accent" href="#contacts">Бесплатная консультация <svg class="arr" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn--ghost" href="tel:+78000000000"><svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить</a>
+            <a class="btn btn--accent" href="#contacts">Бесплатная консультация
+              <svg class="arr" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="tel:+78000000000">
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg>
+              Позвонить
+            </a>
           </div>
           <div class="hero-trust">
             <span class="trust-item"><svg aria-hidden="true"><use href="#i-check"/></svg>0 ₽ консультация</span>
@@ -299,70 +568,219 @@
             <span class="trust-item"><svg aria-hidden="true"><use href="#i-check"/></svg>Без скрытых платежей</span>
           </div>
         </div>
+
         <div class="hero-visual" id="hero-visual">
           <div class="hero-fallback" aria-hidden="true">
             <svg viewBox="0 0 480 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Стилизованный зуб">
-              <defs><radialGradient id="glow" cx="50%" cy="46%" r="52%"><stop offset="0" stop-color="#CFEAF1" stop-opacity=".9"/><stop offset="1" stop-color="#CFEAF1" stop-opacity="0"/></radialGradient><linearGradient id="toothGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#F2FBFD"/><stop offset="1" stop-color="#DBF0F5"/></linearGradient><linearGradient id="toothShine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient></defs>
+              <defs>
+                <radialGradient id="glow" cx="50%" cy="46%" r="52%">
+                  <stop offset="0" stop-color="#CFEAF1" stop-opacity=".9"/>
+                  <stop offset="1" stop-color="#CFEAF1" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="toothGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#FFFFFF"/>
+                  <stop offset=".6" stop-color="#F2FBFD"/>
+                  <stop offset="1" stop-color="#DBF0F5"/>
+                </linearGradient>
+                <linearGradient id="toothShine" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/>
+                  <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
               <circle cx="240" cy="260" r="185" fill="url(#glow)"/>
-              <g fill="none" stroke-linecap="round"><ellipse cx="240" cy="265" rx="196" ry="76" stroke="#23A9C2" stroke-width="1.6" opacity=".55" transform="rotate(-18 240 265)"/><ellipse cx="240" cy="265" rx="214" ry="92" stroke="#0E2A33" stroke-width="1.1" opacity=".22" transform="rotate(24 240 265)"/></g>
-              <path d="M240 148 C262 148 282 158 296 178 C307 195 310 214 304 232 C299 246 290 256 286 266 C283 273 283 282 286 290 C291 305 300 322 303 340 C305 352 296 360 285 355 C276 351 271 342 270 332 C267 312 262 300 240 296 C218 300 213 312 210 332 C209 342 204 351 195 355 C184 360 175 352 177 340 C180 322 189 305 194 290 C197 282 197 273 194 266 C190 256 181 246 176 232 C170 214 173 195 184 178 C198 158 218 148 240 148 Z" fill="url(#toothGrad)" stroke="rgba(14,42,51,.16)" stroke-width="2"/>
+              <g fill="none" stroke-linecap="round">
+                <ellipse cx="240" cy="265" rx="196" ry="76" stroke="#23A9C2" stroke-width="1.6" opacity=".55" transform="rotate(-18 240 265)"/>
+                <ellipse cx="240" cy="265" rx="214" ry="92" stroke="#0E2A33" stroke-width="1.1" opacity=".22" transform="rotate(24 240 265)"/>
+              </g>
+              <path d="M240 148 C262 148 282 158 296 178 C307 195 310 214 304 232 C299 246 290 256 286 266 C283 273 283 282 286 290 C291 305 300 322 303 340 C305 352 296 360 285 355 C276 351 271 342 270 332 C267 312 262 300 240 296 C218 300 213 312 210 332 C209 342 204 351 195 355 C184 360 175 352 177 340 C180 322 189 305 194 290 C197 282 197 273 194 266 C190 256 181 246 176 232 C170 214 173 195 184 178 C198 158 218 148 240 148 Z"
+                fill="url(#toothGrad)" stroke="rgba(14,42,51,.16)" stroke-width="2"/>
               <path d="M200 160 C216 150 250 148 276 156 C258 176 222 190 210 232 C196 222 192 184 200 160 Z" fill="url(#toothShine)"/>
             </svg>
           </div>
-          <button class="gyro-toggle" id="gyro-toggle" type="button" hidden aria-pressed="false"><svg aria-hidden="true"><use href="#i-gyro"/></svg><span>Наклон экрана</span></button>
+          <button class="gyro-toggle" id="gyro-toggle" type="button" hidden aria-pressed="false">
+            <svg aria-hidden="true"><use href="#i-gyro"/></svg>
+            <span>Наклон экрана</span>
+          </button>
         </div>
       </div>
     </section>
+
+    <!-- ===== Stats ===== -->
     <section class="section section--tight stats" id="stats" aria-label="Факты о клинике">
-      <div class="container"><div class="stats-grid reveal">
-        <div class="stat"><div class="stat-value"><span class="accent">0 ₽</span></div><div class="stat-label">консультация и план лечения</div></div>
-        <div class="stat"><div class="stat-value">20 лет</div><div class="stat-label">средний стаж наших врачей</div></div>
-        <div class="stat"><div class="stat-value"><span class="accent">4.9</span></div><div class="stat-label">рейтинг по отзывам пациентов</div></div>
-        <div class="stat"><div class="stat-value">12 000+</div><div class="stat-label">пациентов доверяют нам</div></div>
-      </div></div>
+      <div class="container">
+        <div class="stats-grid reveal">
+          <div class="stat">
+            <div class="stat-value"><span class="accent">0 ₽</span></div>
+            <div class="stat-label">консультация и план лечения</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">20 лет</div>
+            <div class="stat-label">средний стаж наших врачей</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value"><span class="accent">4.9</span></div>
+            <div class="stat-label">рейтинг по отзывам пациентов</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">12 000+</div>
+            <div class="stat-label">пациентов доверяют нам</div>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- ===== Services ===== -->
     <section class="section" id="services">
       <div class="container">
-        <div class="center reveal"><span class="overline">Услуги и цены</span><h2 class="h2">Честные цены — фиксируем<br>до начала лечения</h2><p class="lead">Прозрачная стоимость каждого этапа. Вы заранее знаете, за что платите, — и она не изменится в процессе.</p></div>
+        <div class="center reveal">
+          <span class="overline">Услуги и цены</span>
+          <h2 class="h2">Честные цены — фиксируем<br>до начала лечения</h2>
+          <p class="lead">Прозрачная стоимость каждого этапа. Вы заранее знаете, за что платите, — и она не изменится в процессе.</p>
+        </div>
+
         <div class="services-grid">
-          <article class="service-card reveal" style="--d:.02s"><div class="service-icon"><svg aria-hidden="true"><use href="#i-chat"/></svg></div><h3>Консультация</h3><p>Осмотр, диагностика и подробный план лечения с точной сметой.</p><div class="service-price"><span class="from">цена</span><span class="free">0 ₽</span><span class="badge">бесплатно</span></div></article>
-          <article class="service-card reveal" style="--d:.08s"><div class="service-icon"><svg aria-hidden="true"><use href="#i-drop"/></svg></div><h3>Профессиональная гигиена</h3><p>Снятие налёта и камня, полировка, укрепление эмали. Здоровая и гладкая улыбка.</p><div class="service-price"><span class="from">от</span><span class="val">3 500 ₽</span></div></article>
-          <article class="service-card reveal" style="--d:.14s"><div class="service-icon"><svg aria-hidden="true"><use href="#i-tooth"/></svg></div><h3>Лечение кариеса</h3><p>Бережное лечение с современными материалами — незаметно и без боли.</p><div class="service-price"><span class="from">от</span><span class="val">4 900 ₽</span></div></article>
-          <article class="service-card reveal" style="--d:.02s"><div class="service-icon"><svg aria-hidden="true"><use href="#i-lens"/></svg></div><h3>Лечение под микроскопом</h3><p>Точность до долей миллиметра: спасаем зубы, которые раньше считались безнадёжными.</p><div class="service-price"><span class="from">от</span><span class="val">9 800 ₽</span></div></article>
-          <article class="service-card reveal" style="--d:.08s"><div class="service-icon"><svg aria-hidden="true"><use href="#i-screw"/></svg></div><h3>Имплантация</h3><p>Восстановление зуба под ключ — от импланта до коронки. Пожизненная гарантия на системы.</p><div class="service-price"><span class="from">от</span><span class="val">45 000 ₽</span></div></article>
-          <article class="service-card reveal" style="--d:.14s"><div class="service-icon"><svg aria-hidden="true"><use href="#i-layers"/></svg></div><h3>Виниры</h3><p>Идеальная форма и цвет передних зубов. Цифровое моделирование улыбки до начала работ.</p><div class="service-price"><span class="from">от</span><span class="val">28 000 ₽</span></div></article>
+          <article class="service-card reveal" style="--d:.02s">
+            <div class="service-icon"><svg aria-hidden="true"><use href="#i-chat"/></svg></div>
+            <h3>Консультация</h3>
+            <p>Осмотр, диагностика и подробный план лечения с точной сметой.</p>
+            <div class="service-price"><span class="from">цена</span><span class="free">0 ₽</span><span class="badge">бесплатно</span></div>
+          </article>
+
+          <article class="service-card reveal" style="--d:.08s">
+            <div class="service-icon"><svg aria-hidden="true"><use href="#i-drop"/></svg></div>
+            <h3>Профессиональная гигиена</h3>
+            <p>Снятие налёта и камня, полировка, укрепление эмали. Здоровая и гладкая улыбка.</p>
+            <div class="service-price"><span class="from">от</span><span class="val">3 500 ₽</span></div>
+          </article>
+
+          <article class="service-card reveal" style="--d:.14s">
+            <div class="service-icon"><svg aria-hidden="true"><use href="#i-tooth"/></svg></div>
+            <h3>Лечение кариеса</h3>
+            <p>Бережное лечение с современными материалами — незаметно и без боли.</p>
+            <div class="service-price"><span class="from">от</span><span class="val">4 900 ₽</span></div>
+          </article>
+
+          <article class="service-card reveal" style="--d:.02s">
+            <div class="service-icon"><svg aria-hidden="true"><use href="#i-lens"/></svg></div>
+            <h3>Лечение под микроскопом</h3>
+            <p>Точность до долей миллиметра: спасаем зубы, которые раньше считались безнадёжными.</p>
+            <div class="service-price"><span class="from">от</span><span class="val">9 800 ₽</span></div>
+          </article>
+
+          <article class="service-card reveal" style="--d:.08s">
+            <div class="service-icon"><svg aria-hidden="true"><use href="#i-screw"/></svg></div>
+            <h3>Имплантация</h3>
+            <p>Восстановление зуба под ключ — от импланта до коронки. Пожизненная гарантия на системы.</p>
+            <div class="service-price"><span class="from">от</span><span class="val">45 000 ₽</span></div>
+          </article>
+
+          <article class="service-card reveal" style="--d:.14s">
+            <div class="service-icon"><svg aria-hidden="true"><use href="#i-layers"/></svg></div>
+            <h3>Виниры</h3>
+            <p>Идеальная форма и цвет передних зубов. Цифровое моделирование улыбки до начала работ.</p>
+            <div class="service-price"><span class="from">от</span><span class="val">28 000 ₽</span></div>
+          </article>
         </div>
       </div>
     </section>
+
+    <!-- ===== Painless ===== -->
     <section class="section painless" id="painless">
       <div class="container">
-        <div class="center reveal"><span class="overline">Лечение без боли</span><h2 class="h2">Вам не будет страшно.<br>И не будет больно</h2><p class="lead">Мы знаем, что страх перед стоматологом — это нормально. Поэтому делаем всё, чтобы вы чувствовали себя спокойно и уверенно.</p></div>
+        <div class="center reveal">
+          <span class="overline">Лечение без боли</span>
+          <h2 class="h2">Вам не будет страшно.<br>И не будет больно</h2>
+          <p class="lead">Мы знаем, что страх перед стоматологом — это нормально. Поэтому делаем всё, чтобы вы чувствовали себя спокойно и уверенно.</p>
+        </div>
+
         <div class="painless-grid">
-          <article class="pain-card reveal" style="--d:.02s"><div class="pain-icon"><svg aria-hidden="true"><use href="#i-numb"/></svg></div><h3>Анестезия без дискомфорта</h3><p>Сначала аппликационное «замораживание» десны, затем точный расчёт дозировки. Сам укол вы почти не почувствуете.</p></article>
-          <article class="pain-card reveal" style="--d:.1s"><div class="pain-icon"><svg aria-hidden="true"><use href="#i-moon"/></svg></div><h3>Седация и лёгкий сон</h3><p>Для тревожных пациентов — седация под контролем анестезиолога. Вы расслаблены, а мы бережно лечим.</p></article>
-          <article class="pain-card reveal" style="--d:.18s"><div class="pain-icon"><svg aria-hidden="true"><use href="#i-heart"/></svg></div><h3>Забота на каждом шаге</h3><p>Объясняем каждый этап заранее, останавливаемся по вашему сигналу и постоянно следим за вашим комфортом.</p></article>
+          <article class="pain-card reveal" style="--d:.02s">
+            <div class="pain-icon"><svg aria-hidden="true"><use href="#i-numb"/></svg></div>
+            <h3>Анестезия без дискомфорта</h3>
+            <p>Сначала аппликационное «замораживание» десны, затем точный расчёт дозировки. Сам укол вы почти не почувствуете.</p>
+          </article>
+          <article class="pain-card reveal" style="--d:.1s">
+            <div class="pain-icon"><svg aria-hidden="true"><use href="#i-moon"/></svg></div>
+            <h3>Седация и лёгкий сон</h3>
+            <p>Для тревожных пациентов — седация под контролем анестезиолога. Вы расслаблены, а мы бережно лечим.</p>
+          </article>
+          <article class="pain-card reveal" style="--d:.18s">
+            <div class="pain-icon"><svg aria-hidden="true"><use href="#i-heart"/></svg></div>
+            <h3>Забота на каждом шаге</h3>
+            <p>Объясняем каждый этап заранее, останавливаемся по вашему сигналу и постоянно следим за вашим комфортом.</p>
+          </article>
         </div>
       </div>
     </section>
+
+    <!-- ===== Plan ===== -->
     <section class="section" id="plan">
       <div class="container">
-        <div class="center reveal"><span class="overline">Как это работает</span><h2 class="h2">План лечения с ценой<br>— до начала</h2><p class="lead">Четыре прозрачных шага. Вы всегда знаете, что будет дальше и сколько это стоит.</p></div>
+        <div class="center reveal">
+          <span class="overline">Как это работает</span>
+          <h2 class="h2">План лечения с ценой<br>— до начала</h2>
+          <p class="lead">Четыре прозрачных шага. Вы всегда знаете, что будет дальше и сколько это стоит.</p>
+        </div>
+
         <div class="plan-grid">
-          <article class="step-card reveal" style="--d:.02s"><div class="step-num">01</div><h3>Консультация и диагностика</h3><p>Осмотр, снимки и при необходимости 3D-диагностика. Бесплатно.</p><span class="step-line" aria-hidden="true"></span></article>
-          <article class="step-card reveal" style="--d:.1s"><div class="step-num">02</div><h3>Составляем план</h3><p>Поэтапный план лечения под вашу цель и ваш график.</p><span class="step-line" aria-hidden="true"></span></article>
-          <article class="step-card reveal" style="--d:.18s"><div class="step-num">03</div><h3>Фиксируем смету</h3><p>Точная цена каждого этапа в договоре — она не изменится.</p><span class="step-line" aria-hidden="true"></span></article>
-          <article class="step-card reveal" style="--d:.26s"><div class="step-num">04</div><h3>Начинаем лечение</h3><p>Только после вашего согласия — без сюрпризов и доплат.</p><span class="step-line" aria-hidden="true"></span></article>
+          <article class="step-card reveal" style="--d:.02s">
+            <div class="step-num">01</div>
+            <h3>Консультация и диагностика</h3>
+            <p>Осмотр, снимки и при необходимости 3D-диагностика. Бесплатно.</p>
+            <span class="step-line" aria-hidden="true"></span>
+          </article>
+          <article class="step-card reveal" style="--d:.1s">
+            <div class="step-num">02</div>
+            <h3>Составляем план</h3>
+            <p>Поэтапный план лечения под вашу цель и ваш график.</p>
+            <span class="step-line" aria-hidden="true"></span>
+          </article>
+          <article class="step-card reveal" style="--d:.18s">
+            <div class="step-num">03</div>
+            <h3>Фиксируем смету</h3>
+            <p>Точная цена каждого этапа в договоре — она не изменится.</p>
+            <span class="step-line" aria-hidden="true"></span>
+          </article>
+          <article class="step-card reveal" style="--d:.26s">
+            <div class="step-num">04</div>
+            <h3>Начинаем лечение</h3>
+            <p>Только после вашего согласия — без сюрпризов и доплат.</p>
+            <span class="step-line" aria-hidden="true"></span>
+          </article>
         </div>
       </div>
     </section>
+
+    <!-- ===== About + Doctors ===== -->
     <section class="section section--tight" id="about">
       <div class="container">
         <div class="about-grid">
           <div class="about-photos">
-            <div class="photo-panel photo-panel--wide reveal"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1600&auto=format&fit=crop" width="800" height="450" loading="lazy" decoding="async" alt="Светлый современный кабинет стоматологии" onerror="this.style.display='none'"><span class="chip"><svg aria-hidden="true"><use href="#i-sparkle"/></svg>Современное оборудование</span></div>
-            <div class="photo-panel reveal" style="--d:.05s"><img src="https://images.unsplash.com/photo-1588771924546-4fb5d4b8c2e9?q=80&w=1600&auto=format&fit=crop" width="500" height="375" loading="lazy" decoding="async" alt="Стерильные стоматологические инструменты" onerror="this.style.display='none'"></div>
-            <div class="photo-panel reveal" style="--d:.1s"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1600&auto=format&fit=crop" width="500" height="375" loading="lazy" decoding="async" alt="Здоровая белоснежная улыбка" onerror="this.style.display='none'"></div>
-            <div class="photo-panel reveal" style="--d:.15s"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1600&auto=format&fit=crop" width="500" height="375" loading="lazy" decoding="async" alt="Врач проводит осмотр в клинике" onerror="this.style.display='none'"></div>
+            <div class="photo-panel photo-panel--wide reveal">
+              <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1600&auto=format&fit=crop"
+                   width="800" height="450" loading="lazy" decoding="async"
+                   alt="Светлый современный кабинет стоматологии"
+                   onerror="this.style.display='none'">
+              <span class="chip"><svg aria-hidden="true"><use href="#i-sparkle"/></svg>Современное оборудование</span>
+            </div>
+            <div class="photo-panel reveal" style="--d:.05s">
+              <img src="https://images.unsplash.com/photo-1588771924546-4fb5d4b8c2e9?q=80&w=1600&auto=format&fit=crop"
+                   width="500" height="375" loading="lazy" decoding="async"
+                   alt="Стерильные стоматологические инструменты"
+                   onerror="this.style.display='none'">
+            </div>
+            <div class="photo-panel reveal" style="--d:.1s">
+              <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1600&auto=format&fit=crop"
+                   width="500" height="375" loading="lazy" decoding="async"
+                   alt="Здоровая белоснежная улыбка"
+                   onerror="this.style.display='none'">
+            </div>
+            <div class="photo-panel reveal" style="--d:.15s">
+              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1600&auto=format&fit=crop"
+                   width="500" height="375" loading="lazy" decoding="async"
+                   alt="Врач проводит осмотр в клинике"
+                   onerror="this.style.display='none'">
+            </div>
           </div>
           <div class="about-copy reveal" style="--d:.1s">
             <span class="overline">О клинике</span>
@@ -370,130 +788,443 @@
             <p>«Дента» — это клиника, в которой лечат взрослых и детей с одинаковой заботой и вниманием. Мы совмещаем точную медицину с тёплым, человеческим отношением.</p>
             <p>Наши протоколы безопасности, современная диагностика и понятный план лечения избавляют вас от главного страха — неизвестности.</p>
             <div class="about-feats">
-              <div class="feat"><span class="feat-icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><span><b>Безопасность</b><span>Стерильность и строгие протоколы на каждом приёме.</span></span></div>
-              <div class="feat"><span class="feat-icon"><svg aria-hidden="true"><use href="#i-lens"/></svg></span><span><b>Точность</b><span>Лечение под микроскопом и цифровая диагностика.</span></span></div>
+              <div class="feat">
+                <span class="feat-icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
+                <span><b>Безопасность</b><span>Стерильность и строгие протоколы на каждом приёме.</span></span>
+              </div>
+              <div class="feat">
+                <span class="feat-icon"><svg aria-hidden="true"><use href="#i-lens"/></svg></span>
+                <span><b>Точность</b><span>Лечение под микроскопом и цифровая диагностика.</span></span>
+              </div>
             </div>
           </div>
         </div>
+
         <div class="doctors" id="doctors">
-          <article class="doctor-card reveal"><div class="doctor-ava" aria-hidden="true">МС</div><div><h3>Мария Соколова</h3><div class="doctor-role">Стоматолог-терапевт</div><div class="exp">Опыт 12 лет · лечит взрослых и детей</div></div></article>
-          <article class="doctor-card reveal" style="--d:.08s"><div class="doctor-ava" aria-hidden="true">ДО</div><div><h3>Дмитрий Орлов</h3><div class="doctor-role">Хирург-имплантолог</div><div class="exp">Опыт 15 лет · имплантация и хирургия</div></div></article>
+          <article class="doctor-card reveal">
+            <div class="doctor-ava" aria-hidden="true">МС</div>
+            <div>
+              <h3>Мария Соколова</h3>
+              <div class="doctor-role">Стоматолог-терапевт</div>
+              <div class="exp">Опыт 12 лет · лечит взрослых и детей</div>
+            </div>
+          </article>
+          <article class="doctor-card reveal" style="--d:.08s">
+            <div class="doctor-ava" aria-hidden="true">ДО</div>
+            <div>
+              <h3>Дмитрий Орлов</h3>
+              <div class="doctor-role">Хирург-имплантолог</div>
+              <div class="exp">Опыт 15 лет · имплантация и хирургия</div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
+
+    <!-- ===== Reviews ===== -->
     <section class="section section--tight" id="reviews">
       <div class="container">
-        <div class="center reveal"><span class="overline">Отзывы</span><h2 class="h2">Что говорят пациенты</h2></div>
+        <div class="center reveal">
+          <span class="overline">Отзывы</span>
+          <h2 class="h2">Что говорят пациенты</h2>
+        </div>
         <div class="reviews-grid">
-          <article class="review-card reveal"><span class="review-quote" aria-hidden="true">“</span><div class="review-stars" aria-label="Оценка 5 из 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><p class="review-text">Боялась стоматологов с детства. Здесь впервые лечила зуб без страха: объяснили план, зафиксировали цену и сделали всё действительно без боли.</p><div class="review-author"><span class="review-ava" aria-hidden="true">А</span><span><b>Анна</b><span>лечение кариеса</span></span></div></article>
-          <article class="review-card reveal" style="--d:.08s"><span class="review-quote" aria-hidden="true">“</span><div class="review-stars" aria-label="Оценка 5 из 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><p class="review-text">Ставил имплант. Понравилось, что цену зафиксировали до начала и ничего не добавляли. Весь процесс прошёл спокойно и предсказуемо.</p><div class="review-author"><span class="review-ava" aria-hidden="true">С</span><span><b>Сергей</b><span>имплантация</span></span></div></article>
+          <article class="review-card reveal">
+            <span class="review-quote" aria-hidden="true">“</span>
+            <div class="review-stars" aria-label="Оценка 5 из 5">
+              <svg aria-hidden="true"><use href="#i-star"/></svg>
+              <svg aria-hidden="true"><use href="#i-star"/></svg>
+              <svg aria-hidden="true"><use href="#i-star"/></svg>
+              <svg aria-hidden="true"><use href="#i-star"/></svg>
+              <svg aria-hidden="true"><use href="#i-star"/></svg>
+            </div>
+            <p class="review-text">Боялась стоматологов с детства. Здесь впервые лечила зуб без страха: объяснили план, зафиксировали цену и сделали всё действительно без боли.</p>
+            <div class="review-author">
+              <span class="review-ava" aria-hidden="true">А</span>
+              <span><b>Анна</b><span>лечение кариеса</span></span>
+            </div>
+          </article>
+          <article class="review-card reveal" style="--d:.08s">
+            <span class="review-quote" aria-hidden="true">“</span>
+            <div class="review-stars" aria-label="Оценка 5 из 5">
+              <svg aria-hidden="true"><use href="#i-star"/></svg>
+              <svg aria-hidden="true"><use href="#i-star"/></svg>
+              <svg aria-hidden="true"><use href="#i-star"/></svg>
+              <svg aria-hidden="true"><use href="#i-star"/></svg>
+              <svg aria-hidden="true"><use href="#i-star"/></svg>
+            </div>
+            <p class="review-text">Ставил имплант. Понравилось, что цену зафиксировали до начала и ничего не добавляли. Весь процесс прошёл спокойно и предсказуемо.</p>
+            <div class="review-author">
+              <span class="review-ava" aria-hidden="true">С</span>
+              <span><b>Сергей</b><span>имплантация</span></span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
+
+    <!-- ===== Contacts ===== -->
     <section class="section contacts" id="contacts">
       <div class="container">
-        <div class="center reveal"><span class="overline">Контакты</span><h2 class="h2">Запишитесь на бесплатную<br>консультацию</h2><p class="lead">Позвоните или напишите — подберём удобное время и ответим на все вопросы.</p></div>
+        <div class="center reveal">
+          <span class="overline">Контакты</span>
+          <h2 class="h2">Запишитесь на бесплатную<br>консультацию</h2>
+          <p class="lead">Позвоните или напишите — подберём удобное время и ответим на все вопросы.</p>
+        </div>
+
         <div class="contacts-grid">
           <div class="contact-list reveal">
-            <a class="contact-row" href="tel:+78000000000"><span class="contact-icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span><span class="k">Телефон</span><span class="v">+7 (800) 000-00-00</span></span></a>
-            <a class="contact-row" href="https://wa.me/78000000000" target="_blank" rel="noopener"><span class="contact-icon"><svg aria-hidden="true"><use href="#i-wa"/></svg></span><span><span class="k">WhatsApp</span><span class="v">Написать нам</span></span></a>
-            <div class="contact-row"><span class="contact-icon"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><span><span class="k">Адрес</span><span class="v">Москва, Ленинский проспект, 45</span></span></div>
-            <div class="contact-row"><span class="contact-icon"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><span><span class="k">Режим работы</span><span class="v">Ежедневно 9:00 — 21:00</span></span></div>
+            <a class="contact-row" href="tel:+78000000000">
+              <span class="contact-icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <span><span class="k">Телефон</span><span class="v">+7 (800) 000-00-00</span></span>
+            </a>
+            <a class="contact-row" href="https://wa.me/78000000000" target="_blank" rel="noopener">
+              <span class="contact-icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <span><span class="k">WhatsApp</span><span class="v">Написать нам</span></span>
+            </a>
+            <div class="contact-row">
+              <span class="contact-icon"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <span><span class="k">Адрес</span><span class="v">Москва, Ленинский проспект, 45</span></span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-icon"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>
+              <span><span class="k">Режим работы</span><span class="v">Ежедневно 9:00 — 21:00</span></span>
+            </div>
           </div>
+
           <div class="contacts-cta reveal" style="--d:.1s">
             <h3>Бесплатная консультация — 0 ₽</h3>
             <p>Осмотр, диагностика и план лечения с точной ценой. Это ни к чему вас не обязывает.</p>
-            <a class="btn btn--accent" href="tel:+78000000000">Записаться сейчас <svg class="arr" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn--ghost" style="margin-top:12px" href="https://wa.me/78000000000" target="_blank" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>Написать в WhatsApp</a>
+            <a class="btn btn--accent" href="tel:+78000000000">Записаться сейчас
+              <svg class="arr" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
         <div>
-          <a class="brand" href="#main" aria-label="Дента — на главную"><span class="brand-mark"><svg aria-hidden="true"><use href="#i-tooth"/></svg></span><span><span class="brand-name">Дента</span><span class="brand-sub">семейная стоматология</span></span></a>
+          <a class="brand" href="#main" aria-label="Дента — на главную">
+            <span class="brand-mark"><svg aria-hidden="true"><use href="#i-tooth"/></svg></span>
+            <span>
+              <span class="brand-name">Дента</span>
+              <span class="brand-sub">семейная стоматология</span>
+            </span>
+          </a>
           <p class="footer-desc">Лечение без боли, план и цена до начала. Заботимся о вашей улыбке — и о вашем спокойствии.</p>
         </div>
-        <nav aria-label="Навигация в подвале"><h4>Разделы</h4><div class="footer-nav"><a href="#services">Услуги</a><a href="#painless">Лечение без боли</a><a href="#plan">План лечения</a><a href="#about">О клинике</a></div></nav>
-        <div><h4>Контакты</h4><div class="footer-nav"><a href="tel:+78000000000">+7 (800) 000-00-00</a><a href="https://wa.me/78000000000" target="_blank" rel="noopener">WhatsApp</a><a href="#contacts">Москва, Ленинский проспект, 45</a></div></div>
+        <nav aria-label="Навигация в подвале">
+          <h4>Разделы</h4>
+          <div class="footer-nav">
+            <a href="#services">Услуги</a>
+            <a href="#painless">Лечение без боли</a>
+            <a href="#plan">План лечения</a>
+            <a href="#about">О клинике</a>
+          </div>
+        </nav>
+        <div>
+          <h4>Контакты</h4>
+          <div class="footer-nav">
+            <a href="tel:+78000000000">+7 (800) 000-00-00</a>
+            <a href="#contacts">Москва, Ленинский проспект, 45</a>
+          </div>
+        </div>
       </div>
       <div class="footer-bottom">
         <span>© Дента · семейная стоматология</span>
-        <a class="credit" href="https://fitfuuxdev.github.io/landing/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-sparkle"/></svg>Создано Fitfuux</a>
+        <a class="credit" href="https://fitfuuxdev.github.io/landing/" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-sparkle"/></svg>
+          Создано Fitfuux
+        </a>
         <span class="demo-badge">демо-страница</span>
         <p class="footer-disclaimer">Демо-страница портфолио FITFUUX. Контакты и цены — образец.</p>
       </div>
     </div>
   </footer>
+
   <script type="module">
+    /* ============================================================
+       Дента — интерактив: reveal, header, mobile menu, 3D-объект
+       ============================================================ */
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) document.documentElement.classList.add('reduce-motion');
+
+    /* ---------- reveal on scroll ---------- */
     if (!prefersReduced) {
-      const revealIO = new IntersectionObserver((entries) => { for (const e of entries) { if (e.isIntersecting) { e.target.classList.add('is-inview'); revealIO.unobserve(e.target); } } }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+      const revealIO = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-inview');
+            revealIO.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
       document.querySelectorAll('.reveal').forEach((el) => revealIO.observe(el));
-    } else { document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-inview')); }
+    } else {
+      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-inview'));
+    }
+
+    /* ---------- header shadow ---------- */
     const header = document.getElementById('header');
     const onScrollHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
     window.addEventListener('scroll', onScrollHeader, { passive: true });
     onScrollHeader();
+
+    /* ---------- mobile menu ---------- */
     const menuBtn = document.getElementById('menu-btn');
     const siteNav = document.getElementById('site-nav');
-    const setMenu = (open) => { siteNav.classList.toggle('is-open', open); menuBtn.setAttribute('aria-expanded', String(open)); menuBtn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню'); };
+    const setMenu = (open) => {
+      siteNav.classList.toggle('is-open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    };
     menuBtn.addEventListener('click', () => setMenu(!siteNav.classList.contains('is-open')));
     siteNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+    /* ---------- 3D object ---------- */
     const heroVisual = document.getElementById('hero-visual');
     const gyroBtn = document.getElementById('gyro-toggle');
-    const canWebGL = () => { try { const c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl') || c.getContext('experimental-webgl'))); } catch (err) { return false; } };
-    const isLowEnd = () => { const conn = navigator.connection; if (conn) { if (conn.saveData) return true; if (conn.effectiveType === '2g' || conn.effectiveType === 'slow-2g') return true; } if (navigator.deviceMemory != null && navigator.deviceMemory <= 1) return true; return false; };
-    const idle = (fn) => { if (window.requestIdleCallback) window.requestIdleCallback(fn, { timeout: 1400 }); else setTimeout(fn, 350); };
-    const boot3D = () => { if (prefersReduced || !heroVisual || !canWebGL() || isLowEnd()) return; idle(() => { import('./assets/js/three.module.min.js').then((THREE) => init3D(THREE)).catch(() => {}); }); };
+
+    const canWebGL = () => {
+      try {
+        const c = document.createElement('canvas');
+        return !!(window.WebGLRenderingContext &&
+          (c.getContext('webgl2') || c.getContext('webgl') || c.getContext('experimental-webgl')));
+      } catch (err) { return false; }
+    };
+
+    const isLowEnd = () => {
+      const conn = navigator.connection;
+      if (conn) {
+        if (conn.saveData) return true;
+        if (conn.effectiveType === '2g' || conn.effectiveType === 'slow-2g') return true;
+      }
+      if (navigator.deviceMemory != null && navigator.deviceMemory <= 1) return true;
+      return false;
+    };
+
+    const idle = (fn) => {
+      if (window.requestIdleCallback) window.requestIdleCallback(fn, { timeout: 1400 });
+      else setTimeout(fn, 350);
+    };
+
+    const boot3D = () => {
+      if (prefersReduced || !heroVisual || !canWebGL() || isLowEnd()) return;
+      idle(() => {
+        import('./assets/js/three.module.min.js')
+          .then((THREE) => init3D(THREE))
+          .catch(() => { /* fallback остаётся видимым */ });
+      });
+    };
+
     function init3D(THREE) {
       const lowDetail = window.innerWidth < 700;
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
-      renderer.setClearColor(0x000000, 0); renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.1;
-      const canvas = renderer.domElement; canvas.setAttribute('aria-hidden', 'true'); heroVisual.appendChild(canvas);
-      const scene = new THREE.Scene(); const camera = new THREE.PerspectiveCamera(33, 1, 0.1, 60); camera.position.set(0, 0, 7.2);
-      const group = new THREE.Group(); scene.add(group);
+
+      /* --- renderer --- */
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+        powerPreference: 'high-performance'
+      });
+      renderer.setClearColor(0x000000, 0);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.1;
+
+      const canvas = renderer.domElement;
+      canvas.setAttribute('aria-hidden', 'true');
+      heroVisual.appendChild(canvas);
+
+      /* --- scene & camera --- */
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(33, 1, 0.1, 60);
+      camera.position.set(0, 0, 7.2);
+
+      const group1 = new THREE.Group();
+      scene.add(group1);
+
+      /* --- lights --- */
       scene.add(new THREE.HemisphereLight(0xffffff, 0xd6ecf2, 0.9));
-      const key = new THREE.DirectionalLight(0xffffff, 1.7); key.position.set(3.5, 4.5, 5); scene.add(key);
-      const fill = new THREE.DirectionalLight(0xd0eef5, 0.7); fill.position.set(-3, 1.5, 3.5); scene.add(fill);
-      const rim = new THREE.DirectionalLight(0x23a9c2, 2.4); rim.position.set(-2.5, 2, -4.5); scene.add(rim);
-      const rim2 = new THREE.DirectionalLight(0x23a9c2, 1.2); rim2.position.set(2.5, -1.5, -4); scene.add(rim2);
+      const key = new THREE.DirectionalLight(0xffffff, 1.7);
+      key.position.set(3.5, 4.5, 5);
+      scene.add(key);
+      const fill = new THREE.DirectionalLight(0xd0eef5, 0.7);
+      fill.position.set(-3, 1.5, 3.5);
+      scene.add(fill);
+      const rim = new THREE.DirectionalLight(0x23a9c2, 2.4);
+      rim.position.set(-2.5, 2, -4.5);
+      scene.add(rim);
+
+      /* --- tooth (LatheGeometry) --- */
       const seg = lowDetail ? 42 : 72;
-      const profile = [[0.0001, 1.10],[0.13, 1.03],[0.26, 0.91],[0.37, 0.74],[0.45, 0.52],[0.50, 0.30],[0.46, 0.05],[0.34, -0.20],[0.28, -0.40],[0.32, -0.60],[0.26, -0.84],[0.09, -1.01],[0.0001, -1.06]].map((p) => new THREE.Vector2(p[0], p[1]));
-      const toothGeo = new THREE.LatheGeometry(profile, seg); toothGeo.scale(1, 1, 0.66);
-      const toothMat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: 0.0, roughness: 0.16, clearcoat: 0.75, clearcoatRoughness: 0.2 });
-      const tooth = new THREE.Mesh(toothGeo, toothMat); tooth.position.y = 0.02; group.add(tooth);
-      const makeOrbit = (radius, tube, color, opacity) => { const g = new THREE.TorusGeometry(radius, tube, lowDetail ? 8 : 16, lowDetail ? 90 : 150); const m = new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.35, transparent: true, opacity, side: THREE.DoubleSide, depthWrite: false }); return new THREE.Mesh(g, m); };
-      const orbit1 = makeOrbit(1.5, 0.007, 0x23a9c2, 0.5); orbit1.rotation.set(Math.PI / 2.15, 0.35, 0.32); group.add(orbit1);
-      const orbit2 = makeOrbit(1.9, 0.0045, 0x0e2a33, 0.22); orbit2.rotation.set(Math.PI / 1.95, -0.4, -0.2); group.add(orbit2);
-      const shadowCanvas = document.createElement('canvas'); shadowCanvas.width = shadowCanvas.height = 128;
-      const sctx = shadowCanvas.getContext('2d'); const grad = sctx.createRadialGradient(64, 64, 0, 64, 64, 64);
-      grad.addColorStop(0, 'rgba(14,42,51,0.30)'); grad.addColorStop(0.55, 'rgba(14,42,51,0.10)'); grad.addColorStop(1, 'rgba(14,42,51,0)');
-      sctx.fillStyle = grad; sctx.fillRect(0, 0, 128, 128); const shadowTex = new THREE.CanvasTexture(shadowCanvas);
-      const shadow = new THREE.Mesh(new THREE.CircleGeometry(1.45, 48), new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }));
-      shadow.rotation.x = -Math.PI / 2; shadow.position.y = -1.4; group.add(shadow);
-      const resize = () => { const w = heroVisual.clientWidth || 1; const h = heroVisual.clientHeight || 1; const dpr = Math.min(window.devicePixelRatio || 1, w < 700 ? 1.4 : 1.75); renderer.setPixelRatio(dpr); renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); group.scale.setScalar(w < 700 ? 0.82 : 1); };
-      let tX = 0, tY = 0, cX = 0, cY = 0;
-      window.addEventListener('pointermove', (e) => { tX = ((e.clientY / window.innerHeight) * 2 - 1) * 0.32; tY = ((e.clientX / window.innerWidth) * 2 - 1) * 0.55; }, { passive: true });
+      const profile = [
+        [0.0001, 1.10], [0.13, 1.03], [0.26, 0.91], [0.37, 0.74],
+        [0.45, 0.52], [0.50, 0.30], [0.46, 0.05], [0.34, -0.20],
+        [0.28, -0.40], [0.32, -0.60], [0.26, -0.84], [0.09, -1.01], [0.0001, -1.06]
+      ].map((p) => new THREE.Vector2(p[0], p[1]));
+      const toothGeo = new THREE.LatheGeometry(profile, seg);
+      toothGeo.scale(1, 1, 0.66);
+      const toothMat = new THREE.MeshPhysicalMaterial({
+        color: 0xffffff,
+        metalness: 0.0,
+        roughness: 0.16,
+        clearcoat: 0.75,
+        clearcoatRoughness: 0.2
+      });
+      const tooth = new THREE.Mesh(toothGeo, toothMat);
+      tooth.position.y = 0.02;
+      group1.add(tooth);
+
+      /* --- orbit rings --- */
+      const makeOrbit = (radius, tube, color, opacity) => {
+        const g = new THREE.TorusGeometry(radius, tube, lowDetail ? 8 : 16, lowDetail ? 90 : 150);
+        const m = new THREE.MeshStandardMaterial({
+          color, metalness: 0.1, roughness: 0.35,
+          transparent: true, opacity, side: THREE.DoubleSide, depthWrite: false
+        });
+        return new THREE.Mesh(g, m);
+      };
+      const orbit1 = makeOrbit(1.5, 0.007, 0x23a9c2, 0.5);
+      orbit1.rotation.set(Math.PI / 2.15, 0.35, 0.32);
+      group1.add(orbit1);
+      const orbit2 = makeOrbit(1.9, 0.0045, 0x0e2a33, 0.22);
+      orbit2.rotation.set(Math.PI / 1.95, -0.4, -0.2);
+      group1.add(orbit2);
+
+      /* --- soft contact shadow --- */
+      const shadowCanvas = document.createElement('canvas');
+      shadowCanvas.width = shadowCanvas.height = 128;
+      const sctx = shadowCanvas.getContext('2d');
+      const grad = sctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+      grad.addColorStop(0, 'rgba(14,42,51,0.30)');
+      grad.addColorStop(0.55, 'rgba(14,42,51,0.10)');
+      grad.addColorStop(1, 'rgba(14,42,51,0)');
+      sctx.fillStyle = grad;
+      sctx.fillRect(0, 0, 128, 128);
+      const shadowTex = new THREE.CanvasTexture(shadowCanvas);
+      const shadow = new THREE.Mesh(
+        new THREE.CircleGeometry(1.45, 48),
+        new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false })
+      );
+      shadow.rotation.x = -Math.PI / 2;
+      shadow.position.y = -1.4;
+      group1.add(shadow);
+
+      /* --- sizing / DPR --- */
+      const resize = () => {
+        const w = heroVisual.clientWidth || 1;
+        const h = heroVisual.clientHeight || 1;
+        const dpr = Math.min(window.devicePixelRatio || 1, w < 700 ? 1.4 : 1.75);
+        renderer.setPixelRatio(dpr);
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        group1.scale.setScalar(w < 700 ? 0.82 : 1);
+      };
+
+      /* --- pointer tilt --- */
+      let tX = 0, tY = 0;
+      let cX = 0, cY = 0;
+      window.addEventListener('pointermove', (e) => {
+        tX = ((e.clientY / window.innerHeight) * 2 - 1) * 0.32;
+        tY = ((e.clientX / window.innerWidth) * 2 - 1) * 0.55;
+      }, { passive: true });
+
+      /* --- gyro --- */
       let gyroOn = false, gX = 0, gY = 0;
-      const onOrientation = (e) => { if (!gyroOn) return; if (e.gamma != null) gY = THREE.MathUtils.clamp(e.gamma / 42, -1, 1); if (e.beta != null) gX = THREE.MathUtils.clamp((e.beta - 45) / 45, -1, 1); };
+      const onOrientation = (e) => {
+        if (!gyroOn) return;
+        if (e.gamma != null) gY = THREE.MathUtils.clamp(e.gamma / 42, -1, 1);
+        if (e.beta != null) gX = THREE.MathUtils.clamp((e.beta - 45) / 45, -1, 1);
+      };
       window.addEventListener('deviceorientation', onOrientation, true);
-      if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') { gyroBtn.hidden = false; gyroBtn.addEventListener('click', async () => { try { const res = await DeviceOrientationEvent.requestPermission(); if (res === 'granted') { gyroOn = true; gyroBtn.classList.add('is-on'); gyroBtn.setAttribute('aria-pressed', 'true'); gyroBtn.querySelector('span').textContent = 'Наклон включён'; } } catch (err) {} }, { once: false }); } else if ('DeviceOrientationEvent' in window) { gyroOn = true; }
-      let scrollT = 0; const onScroll = () => { scrollT = Math.min(1, Math.max(0, window.scrollY / (window.innerHeight || 1))); }; window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-      let inView = true, running = true;
-      const io = new IntersectionObserver((entries) => { inView = entries[0].isIntersecting; running = inView && !document.hidden; }, { rootMargin: '120px' }); io.observe(heroVisual);
-      document.addEventListener('visibilitychange', () => { running = inView && !document.hidden; });
-      canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); running = false; if (canvas.parentNode) canvas.parentNode.removeChild(canvas); heroVisual.classList.remove('is-webgl'); }, false);
-      const clock = new THREE.Clock(); let elapsed = 0;
-      const animate = () => { requestAnimationFrame(animate); const delta = Math.min(clock.getDelta(), 0.1); if (!running) return; elapsed += delta; const k = 1 - Math.exp(-delta * 4.5); const targetX = tX + gX * 0.38; const targetY = tY + gY * 0.6; cX += (targetX - cX) * k; cY += (targetY - cY) * k; group.rotation.y = elapsed * 0.28 + cY; group.rotation.x = cX + scrollT * 0.22; group.position.y = scrollT * 1.05; group.position.z = scrollT * -0.55; orbit1.rotation.z += delta * 0.16; orbit2.rotation.z -= delta * 0.12; renderer.render(scene, camera); };
-      heroVisual.classList.add('is-webgl'); resize(); window.addEventListener('resize', resize, { passive: true }); clock.start(); animate();
+
+      if (typeof DeviceOrientationEvent !== 'undefined' &&
+          typeof DeviceOrientationEvent.requestPermission === 'function') {
+        gyroBtn.hidden = false;
+        gyroBtn.addEventListener('click', async () => {
+          try {
+            const res = await DeviceOrientationEvent.requestPermission();
+            if (res === 'granted') {
+              gyroOn = true;
+              gyroBtn.classList.add('is-on');
+              gyroBtn.setAttribute('aria-pressed', 'true');
+              gyroBtn.querySelector('span').textContent = 'Наклон включён';
+            }
+          } catch (err) { /* игнорируем */ }
+        }, { once: false });
+      } else if ('DeviceOrientationEvent' in window) {
+        gyroOn = true;
+      }
+
+      /* --- scroll parallax --- */
+      let scrollT = 0;
+      const onScroll = () => {
+        scrollT = Math.min(1, Math.max(0, window.scrollY / (window.innerHeight || 1)));
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* --- pause logic --- */
+      let inView = true;
+      let running = true;
+      const io = new IntersectionObserver((entries) => {
+        inView = entries[0].isIntersecting;
+        running = inView && !document.hidden;
+      }, { rootMargin: '120px' });
+      io.observe(heroVisual);
+      document.addEventListener('visibilitychange', () => {
+        running = inView && !document.hidden;
+      });
+
+      canvas.addEventListener('webglcontextlost', (e) => {
+        e.preventDefault();
+        running = false;
+        if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+        heroVisual.classList.remove('is-webgl');
+      }, false);
+
+      /* --- loop --- */
+      const clock = new THREE.Clock();
+      let elapsed = 0;
+      const animate = () => {
+        requestAnimationFrame(animate);
+        const delta = Math.min(clock.getDelta(), 0.1);
+        if (!running) return;
+        elapsed += delta;
+
+        const k = 1 - Math.exp(-delta * 4.5);
+        const targetX = tX + gX * 0.38;
+        const targetY = tY + gY * 0.6;
+        cX += (targetX - cX) * k;
+        cY += (targetY - cY) * k;
+
+        group1.rotation.y = elapsed * 0.28 + cY;
+        group1.rotation.x = cX + scrollT * 0.22;
+        group1.position.y = scrollT * 1.05;
+        group1.position.z = scrollT * -0.55;
+
+        orbit1.rotation.z += delta * 0.16;
+        orbit2.rotation.z -= delta * 0.12;
+
+        renderer.render(scene, camera);
+      };
+
+      heroVisual.classList.add('is-webgl');
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+      clock.start();
+      animate();
     }
-    if (document.readyState === 'complete') boot3D(); else window.addEventListener('load', boot3D, { once: true });
+
+    if (document.readyState === 'complete') boot3D();
+    else window.addEventListener('load', boot3D, { once: true });
   </script>
 </body>
 </html>

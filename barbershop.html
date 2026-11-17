@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru" class="no-js">
 <head>
 <meta charset="UTF-8">
@@ -42,169 +42,349 @@
   *,*::before,*::after{ box-sizing: border-box; }
   html{ scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
   html,body{ overflow-x: hidden; }
-  body{ margin:0; background: var(--bg); color: var(--ink); font-family: var(--font-text); font-weight:300; font-size:18px; line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; color-scheme:dark; }
-  body::after{ content:""; position:fixed; inset:0; z-index:2000; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); opacity:0.05; mix-blend-mode:overlay; }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-text);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    color-scheme: dark;
+  }
+  body::after{ /* grain */
+    content: "";
+    position: fixed; inset: 0; z-index: 2000;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+  }
   ::selection{ background: var(--lime); color: var(--bg); }
-  img{ max-width:100%; display:block; }
-  a{ color:inherit; text-decoration:none; }
-  button{ font-family:inherit; cursor:pointer; }
-  .container{ width:100%; max-width:1240px; margin:0 auto; padding-left:var(--pad); padding-right:var(--pad); }
-  h1,h2,h3,h4{ font-family:var(--font-display); font-weight:400; text-transform:uppercase; line-height:1.02; margin:0; letter-spacing:0.01em; }
-  h2{ font-size:clamp(30px, 4.6vw, 58px); }
-  h3{ font-size:clamp(20px, 2.4vw, 28px); }
-  .mono{ font-family:var(--font-mono); }
-  .accent{ color:var(--lime); }
-  .khaki{ color:var(--khaki); }
-  .js .reveal{ opacity:0; transform:translateY(26px); transition:opacity .9s var(--ease), transform .9s var(--ease); transition-delay:var(--d, 0ms); }
-  .js .reveal.is-inview{ opacity:1; transform:none; }
-  .header{ position:fixed; top:0; left:0; right:0; z-index:1000; height:var(--header-h); display:flex; align-items:center; transition:background .4s var(--ease), border-color .4s var(--ease), backdrop-filter .4s var(--ease); border-bottom:1px solid transparent; }
-  .header.is-scrolled{ background:rgba(14,15,12,0.78); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom-color:var(--line); }
-  .header__inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; width:100%; }
-  .logo{ display:inline-flex; align-items:center; gap:12px; font-family:var(--font-display); font-size:22px; letter-spacing:0.04em; text-transform:uppercase; }
-  .logo__mark{ width:34px; height:34px; display:grid; place-items:center; flex:0 0 auto; background:var(--lime); color:var(--bg); clip-path:polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px)); font-size:20px; font-weight:600; }
-  .nav{ display:flex; align-items:center; gap:34px; }
-  .nav a{ font-family:var(--font-mono); font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-dim); position:relative; padding:6px 0; transition:color .3s var(--ease); }
-  .nav a::after{ content:""; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--lime); transition:width .35s var(--ease); }
-  .nav a:hover{ color:var(--ink); }
-  .nav a:hover::after{ width:100%; }
-  .nav__num{ color:var(--khaki); margin-right:5px; font-weight:500; }
-  .burger{ display:none; background:none; border:1px solid var(--line-strong); color:var(--ink); width:46px; height:46px; position:relative; }
-  .burger span{ position:absolute; left:13px; right:13px; height:2px; background:currentColor; transition:transform .35s var(--ease), opacity .25s; }
-  .burger span:nth-child(1){ top:17px; }
-  .burger span:nth-child(2){ top:22px; }
-  .burger span:nth-child(3){ top:27px; }
-  .burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(5px) rotate(45deg); }
-  .burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
-  .burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-5px) rotate(-45deg); }
-  .btn{ --cut:12px; display:inline-flex; align-items:center; justify-content:center; gap:10px; font-family:var(--font-mono); font-size:13px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:17px 26px; line-height:1; clip-path:polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut))); transition:background .3s var(--ease), color .3s var(--ease), transform .3s var(--ease), filter .3s var(--ease); border:1px solid transparent; position:relative; overflow:hidden; }
-  .btn--primary{ background:var(--lime); color:var(--bg); }
-  .btn--primary:hover{ background:#d5e04f; transform:translateY(-2px); filter:drop-shadow(0 10px 22px rgba(198,209,71,0.22)); }
-  .btn--ghost{ background:transparent; color:var(--ink); border-color:var(--line-strong); }
-  .btn--ghost:hover{ border-color:var(--lime); color:var(--lime); transform:translateY(-2px); }
-  .btn--lg{ padding:20px 34px; font-size:14px; }
-  .btn .arr{ transition:transform .3s var(--ease); }
-  .btn:hover .arr{ transform:translateX(4px); }
-  .hero{ position:relative; padding-top:calc(var(--header-h) + clamp(30px, 7vh, 90px)); padding-bottom:clamp(30px, 6vh, 80px); min-height:100svh; display:flex; align-items:center; overflow:hidden; }
-  .hero::before{ content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(60% 55% at 78% 40%, rgba(138,154,91,0.16), transparent 60%), radial-gradient(45% 45% at 12% 90%, rgba(198,209,71,0.06), transparent 60%); }
-  .hero__grid{ display:grid; grid-template-columns:1fr; gap:clamp(28px, 5vw, 60px); align-items:center; }
-  .eyebrow{ display:inline-flex; align-items:center; gap:12px; font-family:var(--font-mono); font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--khaki); margin-bottom:24px; }
-  .eyebrow::before{ content:""; width:34px; height:1px; background:var(--khaki); }
-  .hero__title{ font-size:clamp(40px, 7.4vw, 96px); letter-spacing:0.01em; margin-bottom:22px; }
-  .hero__title .accent{ color:var(--lime); }
-  .hero__sub{ max-width:540px; color:var(--ink-dim); font-size:clamp(17px, 2vw, 21px); font-weight:300; margin-bottom:34px; }
-  .hero__cta{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:34px; }
-  .hero__meta{ display:flex; flex-wrap:wrap; gap:10px 28px; font-family:var(--font-mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); }
-  .hero__meta b{ color:var(--ink); font-weight:500; }
-  .scene{ position:relative; min-height:340px; height:100%; width:100%; pointer-events:none; }
-  .scene canvas{ position:absolute; inset:0; width:100% !important; height:100% !important; display:block; opacity:0; transition:opacity 1s var(--ease); }
-  .is-webgl .scene canvas{ opacity:1; }
-  .scene__fallback{ position:absolute; inset:0; display:grid; place-items:center; overflow:hidden; transition:opacity .8s var(--ease); }
-  .is-webgl .scene__fallback{ opacity:0; }
-  .shard{ position:relative; width:min(240px, 62vw); height:min(240px, 62vw); background:radial-gradient(120% 120% at 30% 20%, #2b2f22 0%, #171a13 48%, #0b0c09 100%); clip-path:polygon(30% 0, 100% 22%, 72% 100%, 0 82%); animation:shardSpin 22s linear infinite; box-shadow:inset 0 0 0 1px rgba(198,209,71,0.28), 0 30px 80px rgba(0,0,0,0.6); }
-  .shard::after{ content:""; position:absolute; inset:0; border-top:2px solid var(--lime); opacity:0.5; }
-  .ring{ position:absolute; top:0; bottom:0; left:0; right:0; margin:auto; border:1px dashed var(--line-strong); border-radius:50%; }
-  .ring--1{ width:320px; height:320px; animation:shardSpin 40s linear infinite reverse; border-color:rgba(138,154,91,0.5); }
-  .ring--2{ width:430px; height:430px; animation:shardSpin 60s linear infinite; border-color:rgba(198,209,71,0.28); }
-  @keyframes shardSpin{ to{ transform:rotate(360deg); } }
-  .gyro-toggle{ position:absolute; right:8px; bottom:8px; z-index:2; display:none; align-items:center; gap:8px; pointer-events:auto; background:rgba(14,15,12,0.6); border:1px solid var(--line-strong); color:var(--ink-dim); font-family:var(--font-mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; padding:9px 12px; backdrop-filter:blur(6px); }
-  .gyro-toggle.is-on{ color:var(--lime); border-color:var(--lime); }
-  .gyro-toggle svg{ width:14px; height:14px; }
-  .ticker{ overflow:hidden; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0; background:var(--bg-2); }
-  .ticker__track{ display:flex; width:max-content; animation:marquee 26s linear infinite; }
-  .ticker__chunk{ display:flex; align-items:center; gap:28px; padding-right:28px; white-space:nowrap; font-family:var(--font-mono); font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-dim); }
-  .ticker__chunk i{ color:var(--lime); font-style:normal; }
-  @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-  section{ padding-top:clamp(60px, 10vw, 130px); padding-bottom:clamp(60px, 10vw, 130px); position:relative; }
-  .sec-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:clamp(34px, 6vw, 70px); flex-wrap:wrap; }
-  .sec-head__num{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.22em; color:var(--khaki); text-transform:uppercase; margin-bottom:16px; display:block; }
-  .sec-head__num::before{ content:"/ "; }
-  .sec-head__lead{ max-width:460px; color:var(--ink-dim); font-weight:300; }
-  .stats{ background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-  .stats__grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
-  .stat{ background:var(--bg-2); padding:clamp(26px, 4vw, 48px); position:relative; }
-  .stat__num{ font-family:var(--font-display); font-size:clamp(38px, 6vw, 72px); color:var(--ink); line-height:1; }
-  .stat__num .unit{ color:var(--lime); }
-  .stat__label{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-dim); margin-top:12px; }
-  .services__list{ display:flex; flex-direction:column; border-top:1px solid var(--line-strong); }
-  .service{ display:grid; grid-template-columns:56px 1fr auto; gap:20px; align-items:center; padding:clamp(20px, 3vw, 30px) 4px; border-bottom:1px solid var(--line); transition:background .35s var(--ease), padding-left .35s var(--ease); position:relative; }
-  .service:hover{ background:rgba(138,154,91,0.06); padding-left:16px; }
-  .service__idx{ font-family:var(--font-mono); font-size:13px; color:var(--khaki); letter-spacing:0.1em; }
-  .service__name{ font-family:var(--font-display); font-size:clamp(18px, 2.6vw, 30px); text-transform:uppercase; line-height:1.1; }
-  .service__desc{ font-weight:300; color:var(--ink-dim); font-size:15px; margin-top:6px; }
-  .service__price{ font-family:var(--font-mono); font-size:clamp(16px, 2vw, 20px); color:var(--lime); white-space:nowrap; text-align:right; }
-  .service__price small{ display:block; color:var(--ink-faint); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; margin-top:5px; }
-  .fix-banner{ margin-top:30px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; border:1px dashed var(--khaki); padding:18px 22px; background:rgba(138,154,91,0.06); clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px)); }
-  .fix-banner__badge{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--bg); background:var(--khaki); padding:6px 10px; }
-  .fix-banner p{ margin:0; font-family:var(--font-mono); font-size:13px; letter-spacing:0.06em; color:var(--ink-dim); }
-  .fix-banner b{ color:var(--lime); font-weight:500; }
-  .masters__grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
-  .master{ border:1px solid var(--line); padding:clamp(24px, 3vw, 34px); position:relative; clip-path:polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%, 0 0); background:linear-gradient(160deg, #14160f 0%, #10120c 100%); transition:transform .4s var(--ease), border-color .4s var(--ease); }
-  .master:hover{ transform:translateY(-6px); border-color:rgba(198,209,71,0.45); }
-  .master__mono{ width:78px; height:78px; display:grid; place-items:center; margin-bottom:22px; font-family:var(--font-display); font-size:30px; color:var(--bg); background:var(--khaki); clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px)); }
-  .master__name{ font-size:21px; margin-bottom:4px; }
-  .master__role{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--lime); margin-bottom:14px; }
-  .master__text{ color:var(--ink-dim); font-weight:300; font-size:15px; margin:0; }
-  .master__years{ position:absolute; top:22px; right:22px; font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); letter-spacing:0.1em; }
-  .gallery{ display:grid; grid-template-columns:repeat(12, 1fr); grid-auto-rows:220px; gap:16px; }
-  .g-item{ position:relative; overflow:hidden; clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%, 0 0); }
-  .g-item--a{ grid-column:span 7; grid-row:span 2; }
-  .g-item--b{ grid-column:span 5; }
-  .g-item--c{ grid-column:span 5; }
-  .g-item--d{ grid-column:span 12; grid-row:span 1; }
-  .g-item img{ width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease), filter .7s var(--ease); filter:saturate(0.9) contrast(1.05); }
-  .g-item:hover img{ transform:scale(1.05); }
-  .g-item__tag{ position:absolute; left:16px; bottom:14px; font-family:var(--font-mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--bg); background:var(--lime); padding:6px 9px; z-index:2; }
-  .g-item{ background:linear-gradient(135deg, #2a2f1e 0%, #14160f 55%, #0b0c09 100%); }
-  .process{ background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-  .process__grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
-  .step{ border-left:1px solid var(--line-strong); padding:6px 0 6px 26px; position:relative; }
-  .step::before{ content:""; position:absolute; left:-5px; top:8px; width:9px; height:9px; background:var(--lime); clip-path:polygon(0 0, 100% 50%, 0 100%); }
-  .step__num{ font-family:var(--font-display); font-size:46px; color:var(--khaki); line-height:1; margin-bottom:14px; }
-  .step__title{ font-family:var(--font-display); font-size:19px; text-transform:uppercase; margin-bottom:10px; }
-  .step__text{ color:var(--ink-dim); font-weight:300; font-size:15px; margin:0; }
-  .reviews__grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:18px; }
-  .review{ border:1px solid var(--line); padding:clamp(26px, 3vw, 40px); position:relative; background:linear-gradient(160deg, #14160f, #0e100b); }
-  .review::before{ content:"\201C"; position:absolute; top:4px; right:22px; font-family:var(--font-display); font-size:90px; color:rgba(198,209,71,0.16); line-height:1; }
-  .review__stars{ color:var(--lime); letter-spacing:3px; font-size:15px; margin-bottom:16px; }
-  .review__text{ font-size:clamp(17px, 2vw, 20px); font-weight:300; line-height:1.5; margin-bottom:20px; }
-  .review__author{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--khaki); }
-  .contacts__grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:clamp(28px, 5vw, 64px); align-items:start; }
-  .contacts__phone{ font-family:var(--font-display); font-size:clamp(26px, 4.4vw, 52px); color:var(--ink); display:inline-block; margin-bottom:10px; transition:color .3s var(--ease); }
-  .contacts__phone:hover{ color:var(--lime); }
-  .contacts__label{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:6px; }
-  .contacts__row{ margin-bottom:30px; }
-  .contacts__cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:36px; }
-  .contacts__card{ border:1px solid var(--line); padding:28px; background:var(--bg-2); clip-path:polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%, 0 0); }
-  .stamp{ display:inline-grid; place-items:center; margin-top:40px; border:2px solid var(--khaki); border-radius:50%; width:118px; height:118px; font-family:var(--font-mono); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--khaki); transform:rotate(-9deg); text-align:center; line-height:1.7; background:radial-gradient(circle, rgba(138,154,91,0.08), transparent 70%); animation:shardSpin 40s linear infinite; }
-  .stamp span{ display:block; font-family:var(--font-display); font-size:16px; color:var(--lime); letter-spacing:0.1em; }
-  .footer{ border-top:1px solid var(--line); padding:40px 0 48px; }
-  .footer__top{ display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:30px; }
-  .footer__credit{ font-family:var(--font-mono); font-size:13px; letter-spacing:0.1em; color:var(--ink-dim); }
-  .footer__credit a{ color:var(--lime); border-bottom:1px solid transparent; transition:border-color .3s var(--ease); }
-  .footer__credit a:hover{ border-bottom-color:var(--lime); }
-  .footer__demo{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); border:1px dashed var(--line-strong); padding:6px 10px; }
-  .footer__disclaimer{ color:var(--ink-faint); font-size:13px; font-weight:300; max-width:640px; margin:0; }
-  .footer__bottom{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); letter-spacing:0.06em; margin-top:26px; padding-top:22px; border-top:1px solid var(--line); }
-  .mnav{ position:fixed; inset:0; z-index:990; background:rgba(14,15,12,0.97); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:opacity .4s var(--ease), visibility .4s; }
-  .mnav.is-open{ opacity:1; visibility:visible; }
-  .mnav__list{ display:flex; flex-direction:column; gap:8px; text-align:center; }
-  .mnav a{ font-family:var(--font-display); font-size:clamp(26px, 7vw, 40px); text-transform:uppercase; padding:12px 24px; transition:color .3s var(--ease), transform .3s var(--ease); }
-  .mnav a:hover{ color:var(--lime); transform:translateX(6px); }
-  .mnav__num{ font-family:var(--font-mono); font-size:12px; color:var(--khaki); letter-spacing:0.2em; display:block; margin-bottom:2px; }
-  @media (max-width: 900px){ .nav{ display:none; } .header .btn{ display:none; } .burger{ display:block; } .hero__grid{ grid-template-columns:1fr; } .scene{ min-height:300px; } .masters__grid{ grid-template-columns:1fr; } .process__grid{ grid-template-columns:1fr; gap:30px; } .reviews__grid{ grid-template-columns:1fr; } .contacts__grid{ grid-template-columns:1fr; } .g-item--a,.g-item--b,.g-item--c,.g-item--d{ grid-column:span 12; grid-row:span 1; } .gallery{ grid-auto-rows:240px; } .service{ grid-template-columns:36px 1fr; } .service__price{ grid-column:2; text-align:left; } .gyro-toggle{ display:inline-flex; } }
-  @media (pointer: coarse){ .gyro-toggle{ display:inline-flex; } }
-  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } *,*::before,*::after{ animation:none !important; transition:none !important; } .js .reveal{ opacity:1 !important; transform:none !important; } .shard,.ring,.stamp{ animation:none !important; } }
+  img{ max-width: 100%; display: block; }
+  a{ color: inherit; text-decoration: none; }
+  button{ font-family: inherit; cursor: pointer; }
+
+  .container{ width: 100%; max-width: 1240px; margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
+
+  h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 400; text-transform: uppercase; line-height: 1.02; margin: 0; letter-spacing: 0.01em; }
+  h2{ font-size: clamp(30px, 4.6vw, 58px); }
+  h3{ font-size: clamp(20px, 2.4vw, 28px); }
+
+  .mono{ font-family: var(--font-mono); }
+  .accent{ color: var(--lime); }
+  .khaki{ color: var(--khaki); }
+
+  /* ---------- reveal ---------- */
+  .js .reveal{ opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0ms); }
+  .js .reveal.is-inview{ opacity: 1; transform: none; }
+
+  /* ---------- header ---------- */
+  .header{
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    height: var(--header-h);
+    display: flex; align-items: center;
+    transition: background .4s var(--ease), border-color .4s var(--ease), backdrop-filter .4s var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  .header.is-scrolled{ background: rgba(14,15,12,0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: var(--line); }
+  .header__inner{ display: flex; align-items: center; justify-content: space-between; gap: 24px; width: 100%; }
+  .logo{ display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .logo__mark{
+    width: 34px; height: 34px; display: grid; place-items: center; flex: 0 0 auto;
+    background: var(--lime); color: var(--bg);
+    clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+    font-size: 20px; font-weight: 600;
+  }
+  .nav{ display: flex; align-items: center; gap: 34px; }
+  .nav a{
+    font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-dim); position: relative; padding: 6px 0;
+    transition: color .3s var(--ease);
+  }
+  .nav a::after{
+    content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0;
+    background: var(--lime); transition: width .35s var(--ease);
+  }
+  .nav a:hover{ color: var(--ink); }
+  .nav a:hover::after{ width: 100%; }
+  .nav__num{ color: var(--khaki); margin-right: 5px; font-weight: 500; }
+
+  .burger{ display: none; background: none; border: 1px solid var(--line-strong); color: var(--ink); width: 46px; height: 46px; position: relative; }
+  .burger span{ position: absolute; left: 13px; right: 13px; height: 2px; background: currentColor; transition: transform .35s var(--ease), opacity .25s; }
+  .burger span:nth-child(1){ top: 17px; }
+  .burger span:nth-child(2){ top: 22px; }
+  .burger span:nth-child(3){ top: 27px; }
+  .burger[aria-expanded="true"] span:nth-child(1){ transform: translateY(5px) rotate(45deg); }
+  .burger[aria-expanded="true"] span:nth-child(2){ opacity: 0; }
+  .burger[aria-expanded="true"] span:nth-child(3){ transform: translateY(-5px) rotate(-45deg); }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    --cut: 12px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font-family: var(--font-mono); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 17px 26px; line-height: 1;
+    clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
+    transition: background .3s var(--ease), color .3s var(--ease), transform .3s var(--ease), filter .3s var(--ease);
+    border: 1px solid transparent;
+    position: relative; overflow: hidden;
+  }
+  .btn--primary{ background: var(--lime); color: var(--bg); }
+  .btn--primary:hover{ background: #d5e04f; transform: translateY(-2px); filter: drop-shadow(0 10px 22px rgba(198,209,71,0.22)); }
+  .btn--ghost{ background: transparent; color: var(--ink); border-color: var(--line-strong); }
+  .btn--ghost:hover{ border-color: var(--lime); color: var(--lime); transform: translateY(-2px); }
+  .btn--lg{ padding: 20px 34px; font-size: 14px; }
+  .btn .arr{ transition: transform .3s var(--ease); }
+  .btn:hover .arr{ transform: translateX(4px); }
+
+  /* ---------- hero ---------- */
+  .hero{ position: relative; padding-top: calc(var(--header-h) + clamp(30px, 7vh, 90px)); padding-bottom: clamp(30px, 6vh, 80px); min-height: 100svh; display: flex; align-items: center; overflow: hidden; }
+  .hero::before{
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background:
+      radial-gradient(60% 55% at 78% 40%, rgba(138,154,91,0.16), transparent 60%),
+      radial-gradient(45% 45% at 12% 90%, rgba(198,209,71,0.06), transparent 60%);
+  }
+  .hero__grid{ display: grid; grid-template-columns: 1fr; gap: clamp(28px, 5vw, 60px); align-items: center; }
+  .eyebrow{
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--khaki);
+    margin-bottom: 24px;
+  }
+  .eyebrow::before{ content: ""; width: 34px; height: 1px; background: var(--khaki); }
+  .hero__title{ font-size: clamp(40px, 7.4vw, 96px); letter-spacing: 0.01em; margin-bottom: 22px; }
+  .hero__title .accent{ color: var(--lime); }
+  .hero__sub{ max-width: 540px; color: var(--ink-dim); font-size: clamp(17px, 2vw, 21px); font-weight: 300; margin-bottom: 34px; }
+  .hero__cta{ display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 34px; }
+  .hero__meta{ display: flex; flex-wrap: wrap; gap: 10px 28px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+  .hero__meta b{ color: var(--ink); font-weight: 500; }
+
+  /* ---------- 3D scene ---------- */
+  .scene{ position: relative; min-height: 340px; height: 100%; width: 100%; pointer-events: none; }
+  .scene canvas{ position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; opacity: 0; transition: opacity 1s var(--ease); }
+  .is-webgl .scene canvas{ opacity: 1; }
+  .scene__fallback{
+    position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden;
+    transition: opacity .8s var(--ease);
+  }
+  .is-webgl .scene__fallback{ opacity: 0; }
+  .shard{
+    position: relative; width: min(240px, 62vw); height: min(240px, 62vw);
+    background:
+      radial-gradient(120% 120% at 30% 20%, #2b2f22 0%, #171a13 48%, #0b0c09 100%);
+    clip-path: polygon(30% 0, 100% 22%, 72% 100%, 0 82%);
+    animation: shardSpin 22s linear infinite;
+    box-shadow: inset 0 0 0 1px rgba(198,209,71,0.28), 0 30px 80px rgba(0,0,0,0.6);
+  }
+  .shard::after{ content: ""; position: absolute; inset: 0; border-top: 2px solid var(--lime); opacity: 0.5; }
+  .ring{ position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto; border: 1px dashed var(--line-strong); border-radius: 50%; }
+  .ring--1{ width: 320px; height: 320px; animation: shardSpin 40s linear infinite reverse; border-color: rgba(138,154,91,0.5); }
+  .ring--2{ width: 430px; height: 430px; animation: shardSpin 60s linear infinite; border-color: rgba(198,209,71,0.28); }
+  @keyframes shardSpin{ to{ transform: rotate(360deg); } }
+  .gyro-toggle{
+    position: absolute; right: 8px; bottom: 8px; z-index: 2;
+    display: none; align-items: center; gap: 8px; pointer-events: auto;
+    background: rgba(14,15,12,0.6); border: 1px solid var(--line-strong); color: var(--ink-dim);
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 9px 12px; backdrop-filter: blur(6px);
+  }
+  .gyro-toggle.is-on{ color: var(--lime); border-color: var(--lime); }
+  .gyro-toggle svg{ width: 14px; height: 14px; }
+
+  /* ---------- ticker ---------- */
+  .ticker{ overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 16px 0; background: var(--bg-2); }
+  .ticker__track{ display: flex; width: max-content; animation: marquee 26s linear infinite; }
+  .ticker__chunk{
+    display: flex; align-items: center; gap: 28px; padding-right: 28px; white-space: nowrap;
+    font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-dim);
+  }
+  .ticker__chunk i{ color: var(--lime); font-style: normal; }
+  @keyframes marquee{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
+
+  /* ---------- sections ---------- */
+  section{ padding-top: clamp(60px, 10vw, 130px); padding-bottom: clamp(60px, 10vw, 130px); position: relative; }
+  .sec-head{ display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: clamp(34px, 6vw, 70px); flex-wrap: wrap; }
+  .sec-head__num{ font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.22em; color: var(--khaki); text-transform: uppercase; margin-bottom: 16px; display: block; }
+  .sec-head__num::before{ content: "/ "; }
+  .sec-head__lead{ max-width: 460px; color: var(--ink-dim); font-weight: 300; }
+
+  /* ---------- stats ---------- */
+  .stats{ background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stats__grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .stat{ background: var(--bg-2); padding: clamp(26px, 4vw, 48px); position: relative; }
+  .stat__num{ font-family: var(--font-display); font-size: clamp(38px, 6vw, 72px); color: var(--ink); line-height: 1; }
+  .stat__num .unit{ color: var(--lime); }
+  .stat__label{ font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim); margin-top: 12px; }
+
+  /* ---------- services ---------- */
+  .services__list{ display: flex; flex-direction: column; border-top: 1px solid var(--line-strong); }
+  .service{
+    display: grid; grid-template-columns: 56px 1fr auto; gap: 20px; align-items: center;
+    padding: clamp(20px, 3vw, 30px) 4px;
+    border-bottom: 1px solid var(--line);
+    transition: background .35s var(--ease), padding-left .35s var(--ease);
+    position: relative;
+  }
+  .service:hover{ background: rgba(138,154,91,0.06); padding-left: 16px; }
+  .service__idx{ font-family: var(--font-mono); font-size: 13px; color: var(--khaki); letter-spacing: 0.1em; }
+  .service__name{ font-family: var(--font-display); font-size: clamp(18px, 2.6vw, 30px); text-transform: uppercase; line-height: 1.1; }
+  .service__desc{ font-weight: 300; color: var(--ink-dim); font-size: 15px; margin-top: 6px; }
+  .service__price{ font-family: var(--font-mono); font-size: clamp(16px, 2vw, 20px); color: var(--lime); white-space: nowrap; text-align: right; }
+  .service__price small{ display: block; color: var(--ink-faint); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 5px; }
+  .fix-banner{
+    margin-top: 30px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    border: 1px dashed var(--khaki); padding: 18px 22px; background: rgba(138,154,91,0.06);
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  }
+  .fix-banner__badge{ font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bg); background: var(--khaki); padding: 6px 10px; }
+  .fix-banner p{ margin: 0; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; color: var(--ink-dim); }
+  .fix-banner b{ color: var(--lime); font-weight: 500; }
+
+  /* ---------- masters ---------- */
+  .masters__grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .master{
+    border: 1px solid var(--line); padding: clamp(24px, 3vw, 34px); position: relative;
+    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%, 0 0);
+    background: linear-gradient(160deg, #14160f 0%, #10120c 100%);
+    transition: transform .4s var(--ease), border-color .4s var(--ease);
+  }
+  .master:hover{ transform: translateY(-6px); border-color: rgba(198,209,71,0.45); }
+  .master__mono{
+    width: 78px; height: 78px; display: grid; place-items: center; margin-bottom: 22px;
+    font-family: var(--font-display); font-size: 30px; color: var(--bg); background: var(--khaki);
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  }
+  .master__name{ font-size: 21px; margin-bottom: 4px; }
+  .master__role{ font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lime); margin-bottom: 14px; }
+  .master__text{ color: var(--ink-dim); font-weight: 300; font-size: 15px; margin: 0; }
+  .master__years{ position: absolute; top: 22px; right: 22px; font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); letter-spacing: 0.1em; }
+
+  /* ---------- gallery ---------- */
+  .gallery{ display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 220px; gap: 16px; }
+  .g-item{ position: relative; overflow: hidden; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%, 0 0); }
+  .g-item--a{ grid-column: span 7; grid-row: span 2; }
+  .g-item--b{ grid-column: span 5; }
+  .g-item--c{ grid-column: span 5; }
+  .g-item--d{ grid-column: span 12; grid-row: span 1; }
+  .g-item img{ width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease), filter .7s var(--ease); filter: saturate(0.9) contrast(1.05); }
+  .g-item:hover img{ transform: scale(1.05); }
+  .g-item__tag{ position: absolute; left: 16px; bottom: 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bg); background: var(--lime); padding: 6px 9px; z-index: 2; }
+  /* gradient fallback panels */
+  .g-item{ background: linear-gradient(135deg, #2a2f1e 0%, #14160f 55%, #0b0c09 100%); }
+
+  /* ---------- process ---------- */
+  .process{ background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .process__grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .step{ border-left: 1px solid var(--line-strong); padding: 6px 0 6px 26px; position: relative; }
+  .step::before{ content: ""; position: absolute; left: -5px; top: 8px; width: 9px; height: 9px; background: var(--lime); clip-path: polygon(0 0, 100% 50%, 0 100%); }
+  .step__num{ font-family: var(--font-display); font-size: 46px; color: var(--khaki); line-height: 1; margin-bottom: 14px; }
+  .step__title{ font-family: var(--font-display); font-size: 19px; text-transform: uppercase; margin-bottom: 10px; }
+  .step__text{ color: var(--ink-dim); font-weight: 300; font-size: 15px; margin: 0; }
+
+  /* ---------- reviews ---------- */
+  .reviews__grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .review{ border: 1px solid var(--line); padding: clamp(26px, 3vw, 40px); position: relative; background: linear-gradient(160deg, #14160f, #0e100b); }
+  .review::before{ content: "\201C"; position: absolute; top: 4px; right: 22px; font-family: var(--font-display); font-size: 90px; color: rgba(198,209,71,0.16); line-height: 1; }
+  .review__stars{ color: var(--lime); letter-spacing: 3px; font-size: 15px; margin-bottom: 16px; }
+  .review__text{ font-size: clamp(17px, 2vw, 20px); font-weight: 300; line-height: 1.5; margin-bottom: 20px; }
+  .review__author{ font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--khaki); }
+
+  /* ---------- contacts ---------- */
+  .contacts__grid{ display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+  .contacts__phone{ font-family: var(--font-display); font-size: clamp(26px, 4.4vw, 52px); color: var(--ink); display: inline-block; margin-bottom: 10px; transition: color .3s var(--ease); }
+  .contacts__phone:hover{ color: var(--lime); }
+  .contacts__label{ font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; }
+  .contacts__row{ margin-bottom: 30px; }
+  .contacts__cta{ display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .contacts__card{
+    border: 1px solid var(--line); padding: 28px; background: var(--bg-2);
+    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%, 0 0);
+  }
+  .stamp{
+    display: inline-grid; place-items: center; margin-top: 40px;
+    border: 2px solid var(--khaki); border-radius: 50%; width: 118px; height: 118px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--khaki);
+    transform: rotate(-9deg); text-align: center; line-height: 1.7;
+    background: radial-gradient(circle, rgba(138,154,91,0.08), transparent 70%);
+    animation: shardSpin 40s linear infinite;
+  }
+  .stamp span{ display: block; font-family: var(--font-display); font-size: 16px; color: var(--lime); letter-spacing: 0.1em; }
+
+  /* ---------- footer ---------- */
+  .footer{ border-top: 1px solid var(--line); padding: 40px 0 48px; }
+  .footer__top{ display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+  .footer__credit{ font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.1em; color: var(--ink-dim); }
+  .footer__credit a{ color: var(--lime); border-bottom: 1px solid transparent; transition: border-color .3s var(--ease); }
+  .footer__credit a:hover{ border-bottom-color: var(--lime); }
+  .footer__demo{ font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); border: 1px dashed var(--line-strong); padding: 6px 10px; }
+  .footer__disclaimer{ color: var(--ink-faint); font-size: 13px; font-weight: 300; max-width: 640px; margin: 0; }
+  .footer__bottom{ display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); letter-spacing: 0.06em; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+
+  /* ---------- mobile menu ---------- */
+  .mnav{
+    position: fixed; inset: 0; z-index: 990; background: rgba(14,15,12,0.97);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: opacity .4s var(--ease), visibility .4s;
+  }
+  .mnav.is-open{ opacity: 1; visibility: visible; }
+  .mnav__list{ display: flex; flex-direction: column; gap: 8px; text-align: center; }
+  .mnav a{ font-family: var(--font-display); font-size: clamp(26px, 7vw, 40px); text-transform: uppercase; padding: 12px 24px; transition: color .3s var(--ease), transform .3s var(--ease); }
+  .mnav a:hover{ color: var(--lime); transform: translateX(6px); }
+  .mnav__num{ font-family: var(--font-mono); font-size: 12px; color: var(--khaki); letter-spacing: 0.2em; display: block; margin-bottom: 2px; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px){
+    .nav{ display: none; }
+    .header .btn{ display: none; }
+    .burger{ display: block; }
+    .hero__grid{ grid-template-columns: 1fr; }
+    .scene{ min-height: 300px; }
+    .masters__grid{ grid-template-columns: 1fr; }
+    .process__grid{ grid-template-columns: 1fr; gap: 30px; }
+    .reviews__grid{ grid-template-columns: 1fr; }
+    .contacts__grid{ grid-template-columns: 1fr; }
+    .g-item--a,.g-item--b,.g-item--c,.g-item--d{ grid-column: span 12; grid-row: span 1; }
+    .gallery{ grid-auto-rows: 240px; }
+    .service{ grid-template-columns: 36px 1fr; }
+    .service__price{ grid-column: 2; text-align: left; }
+    .gyro-toggle{ display: inline-flex; }
+  }
+  @media (pointer: coarse){
+    .gyro-toggle{ display: inline-flex; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *,*::before,*::after{ animation: none !important; transition: none !important; }
+    .js .reveal{ opacity: 1 !important; transform: none !important; }
+    .shard,.ring,.stamp{ animation: none !important; }
+  }
 </style>
 </head>
 <body>
+
 <header class="header" id="top">
   <div class="container header__inner">
-    <a class="logo" href="#top" aria-label="Бритва — на главную"><span class="logo__mark" aria-hidden="true">Б</span><span>Бритва</span></a>
-    <nav class="nav" aria-label="Основная навигация"><a href="#services"><span class="nav__num">01</span>Услуги</a><a href="#masters"><span class="nav__num">02</span>Мастера</a><a href="#interior"><span class="nav__num">03</span>Интерьер</a><a href="#contacts"><span class="nav__num">06</span>Контакты</a></nav>
+    <a class="logo" href="#top" aria-label="Бритва — на главную">
+      <span class="logo__mark" aria-hidden="true">Б</span>
+      <span>Бритва</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#services"><span class="nav__num">01</span>Услуги</a>
+      <a href="#masters"><span class="nav__num">02</span>Мастера</a>
+      <a href="#interior"><span class="nav__num">03</span>Интерьер</a>
+      <a href="#contacts"><span class="nav__num">06</span>Контакты</a>
+    </nav>
     <a class="btn btn--primary" href="#contacts">Записаться в кресло <span class="arr">→</span></a>
-    <button class="burger" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
 <div class="mnav" id="mnav" aria-hidden="true">
   <nav class="mnav__list" aria-label="Мобильная навигация">
     <a href="#services"><span class="mnav__num">01</span>Услуги</a>
@@ -215,7 +395,9 @@
     <a class="btn btn--primary" href="#contacts" style="margin-top:20px;">Записаться в кресло →</a>
   </nav>
 </div>
+
 <main>
+  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="container">
       <div class="hero__grid">
@@ -223,238 +405,579 @@
           <span class="eyebrow reveal">Мужской барбершоп · Москва</span>
           <h1 class="hero__title reveal" style="--d:80ms;">Стрижка, которая<br><span class="accent">говорит</span> за тебя</h1>
           <p class="hero__sub reveal" style="--d:160ms;">Классика, фейды и королевское бритьё опасной бритвой. Цена фиксируется в момент записи — сюрпризов в кресле не будет.</p>
-          <div class="hero__cta reveal" style="--d:240ms;"><a class="btn btn--primary btn--lg" href="#contacts">Записаться в кресло <span class="arr">→</span></a><a class="btn btn--ghost btn--lg" href="#services">Смотреть услуги</a></div>
-          <div class="hero__meta reveal" style="--d:320ms;"><span><b>60 мин</b> — визит</span><span><b>4.9</b> — рейтинг</span><span><b>12 лет</b> — за креслом</span></div>
+          <div class="hero__cta reveal" style="--d:240ms;">
+            <a class="btn btn--primary btn--lg" href="#contacts">Записаться в кресло <span class="arr">→</span></a>
+            <a class="btn btn--ghost btn--lg" href="#services">Смотреть услуги</a>
+          </div>
+          <div class="hero__meta reveal" style="--d:320ms;">
+            <span><b>60 мин</b> — визит</span>
+            <span><b>4.9</b> — рейтинг</span>
+            <span><b>12 лет</b> — за креслом</span>
+          </div>
         </div>
         <div class="hero__scene">
           <div class="scene" data-scene aria-hidden="true">
-            <div class="scene__fallback"><span class="ring ring--1"></span><span class="ring ring--2"></span><div class="shard"></div></div>
-            <button class="gyro-toggle" id="gyroToggle" type="button" aria-pressed="false" aria-label="Включить наклон по гироскопу"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg>GYRO</button>
+            <div class="scene__fallback">
+              <span class="ring ring--1"></span>
+              <span class="ring ring--2"></span>
+              <div class="shard"></div>
+            </div>
+            <button class="gyro-toggle" id="gyroToggle" type="button" aria-pressed="false" aria-label="Включить наклон по гироскопу">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg>
+              GYRO
+            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- TICKER -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker__track">
       <span class="ticker__chunk">Стрижка <i>/</i> Бритьё <i>/</i> Борода <i>/</i> Запись в кресло <i>/</i> Цена фиксируется <i>/</i> 60 минут <i>/</i> Опасная бритва <i>/</i></span>
       <span class="ticker__chunk">Стрижка <i>/</i> Бритьё <i>/</i> Борода <i>/</i> Запись в кресло <i>/</i> Цена фиксируется <i>/</i> 60 минут <i>/</i> Опасная бритва <i>/</i></span>
     </div>
   </div>
+
+  <!-- STATS -->
   <section class="stats" id="stats">
-    <div class="container"><div class="stats__grid">
-      <div class="stat reveal"><div class="stat__num">60<span class="unit">′</span></div><div class="stat__label">минут — один визит</div></div>
-      <div class="stat reveal" style="--d:60ms;"><div class="stat__num">90<span class="unit">%</span></div><div class="stat__label">приходят снова</div></div>
-      <div class="stat reveal" style="--d:120ms;"><div class="stat__num">12</div><div class="stat__label">лет за креслом</div></div>
-      <div class="stat reveal" style="--d:180ms;"><div class="stat__num">4.9</div><div class="stat__label">рейтинг — 400+ отзывов</div></div>
-    </div></div>
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stat reveal"><div class="stat__num">60<span class="unit">′</span></div><div class="stat__label">минут — один визит</div></div>
+        <div class="stat reveal" style="--d:60ms;"><div class="stat__num">90<span class="unit">%</span></div><div class="stat__label">приходят снова</div></div>
+        <div class="stat reveal" style="--d:120ms;"><div class="stat__num">12</div><div class="stat__label">лет за креслом</div></div>
+        <div class="stat reveal" style="--d:180ms;"><div class="stat__num">4.9</div><div class="stat__label">рейтинг — 400+ отзывов</div></div>
+      </div>
+    </div>
   </section>
+
+  <!-- SERVICES -->
   <section id="services">
     <div class="container">
-      <div class="sec-head"><div class="reveal"><span class="sec-head__num">01 — Прайс</span><h2>Услуги и цены</h2></div><p class="sec-head__lead reveal" style="--d:100ms;">Без воды и «уточним по месту». Видишь цену — она и будет. Фиксируем её в момент записи.</p></div>
-      <div class="services__list">
-        <div class="service reveal"><span class="service__idx">01</span><div><h3 class="service__name">Стрижка</h3><p class="service__desc">Мытьё, стрижка, укладка. Классика и фейд под форму головы.</p></div><span class="service__price">1 500 ₽<small>фикс. при записи</small></span></div>
-        <div class="service reveal" style="--d:40ms;"><span class="service__idx">02</span><div><h3 class="service__name">Стрижка + борода</h3><p class="service__desc">Полный образ: голова и борода в одном визите.</p></div><span class="service__price">2 500 ₽<small>фикс. при записи</small></span></div>
-        <div class="service reveal" style="--d:80ms;"><span class="service__idx">03</span><div><h3 class="service__name">Королевское бритьё</h3><p class="service__desc">Опасная бритва, горячее полотенце, кожа без раздражения.</p></div><span class="service__price">2 000 ₽<small>фикс. при записи</small></span></div>
-        <div class="service reveal" style="--d:120ms;"><span class="service__idx">04</span><div><h3 class="service__name">Оформление бороды</h3><p class="service__desc">Форма, контур, масло. Борода — это характер.</p></div><span class="service__price">1 200 ₽<small>фикс. при записи</small></span></div>
-        <div class="service reveal" style="--d:160ms;"><span class="service__idx">05</span><div><h3 class="service__name">Стрижка машинкой</h3><p class="service__desc">Одна насадка, чистая линия. Быстро и точно.</p></div><span class="service__price">1 100 ₽<small>фикс. при записи</small></span></div>
-        <div class="service reveal" style="--d:200ms;"><span class="service__idx">06</span><div><h3 class="service__name">Комплекс «Отец и сын»</h3><p class="service__desc">Два кресла рядом. Первая стрижка — как ритуал.</p></div><span class="service__price">2 800 ₽<small>фикс. при записи</small></span></div>
+      <div class="sec-head">
+        <div class="reveal">
+          <span class="sec-head__num">01 — Прайс</span>
+          <h2>Услуги и цены</h2>
+        </div>
+        <p class="sec-head__lead reveal" style="--d:100ms;">Без воды и «уточним по месту». Видишь цену — она и будет. Фиксируем её в момент записи.</p>
       </div>
-      <div class="fix-banner reveal"><span class="fix-banner__badge">Гарантия цены</span><p>Цена <b>фиксируется в момент записи</b> — что бы ни случилось с курсом, настроением или погодой.</p></div>
+      <div class="services__list">
+        <div class="service reveal">
+          <span class="service__idx">01</span>
+          <div><h3 class="service__name">Стрижка</h3><p class="service__desc">Мытьё, стрижка, укладка. Классика и фейд под форму головы.</p></div>
+          <span class="service__price">1 500 ₽<small>фикс. при записи</small></span>
+        </div>
+        <div class="service reveal" style="--d:40ms;">
+          <span class="service__idx">02</span>
+          <div><h3 class="service__name">Стрижка + борода</h3><p class="service__desc">Полный образ: голова и борода в одном визите.</p></div>
+          <span class="service__price">2 500 ₽<small>фикс. при записи</small></span>
+        </div>
+        <div class="service reveal" style="--d:80ms;">
+          <span class="service__idx">03</span>
+          <div><h3 class="service__name">Королевское бритьё</h3><p class="service__desc">Опасная бритва, горячее полотенце, кожа без раздражения.</p></div>
+          <span class="service__price">2 000 ₽<small>фикс. при записи</small></span>
+        </div>
+        <div class="service reveal" style="--d:120ms;">
+          <span class="service__idx">04</span>
+          <div><h3 class="service__name">Оформление бороды</h3><p class="service__desc">Форма, контур, масло. Борода — это характер.</p></div>
+          <span class="service__price">1 200 ₽<small>фикс. при записи</small></span>
+        </div>
+        <div class="service reveal" style="--d:160ms;">
+          <span class="service__idx">05</span>
+          <div><h3 class="service__name">Стрижка машинкой</h3><p class="service__desc">Одна насадка, чистая линия. Быстро и точно.</p></div>
+          <span class="service__price">1 100 ₽<small>фикс. при записи</small></span>
+        </div>
+        <div class="service reveal" style="--d:200ms;">
+          <span class="service__idx">06</span>
+          <div><h3 class="service__name">Комплекс «Отец и сын»</h3><p class="service__desc">Два кресла рядом. Первая стрижка — как ритуал.</p></div>
+          <span class="service__price">2 800 ₽<small>фикс. при записи</small></span>
+        </div>
+      </div>
+      <div class="fix-banner reveal">
+        <span class="fix-banner__badge">Гарантия цены</span>
+        <p>Цена <b>фиксируется в момент записи</b> — что бы ни случилось с курсом, настроением или погодой.</p>
+      </div>
     </div>
   </section>
+
+  <!-- MASTERS -->
   <section id="masters">
     <div class="container">
-      <div class="sec-head"><div class="reveal"><span class="sec-head__num">02 — Команда</span><h2>Мастера</h2></div><p class="sec-head__lead reveal" style="--d:100ms;">Люди, которым доверяешь голову. Минимум слов, максимум точности.</p></div>
+      <div class="sec-head">
+        <div class="reveal">
+          <span class="sec-head__num">02 — Команда</span>
+          <h2>Мастера</h2>
+        </div>
+        <p class="sec-head__lead reveal" style="--d:100ms;">Люди, которым доверяешь голову. Минимум слов, максимум точности.</p>
+      </div>
       <div class="masters__grid">
-        <article class="master reveal"><div class="master__mono" aria-hidden="true">АР</div><span class="master__years">12 лет</span><h3 class="master__name">Артём «Рука»</h3><div class="master__role">Мастер-барбер</div><p class="master__text">Классика, фейды, работа опасной бритвой. Спокойный и точный.</p></article>
-        <article class="master reveal" style="--d:80ms;"><div class="master__mono" aria-hidden="true">МТ</div><span class="master__years">8 лет</span><h3 class="master__name">Марат</h3><div class="master__role">Борода · бритва</div><p class="master__text">Борода — это характер. Форма, контур и горячее полотенце.</p></article>
-        <article class="master reveal" style="--d:160ms;"><div class="master__mono" aria-hidden="true">ЕГ</div><span class="master__years">6 лет</span><h3 class="master__name">Егор</h3><div class="master__role">Топ-стилист</div><p class="master__text">Длинные волосы, точные формы, современные техники.</p></article>
+        <article class="master reveal">
+          <div class="master__mono" aria-hidden="true">АР</div>
+          <span class="master__years">12 лет</span>
+          <h3 class="master__name">Артём «Рука»</h3>
+          <div class="master__role">Мастер-барбер</div>
+          <p class="master__text">Классика, фейды, работа опасной бритвой. Спокойный и точный.</p>
+        </article>
+        <article class="master reveal" style="--d:80ms;">
+          <div class="master__mono" aria-hidden="true">МТ</div>
+          <span class="master__years">8 лет</span>
+          <h3 class="master__name">Марат</h3>
+          <div class="master__role">Борода · бритва</div>
+          <p class="master__text">Борода — это характер. Форма, контур и горячее полотенце.</p>
+        </article>
+        <article class="master reveal" style="--d:160ms;">
+          <div class="master__mono" aria-hidden="true">ЕГ</div>
+          <span class="master__years">6 лет</span>
+          <h3 class="master__name">Егор</h3>
+          <div class="master__role">Топ-стилист</div>
+          <p class="master__text">Длинные волосы, точные формы, современные техники.</p>
+        </article>
       </div>
     </div>
   </section>
+
+  <!-- INTERIOR -->
   <section id="interior">
     <div class="container">
-      <div class="sec-head"><div class="reveal"><span class="sec-head__num">03 — Атмосфера</span><h2>Интерьер</h2></div><p class="sec-head__lead reveal" style="--d:100ms;">Кожа, дерево, металл. Место, куда хочется вернуться и просто посидеть.</p></div>
+      <div class="sec-head">
+        <div class="reveal">
+          <span class="sec-head__num">03 — Атмосфера</span>
+          <h2>Интерьер</h2>
+        </div>
+        <p class="sec-head__lead reveal" style="--d:100ms;">Кожа, дерево, металл. Место, куда хочется вернуться и просто посидеть.</p>
+      </div>
       <div class="gallery">
-        <figure class="g-item g-item--a reveal"><span class="g-item__tag">Кресло №1</span><img loading="lazy" decoding="async" width="800" height="1000" alt="Мастер стрижёт клиента в барбершопе Бритва" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"></figure>
-        <figure class="g-item g-item--b reveal" style="--d:80ms;"><span class="g-item__tag">Зал</span><img loading="lazy" decoding="async" width="800" height="500" alt="Интерьер барбершопа с кожаными креслами" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"></figure>
-        <figure class="g-item g-item--c reveal" style="--d:140ms;"><span class="g-item__tag">Детали</span><img loading="lazy" decoding="async" width="800" height="500" alt="Мастер оформляет бороду клиенту" src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"></figure>
-        <figure class="g-item g-item--d reveal" style="--d:200ms;"><span class="g-item__tag">Инструмент</span><img loading="lazy" decoding="async" width="1600" height="700" alt="Инструменты барбера — машинка и ножницы" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"></figure>
+        <figure class="g-item g-item--a reveal">
+          <span class="g-item__tag">Кресло №1</span>
+          <img loading="lazy" decoding="async" width="800" height="1000" alt="Мастер стрижёт клиента в барбершопе Бритва" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+        </figure>
+        <figure class="g-item g-item--b reveal" style="--d:80ms;">
+          <span class="g-item__tag">Зал</span>
+          <img loading="lazy" decoding="async" width="800" height="500" alt="Интерьер барбершопа с кожаными креслами" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+        </figure>
+        <figure class="g-item g-item--c reveal" style="--d:140ms;">
+          <span class="g-item__tag">Детали</span>
+          <img loading="lazy" decoding="async" width="800" height="500" alt="Мастер оформляет бороду клиенту" src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+        </figure>
+        <figure class="g-item g-item--d reveal" style="--d:200ms;">
+          <span class="g-item__tag">Инструмент</span>
+          <img loading="lazy" decoding="async" width="1600" height="700" alt="Инструменты барбера — машинка и ножницы" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+        </figure>
       </div>
     </div>
   </section>
+
+  <!-- PROCESS -->
   <section class="process" id="process">
     <div class="container">
-      <div class="sec-head"><div class="reveal"><span class="sec-head__num">04 — Как это работает</span><h2>Запись за три шага</h2></div></div>
+      <div class="sec-head">
+        <div class="reveal">
+          <span class="sec-head__num">04 — Как это работает</span>
+          <h2>Запись за три шага</h2>
+        </div>
+      </div>
       <div class="process__grid">
-        <div class="step reveal"><div class="step__num">01</div><h3 class="step__title">Выбрал услугу</h3><p class="step__text">Определись со стрижкой или бритьём — прайс выше, цены честные.</p></div>
-        <div class="step reveal" style="--d:90ms;"><div class="step__num">02</div><h3 class="step__title">Зафиксировал цену</h3><p class="step__text">Цена закрепляется в момент записи. В кресле не будет сюрпризов.</p></div>
-        <div class="step reveal" style="--d:180ms;"><div class="step__num">03</div><h3 class="step__title">Сел в кресло</h3><p class="step__text">60 минут — и ты другой человек. Кофе, музыка, работа.</p></div>
+        <div class="step reveal">
+          <div class="step__num">01</div>
+          <h3 class="step__title">Выбрал услугу</h3>
+          <p class="step__text">Определись со стрижкой или бритьём — прайс выше, цены честные.</p>
+        </div>
+        <div class="step reveal" style="--d:90ms;">
+          <div class="step__num">02</div>
+          <h3 class="step__title">Зафиксировал цену</h3>
+          <p class="step__text">Цена закрепляется в момент записи. В кресле не будет сюрпризов.</p>
+        </div>
+        <div class="step reveal" style="--d:180ms;">
+          <div class="step__num">03</div>
+          <h3 class="step__title">Сел в кресло</h3>
+          <p class="step__text">60 минут — и ты другой человек. Кофе, музыка, работа.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- REVIEWS -->
   <section id="reviews">
     <div class="container">
-      <div class="sec-head"><div class="reveal"><span class="sec-head__num">05 — Отзывы</span><h2>Говорят клиенты</h2></div></div>
+      <div class="sec-head">
+        <div class="reveal">
+          <span class="sec-head__num">05 — Отзывы</span>
+          <h2>Говорят клиенты</h2>
+        </div>
+      </div>
       <div class="reviews__grid">
-        <figure class="review reveal"><div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div><blockquote class="review__text">Записался в обед — в 18:00 уже вышел другим человеком. Цена как договаривались, ни рубля сверху.</blockquote><figcaption class="review__author">Дмитрий, 34</figcaption></figure>
-        <figure class="review reveal" style="--d:100ms;"><div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div><blockquote class="review__text">Бритьё опасной бритвой — отдельный вид медитации. Горячее полотенце, тишина, результат. Вернусь.</blockquote><figcaption class="review__author">Арсен, 41</figcaption></figure>
+        <figure class="review reveal">
+          <div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+          <blockquote class="review__text">Записался в обед — в 18:00 уже вышел другим человеком. Цена как договаривались, ни рубля сверху.</blockquote>
+          <figcaption class="review__author">Дмитрий, 34</figcaption>
+        </figure>
+        <figure class="review reveal" style="--d:100ms;">
+          <div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+          <blockquote class="review__text">Бритьё опасной бритвой — отдельный вид медитации. Горячее полотенце, тишина, результат. Вернусь.</blockquote>
+          <figcaption class="review__author">Арсен, 41</figcaption>
+        </figure>
       </div>
     </div>
   </section>
+
+  <!-- CONTACTS -->
   <section id="contacts">
     <div class="container">
-      <div class="sec-head"><div class="reveal"><span class="sec-head__num">06 — Контакты</span><h2>Садись в кресло</h2></div></div>
+      <div class="sec-head">
+        <div class="reveal">
+          <span class="sec-head__num">06 — Контакты</span>
+          <h2>Садись в кресло</h2>
+        </div>
+      </div>
       <div class="contacts__grid">
         <div class="reveal">
-          <div class="contacts__row"><div class="contacts__label">Телефон</div><a class="contacts__phone" href="tel:+78000000000">+7 (800) 000-00-00</a></div>
-          <div class="contacts__row"><div class="contacts__label">WhatsApp</div><a class="btn btn--ghost" href="https://wa.me/78000000000" target="_blank" rel="noopener">Написать в WhatsApp →</a></div>
-          <div class="contacts__row"><div class="contacts__label">Адрес</div><p style="margin:0;color:var(--ink-dim);font-weight:300;">Москва, ул. Тверская, 12 · ежедневно 10:00–22:00</p></div>
-          <div class="contacts__cta"><a class="btn btn--primary btn--lg" href="tel:+78000000000">Записаться в кресло <span class="arr">→</span></a></div>
-          <div class="stamp" aria-hidden="true"><span>БРИТВА</span>запись<br>открыта</div>
+          <div class="contacts__row">
+            <div class="contacts__label">Телефон</div>
+            <a class="contacts__phone" href="tel:+78000000000">+7 (800) 000-00-00</a>
+          </div>
+          <div class="contacts__row">
+            <div class="contacts__label">WhatsApp</div>
+            <a class="btn btn--ghost" href="https://wa.me/78000000000" target="_blank" rel="noopener">Написать в WhatsApp →</a>
+          </div>
+          <div class="contacts__row">
+            <div class="contacts__label">Адрес</div>
+            <p style="margin:0;color:var(--ink-dim);font-weight:300;">Москва, ул. Тверская, 12 · ежедневно 10:00–22:00</p>
+          </div>
+          <div class="contacts__cta">
+            <a class="btn btn--primary btn--lg" href="tel:+78000000000">Записаться в кресло <span class="arr">→</span></a>
+          </div>
+          <div class="stamp" aria-hidden="true">
+            <span>БРИТВА</span>запись<br>открыта
+          </div>
         </div>
         <div class="contacts__card reveal" style="--d:100ms;">
           <h3 style="margin-bottom:18px;">Что дальше</h3>
           <p style="color:var(--ink-dim);font-weight:300;margin:0 0 22px;">Позвони или напиши — зафиксируем цену и время. Остальное сделаем мы.</p>
-          <div class="service" style="border-bottom:0;padding:16px 4px;grid-template-columns:36px 1fr;"><span class="service__idx">✓</span><div><strong style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;">Цена не изменится</strong><br><span style="color:var(--ink-faint);font-weight:300;font-size:14px;">фиксируем при записи</span></div></div>
-          <div class="service" style="border-bottom:0;padding:16px 4px;grid-template-columns:36px 1fr;"><span class="service__idx">✓</span><div><strong style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;">Кофе и музыка</strong><br><span style="color:var(--ink-faint);font-weight:300;font-size:14px;">включены в визит</span></div></div>
-          <div class="service" style="border-bottom:0;padding:16px 4px;grid-template-columns:36px 1fr;"><span class="service__idx">✓</span><div><strong style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;">60 минут</strong><br><span style="color:var(--ink-faint);font-weight:300;font-size:14px;">уважение к твоему времени</span></div></div>
+          <div class="service" style="border-bottom:0;padding:16px 4px;grid-template-columns:36px 1fr;">
+            <span class="service__idx">✓</span>
+            <div><strong style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;">Цена не изменится</strong><br><span style="color:var(--ink-faint);font-weight:300;font-size:14px;">фиксируем при записи</span></div>
+          </div>
+          <div class="service" style="border-bottom:0;padding:16px 4px;grid-template-columns:36px 1fr;">
+            <span class="service__idx">✓</span>
+            <div><strong style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;">Кофе и музыка</strong><br><span style="color:var(--ink-faint);font-weight:300;font-size:14px;">включены в визит</span></div>
+          </div>
+          <div class="service" style="border-bottom:0;padding:16px 4px;grid-template-columns:36px 1fr;">
+            <span class="service__idx">✓</span>
+            <div><strong style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;">60 минут</strong><br><span style="color:var(--ink-faint);font-weight:300;font-size:14px;">уважение к твоему времени</span></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </main>
+
 <footer class="footer">
   <div class="container">
-    <div class="footer__top"><div class="footer__credit">Создано <a href="https://fitfuuxdev.github.io/landing/" target="_blank" rel="noopener">Fitfuux</a></div><div class="footer__demo">демо-страница</div></div>
+    <div class="footer__top">
+      <div class="footer__credit">Создано <a href="https://fitfuuxdev.github.io/landing/" target="_blank" rel="noopener">Fitfuux</a></div>
+      <div class="footer__demo">демо-страница</div>
+    </div>
     <p class="footer__disclaimer">Демо-страница портфолио FITFUUX. Контакты и цены — образец.</p>
-    <div class="footer__bottom"><span>© <span id="year">2025</span> Бритва — мужской барбершоп</span><span>Москва · ежедневно 10:00–22:00</span></div>
+    <div class="footer__bottom">
+      <span>© <span id="year">2025</span> Бритва — мужской барбершоп</span>
+      <span>Москва · ежедневно 10:00–22:00</span>
+    </div>
   </div>
 </footer>
+
 <script type="module">
   (function () {
     'use strict';
+
     const doc = document.documentElement;
     doc.classList.remove('no-js');
     doc.classList.add('js');
+
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---- footer year ---- */
     const y = document.getElementById('year');
     if (y) y.textContent = String(new Date().getFullYear());
+
+    /* ---- header scroll state ---- */
     const header = document.querySelector('.header');
     let scrollTicking = false;
-    function onScroll() { if (scrollTicking) return; scrollTicking = true; requestAnimationFrame(() => { header.classList.toggle('is-scrolled', window.scrollY > 24); scrollTicking = false; }); }
+    function onScroll() {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        header.classList.toggle('is-scrolled', window.scrollY > 24);
+        scrollTicking = false;
+      });
+    }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    /* ---- mobile menu ---- */
     const burger = document.getElementById('burger');
     const mnav = document.getElementById('mnav');
-    function setMenu(open) { burger.setAttribute('aria-expanded', String(open)); burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню'); mnav.classList.toggle('is-open', open); mnav.setAttribute('aria-hidden', String(!open)); document.body.style.overflow = open ? 'hidden' : ''; }
+    function setMenu(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+      mnav.classList.toggle('is-open', open);
+      mnav.setAttribute('aria-hidden', String(!open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
     burger.addEventListener('click', () => setMenu(burger.getAttribute('aria-expanded') !== 'true'));
     mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+    /* ---- reveal on scroll ---- */
     const revealEls = document.querySelectorAll('.reveal');
-    if (reduced || !('IntersectionObserver' in window)) { revealEls.forEach(el => el.classList.add('is-inview')); }
-    else { const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-inview'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }); revealEls.forEach(el => io.observe(el)); }
+    if (reduced || !('IntersectionObserver' in window)) {
+      revealEls.forEach(el => el.classList.add('is-inview'));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('is-inview'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      revealEls.forEach(el => io.observe(el));
+    }
+
+    /* =========================================================
+       3D — angular blade / faceted metal
+       ========================================================= */
     function canRunWebGL() {
       if (reduced) return false;
-      try { const conn = navigator.connection; if (conn && (conn.saveData || (conn.effectiveType && conn.effectiveType === '2g'))) return false; } catch (e) {}
+      try {
+        const conn = navigator.connection;
+        if (conn && (conn.saveData || (conn.effectiveType && conn.effectiveType === '2g'))) return false;
+      } catch (e) {}
       if (typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 1) return false;
-      try { const c = document.createElement('canvas'); const gl = c.getContext('webgl2') || c.getContext('webgl') || c.getContext('experimental-webgl'); return !!gl; } catch (e) { return false; }
+      try {
+        const c = document.createElement('canvas');
+        const gl = c.getContext('webgl2') || c.getContext('webgl') || c.getContext('experimental-webgl');
+        return !!gl;
+      } catch (e) { return false; }
     }
+
     const sceneEl = document.querySelector('[data-scene]');
     if (sceneEl && canRunWebGL()) {
-      const schedule = window.requestIdleCallback ? (cb) => window.requestIdleCallback(cb, { timeout: 1400 }) : (cb) => setTimeout(cb, 1);
-      const boot = () => { if (!canRunWebGL()) return; init3D(); };
+      const schedule = window.requestIdleCallback
+        ? (cb) => window.requestIdleCallback(cb, { timeout: 1400 })
+        : (cb) => setTimeout(cb, 1);
+
+      const boot = () => {
+        // guards may have changed (e.g. reduced motion toggled)
+        if (!canRunWebGL()) return;
+        init3D();
+      };
+
       if (document.readyState === 'complete') schedule(boot);
       else window.addEventListener('load', () => schedule(boot), { once: true });
     }
+
     async function init3D() {
       let THREE;
-      try { THREE = await import('./assets/js/three.module.min.js'); } catch (e) { return; }
+      try {
+        THREE = await import('./assets/js/three.module.min.js');
+      } catch (e) {
+        return; // keep CSS fallback
+      }
       if (!THREE || !sceneEl) return;
+
       const canvas = document.createElement('canvas');
       canvas.setAttribute('aria-hidden', 'true');
       let renderer;
-      try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' }); } catch (e) { return; }
+      try {
+        renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+      } catch (e) { return; }
+
       renderer.setClearColor(0x000000, 0);
       if ('outputColorSpace' in renderer) renderer.outputColorSpace = THREE.SRGBColorSpace;
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.1;
+
       let dpr = () => Math.min(window.devicePixelRatio || 1, window.innerWidth < 700 ? 1.4 : 1.75);
       renderer.setPixelRatio(dpr());
+
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(33, 1, 0.1, 100);
       camera.position.set(0, 0, 6.4);
+
+      /* --- environment reflections for metal (self-contained) --- */
       try {
         const envCanvas = document.createElement('canvas');
         envCanvas.width = 256; envCanvas.height = 128;
         const ctx = envCanvas.getContext('2d');
         const grad = ctx.createLinearGradient(0, 0, 0, 128);
-        grad.addColorStop(0, '#2c3120'); grad.addColorStop(0.5, '#15170f'); grad.addColorStop(1, '#0b0c09');
+        grad.addColorStop(0, '#2c3120');
+        grad.addColorStop(0.5, '#15170f');
+        grad.addColorStop(1, '#0b0c09');
         ctx.fillStyle = grad; ctx.fillRect(0, 0, 256, 128);
-        ctx.fillStyle = 'rgba(198,209,71,0.85)'; ctx.fillRect(34, 22, 44, 7);
-        ctx.fillStyle = 'rgba(138,154,91,0.8)'; ctx.fillRect(170, 86, 36, 5);
-        ctx.fillStyle = 'rgba(234,230,220,0.55)'; ctx.fillRect(120, 46, 20, 4);
+        ctx.fillStyle = 'rgba(198,209,71,0.85)';
+        ctx.fillRect(34, 22, 44, 7);
+        ctx.fillStyle = 'rgba(138,154,91,0.8)';
+        ctx.fillRect(170, 86, 36, 5);
+        ctx.fillStyle = 'rgba(234,230,220,0.55)';
+        ctx.fillRect(120, 46, 20, 4);
         const envTex = new THREE.CanvasTexture(envCanvas);
         envTex.mapping = THREE.EquirectangularReflectionMapping;
         if ('colorSpace' in envTex) envTex.colorSpace = THREE.SRGBColorSpace;
         scene.environment = envTex;
       } catch (e) {}
-      const group = new THREE.Group();
-      const spin = new THREE.Group();
+
+      /* --- geometry --- */
+      const group = new THREE.Group();   // tilt + parallax
+      const spin = new THREE.Group();    // auto rotation
       group.add(spin);
-      const detail = 0;
+
+      const detail = 0; // low-poly "blade futurism" aesthetic
       const icoGeo = new THREE.IcosahedronGeometry(1.55, detail);
-      const metalMat = new THREE.MeshStandardMaterial({ color: 0x23271e, metalness: 0.92, roughness: 0.32, flatShading: true });
+      const metalMat = new THREE.MeshStandardMaterial({
+        color: 0x23271e, metalness: 0.92, roughness: 0.32, flatShading: true
+      });
       const ico = new THREE.Mesh(icoGeo, metalMat);
       spin.add(ico);
-      const edges = new THREE.LineSegments(new THREE.EdgesGeometry(icoGeo), new THREE.LineBasicMaterial({ color: 0xC6D147, transparent: true, opacity: 0.3 }));
+
+      const edges = new THREE.LineSegments(
+        new THREE.EdgesGeometry(icoGeo),
+        new THREE.LineBasicMaterial({ color: 0xC6D147, transparent: true, opacity: 0.3 })
+      );
       spin.add(edges);
-      const cage = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2.05, 0)), new THREE.LineBasicMaterial({ color: 0x8A9A5B, transparent: true, opacity: 0.16 }));
+
+      const cage = new THREE.LineSegments(
+        new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2.05, 0)),
+        new THREE.LineBasicMaterial({ color: 0x8A9A5B, transparent: true, opacity: 0.16 })
+      );
       spin.add(cage);
-      const blade = new THREE.Mesh(new THREE.BoxGeometry(0.3, 3.6, 0.3), new THREE.MeshStandardMaterial({ color: 0x151810, metalness: 0.95, roughness: 0.24 }));
+
+      const blade = new THREE.Mesh(
+        new THREE.BoxGeometry(0.3, 3.6, 0.3),
+        new THREE.MeshStandardMaterial({ color: 0x151810, metalness: 0.95, roughness: 0.24 })
+      );
       blade.position.set(1.7, 0.2, -1.5);
       blade.rotation.z = 0.45;
       group.add(blade);
-      const blade2 = new THREE.Mesh(new THREE.BoxGeometry(0.22, 2.7, 0.22), new THREE.MeshStandardMaterial({ color: 0x181b13, metalness: 0.9, roughness: 0.3 }));
+
+      const blade2 = new THREE.Mesh(
+        new THREE.BoxGeometry(0.22, 2.7, 0.22),
+        new THREE.MeshStandardMaterial({ color: 0x181b13, metalness: 0.9, roughness: 0.3 })
+      );
       blade2.position.set(-1.9, -0.6, -1.1);
       blade2.rotation.z = -0.6;
       group.add(blade2);
+
+      /* --- lights --- */
       scene.add(new THREE.AmbientLight(0x3a4030, 0.55));
-      const key = new THREE.DirectionalLight(0xEAE6DC, 2.4); key.position.set(4, 3, 6); scene.add(key);
-      const rim1 = new THREE.DirectionalLight(0xC6D147, 1.6); rim1.position.set(-5, 1, -3); scene.add(rim1);
-      const rim2 = new THREE.DirectionalLight(0x8A9A5B, 1.4); rim2.position.set(5, -2, -2); scene.add(rim2);
+      const key = new THREE.DirectionalLight(0xEAE6DC, 2.4);
+      key.position.set(4, 3, 6);
+      scene.add(key);
+      const rim1 = new THREE.DirectionalLight(0xC6D147, 1.6);
+      rim1.position.set(-5, 1, -3);
+      scene.add(rim1);
+      const rim2 = new THREE.DirectionalLight(0x8A9A5B, 1.4);
+      rim2.position.set(5, -2, -2);
+      scene.add(rim2);
+
       scene.add(group);
       sceneEl.appendChild(canvas);
+
+      /* --- mark webgl active (hide fallback) --- */
       document.body.classList.add('is-webgl');
-      function resize() { const w = sceneEl.clientWidth || 1; const h = sceneEl.clientHeight || 1; renderer.setPixelRatio(dpr()); renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+
+      /* --- sizing --- */
+      function resize() {
+        const w = sceneEl.clientWidth || 1;
+        const h = sceneEl.clientHeight || 1;
+        renderer.setPixelRatio(dpr());
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
       resize();
       const ro = ('ResizeObserver' in window) ? new ResizeObserver(resize) : null;
       if (ro) ro.observe(sceneEl);
       else window.addEventListener('resize', resize);
+
+      /* --- pointer tilt --- */
       let targetX = 0, targetY = 0;
       let curX = 0, curY = 0;
-      if (window.matchMedia('(pointer: fine)').matches) { window.addEventListener('pointermove', (e) => { const nx = (e.clientX / window.innerWidth) * 2 - 1; const ny = (e.clientY / window.innerHeight) * 2 - 1; targetY = nx * 0.38; targetX = -ny * 0.38; }, { passive: true }); }
+      if (window.matchMedia('(pointer: fine)').matches) {
+        window.addEventListener('pointermove', (e) => {
+          const nx = (e.clientX / window.innerWidth) * 2 - 1;
+          const ny = (e.clientY / window.innerHeight) * 2 - 1;
+          targetY = nx * 0.38;
+          targetX = -ny * 0.38;
+        }, { passive: true });
+      }
+
+      /* --- gyro --- */
       let gyroOn = false;
       const gyroBtn = document.getElementById('gyroToggle');
       const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
       async function enableGyro() {
-        if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') { try { const res = await DeviceOrientationEvent.requestPermission(); if (res !== 'granted') return; } catch (e) { return; } }
-        if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') { try { await DeviceMotionEvent.requestPermission(); } catch (e) {} }
+        if (typeof DeviceOrientationEvent !== 'undefined' &&
+            typeof DeviceOrientationEvent.requestPermission === 'function') {
+          try {
+            const res = await DeviceOrientationEvent.requestPermission();
+            if (res !== 'granted') return;
+          } catch (e) { return; }
+        }
+        if (typeof DeviceMotionEvent !== 'undefined' &&
+            typeof DeviceMotionEvent.requestPermission === 'function') {
+          try { await DeviceMotionEvent.requestPermission(); } catch (e) {}
+        }
         gyroOn = true;
         gyroBtn.classList.add('is-on');
         gyroBtn.setAttribute('aria-pressed', 'true');
       }
-      if (gyroBtn) { gyroBtn.addEventListener('click', () => { if (!gyroOn) enableGyro(); else { gyroOn = false; gyroBtn.classList.remove('is-on'); gyroBtn.setAttribute('aria-pressed', 'false'); } }); }
-      window.addEventListener('deviceorientation', (e) => { if (!gyroOn || e.beta == null || e.gamma == null) return; const g = clamp(e.gamma / 45, -1, 1); const b = clamp((e.beta - 40) / 45, -1, 1); targetY = -g * 0.55; targetX = -b * 0.55; }, { passive: true });
+      if (gyroBtn) {
+        gyroBtn.addEventListener('click', () => {
+          if (!gyroOn) enableGyro();
+          else {
+            gyroOn = false;
+            gyroBtn.classList.remove('is-on');
+            gyroBtn.setAttribute('aria-pressed', 'false');
+          }
+        });
+      }
+      window.addEventListener('deviceorientation', (e) => {
+        if (!gyroOn || e.beta == null || e.gamma == null) return;
+        const g = clamp(e.gamma / 45, -1, 1);
+        const b = clamp((e.beta - 40) / 45, -1, 1);
+        targetY = -g * 0.55;
+        targetX = -b * 0.55;
+      }, { passive: true });
+
+      /* --- pause / resume --- */
       let raf = 0;
       let running = false;
       let visible = true;
       const stop = () => { if (raf) { cancelAnimationFrame(raf); raf = 0; } running = false; };
-      const start = () => { if (running || !visible) return; running = true; last = performance.now(); raf = requestAnimationFrame(tick); };
-      const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; visible ? start() : stop(); }, { rootMargin: '120px' }) : null;
+      const start = () => {
+        if (running || !visible) return;
+        running = true; last = performance.now();
+        raf = requestAnimationFrame(tick);
+      };
+      const io = ('IntersectionObserver' in window)
+        ? new IntersectionObserver((entries) => {
+            visible = entries[0].isIntersecting;
+            visible ? start() : stop();
+          }, { rootMargin: '120px' })
+        : null;
       if (io) io.observe(sceneEl);
-      document.addEventListener('visibilitychange', () => { visible = !document.hidden; document.hidden ? stop() : start(); });
-      canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); stop(); document.body.classList.remove('is-webgl'); if (canvas.parentNode) canvas.parentNode.removeChild(canvas); if (io) io.disconnect(); });
+      document.addEventListener('visibilitychange', () => {
+        visible = !document.hidden;
+        document.hidden ? stop() : start();
+      });
+
+      /* --- context lost --- */
+      canvas.addEventListener('webglcontextlost', (e) => {
+        e.preventDefault();
+        stop();
+        document.body.classList.remove('is-webgl');
+        if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+        if (io) io.disconnect();
+      });
+
+      /* --- loop --- */
       const scrollClamp = (v) => Math.max(0, Math.min(1, v));
       let last = performance.now();
       function tick(now) {
@@ -466,14 +989,17 @@
         curY += (targetY - curY) * k;
         group.rotation.x = curX;
         group.rotation.y = curY;
+
         spin.rotation.y += delta * 0.22;
         spin.rotation.z += delta * 0.05;
         blade.rotation.z = 0.45 + Math.sin(now * 0.0004) * 0.1;
         blade2.rotation.z = -0.6 + Math.cos(now * 0.0005) * 0.09;
+
         const p = scrollClamp(window.scrollY / Math.max(1, window.innerHeight));
         group.position.y = -0.55 * p;
         group.position.z = 0.9 * p;
         group.rotation.z = 0.09 * p;
+
         renderer.render(scene, camera);
       }
       start();

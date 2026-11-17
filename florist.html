@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -41,28 +41,62 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 html,body{overflow-x:hidden}
-body{font-family:"Raleway",system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:400;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  font-family:"Raleway",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-weight:400;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.12;letter-spacing:.01em}
 .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
-.skip{position:absolute;left:-9999px;top:0;z-index:2000;background:var(--ink);color:#fff;padding:12px 20px;border-radius:0 0 14px 0}
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:2000;background:var(--ink);color:#fff;
+  padding:12px 20px;border-radius:0 0 14px 0;
+}
 .skip:focus{left:0}
 ::selection{background:var(--pink);color:var(--ink)}
 :focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
-.header{position:fixed;inset:0 0 auto 0;z-index:120;backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);background:rgba(246,249,243,.72);border-bottom:1px solid var(--line-soft);transition:box-shadow .5s var(--ease),background .5s var(--ease)}
+
+/* ---------- Header ---------- */
+.header{
+  position:fixed;inset:0 0 auto 0;z-index:120;
+  backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);
+  background:rgba(246,249,243,.72);
+  border-bottom:1px solid var(--line-soft);
+  transition:box-shadow .5s var(--ease),background .5s var(--ease);
+}
 .header.is-scrolled{background:rgba(246,249,243,.9);box-shadow:0 14px 40px -28px rgba(21,48,30,.35)}
 .header__in{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
 .logo{display:flex;align-items:center;gap:12px;font-family:"Prata",Georgia,serif;font-size:1.5rem}
-.logo__mark{width:40px;height:40px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 32% 28%,#E9F3E7,var(--green-soft) 60%,var(--green));color:var(--green-dark);box-shadow:inset 0 0 0 1px rgba(21,48,30,.08)}
+.logo__mark{
+  width:40px;height:40px;flex:0 0 auto;border-radius:50%;
+  display:grid;place-items:center;
+  background:radial-gradient(circle at 32% 28%,#E9F3E7,var(--green-soft) 60%,var(--green));
+  color:var(--green-dark);
+  box-shadow:inset 0 0 0 1px rgba(21,48,30,.08);
+}
 .logo__mark svg{width:24px;height:24px}
 .nav{display:flex;align-items:center;gap:6px}
-.nav a{padding:10px 16px;border-radius:999px;font-weight:500;font-size:.95rem;color:var(--muted);transition:color .35s var(--ease),background .35s var(--ease)}
+.nav a{
+  padding:10px 16px;border-radius:999px;font-weight:500;font-size:.95rem;
+  color:var(--muted);transition:color .35s var(--ease),background .35s var(--ease);
+}
 .nav a:hover{color:var(--ink);background:rgba(46,125,79,.09)}
 .nav a.active{color:var(--green)}
 .header__cta{display:flex;align-items:center;gap:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;letter-spacing:.01em;border-radius:999px;padding:14px 26px;font-size:1rem;white-space:nowrap;transition:transform .45s var(--ease),box-shadow .45s var(--ease),background .35s var(--ease),color .35s var(--ease)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-weight:600;letter-spacing:.01em;border-radius:999px;
+  padding:14px 26px;font-size:1rem;white-space:nowrap;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease),background .35s var(--ease),color .35s var(--ease);
+}
 .btn--primary{background:var(--green);color:#fff;box-shadow:0 16px 34px -16px rgba(46,125,79,.75)}
 .btn--primary:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 22px 44px -18px rgba(46,125,79,.85)}
 .btn--ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
@@ -77,39 +111,71 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
 .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ---------- Hero ---------- */
 .hero{position:relative;padding-top:76px;overflow:clip}
 .hero__bg{position:absolute;inset:0;z-index:-2;pointer-events:none}
 .hero__blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.6}
 .hero__blob--g{width:560px;height:560px;background:radial-gradient(circle,#BFE0C6,transparent 68%);top:-160px;right:-140px}
 .hero__blob--p{width:460px;height:460px;background:radial-gradient(circle,#F4D9E0,transparent 66%);bottom:-120px;left:-160px;opacity:.5}
 .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(44px,7vw,96px) clamp(52px,8vw,110px)}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line-soft),var(--shadow-soft);font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:9px 18px;border-radius:999px;background:#fff;
+  box-shadow:inset 0 0 0 1px var(--line-soft),var(--shadow-soft);
+  font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);
+}
 .eyebrow__dot{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 4px rgba(232,169,184,.28)}
 .hero h1{font-size:clamp(2.4rem,5.4vw,4.3rem);margin:26px 0 22px;max-width:14ch}
 .hero h1 em{font-style:normal;color:var(--green);position:relative;white-space:nowrap}
-.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.28em;z-index:-1;background:linear-gradient(90deg,rgba(232,169,184,.55),rgba(232,169,184,.15));border-radius:999px}
+.hero h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:.04em;height:.28em;z-index:-1;
+  background:linear-gradient(90deg,rgba(232,169,184,.55),rgba(232,169,184,.15));
+  border-radius:999px;
+}
 .hero__sub{font-size:clamp(1.02rem,1.5vw,1.22rem);color:var(--muted);font-weight:400;max-width:44ch;line-height:1.75}
 .hero__actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 .hero__trust{display:flex;flex-wrap:wrap;gap:22px;margin-top:30px;font-size:.92rem;color:var(--muted)}
 .hero__trust b{display:block;font-weight:600;color:var(--ink);font-size:.98rem}
 .hero__trust i{font-style:normal;color:var(--green)}
-.flower-stage{position:relative;aspect-ratio:1/1;max-width:520px;width:100%;margin-inline:auto;pointer-events:none;user-select:none}
+/* flower stage */
+.flower-stage{
+  position:relative;aspect-ratio:1/1;max-width:520px;width:100%;margin-inline:auto;
+  pointer-events:none;user-select:none;
+}
 .flower-stage canvas{width:100%;height:100%;display:block}
-.flower-fallback{position:absolute;inset:0;display:grid;place-items:center;transition:opacity .6s var(--ease)}
-.flower-fallback__glow{position:absolute;inset:14%;border-radius:50%;background:radial-gradient(circle at 50% 42%,rgba(46,125,79,.14),transparent 70%)}
+.flower-fallback{
+  position:absolute;inset:0;display:grid;place-items:center;
+  transition:opacity .6s var(--ease);
+}
+.flower-fallback__glow{
+  position:absolute;inset:14%;border-radius:50%;
+  background:radial-gradient(circle at 50% 42%,rgba(46,125,79,.14),transparent 70%);
+}
 .flower-fallback svg{width:min(78%,380px);height:auto;filter:drop-shadow(0 30px 50px rgba(21,48,30,.22));animation:floaty 8s var(--ease) infinite}
 .is-webgl .flower-fallback{opacity:0}
 .is-webgl .flower-stage canvas{opacity:1;animation:fadein 1s var(--ease)}
 @keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(2.5deg)}}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
-.gyro-toggle{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);pointer-events:auto;display:none;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.85);box-shadow:inset 0 0 0 1px var(--line-soft),var(--shadow-soft);font-size:.8rem;font-weight:600;color:var(--green-dark);transition:transform .4s var(--ease),background .3s}
+.gyro-toggle{
+  position:absolute;left:50%;bottom:4%;transform:translateX(-50%);
+  pointer-events:auto;display:none;align-items:center;gap:8px;
+  padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.85);
+  box-shadow:inset 0 0 0 1px var(--line-soft),var(--shadow-soft);
+  font-size:.8rem;font-weight:600;color:var(--green-dark);
+  transition:transform .4s var(--ease),background .3s;
+}
 .gyro-toggle:hover{transform:translateX(-50%) translateY(-2px);background:#fff}
 .gyro-toggle.is-on{background:var(--green);color:#fff}
+
+/* ---------- Marquee ---------- */
 .marquee{border-block:1px solid var(--line-soft);background:linear-gradient(90deg,var(--green-soft),#F2F8F0 50%,var(--pink-soft));overflow:hidden;padding:14px 0}
 .marquee__track{display:flex;width:max-content;gap:0;animation:marquee 34s linear infinite}
 .marquee__track span{display:inline-flex;align-items:center;gap:30px;padding-right:30px;font-family:"Prata",Georgia,serif;font-size:1.05rem;color:var(--green-dark);white-space:nowrap}
 .marquee__track span::after{content:"✦";color:var(--pink);font-size:.8rem}
 @keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- Sections common ---------- */
 .section{padding-block:clamp(70px,9vw,128px);position:relative}
 .section--tint{background:linear-gradient(180deg,#fff,var(--bg))}
 .section--white{background:#fff}
@@ -121,6 +187,8 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
 .sec-head--center .kicker{justify-content:center}
 .sec-sub{color:var(--muted);font-size:1.06rem;max-width:56ch}
 .sec-head--center .sec-sub{margin-inline:auto}
+
+/* ---------- Stats ---------- */
 .stats{background:var(--ink);color:#fff;position:relative;overflow:hidden}
 .stats__wave{position:absolute;top:0;left:0;width:100%;line-height:0;transform:rotate(180deg)}
 .stats__wave svg{width:100%;height:64px}
@@ -130,17 +198,34 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
 .stat__num{font-family:"Prata",Georgia,serif;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1;display:block}
 .stat__num em{font-style:normal;color:var(--pink)}
 .stat__label{display:block;margin-top:12px;font-size:.95rem;color:rgba(255,255,255,.72);font-weight:400}
+
+/* ---------- Cards / Catalog ---------- */
 .catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,30px);margin-top:clamp(34px,5vw,56px)}
-.card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:inset 0 0 0 1px var(--line-soft);transition:transform .6s var(--ease),box-shadow .6s var(--ease);display:flex;flex-direction:column}
+.card{
+  background:#fff;border-radius:var(--radius);overflow:hidden;
+  box-shadow:inset 0 0 0 1px var(--line-soft);
+  transition:transform .6s var(--ease),box-shadow .6s var(--ease);
+  display:flex;flex-direction:column;
+}
 .card:hover{transform:translateY(-8px);box-shadow:inset 0 0 0 1px var(--line-soft),var(--shadow)}
 .img-panel{position:relative;aspect-ratio:4/4.6;overflow:hidden}
 .img-panel--ar{aspect-ratio:4/4.2}
 .img-panel--plain{background:linear-gradient(150deg,#EAF3E6,#F7F2E9 55%,#F7E7EC)}
-.img-panel--plain::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 24%,rgba(46,125,79,.16),transparent 34%),radial-gradient(circle at 82% 70%,rgba(232,169,184,.24),transparent 40%),radial-gradient(circle at 46% 44%,rgba(255,255,255,.5),transparent 52%)}
+.img-panel--plain::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 24%,rgba(46,125,79,.16),transparent 34%),
+    radial-gradient(circle at 82% 70%,rgba(232,169,184,.24),transparent 40%),
+    radial-gradient(circle at 46% 44%,rgba(255,255,255,.5),transparent 52%);
+}
 .img-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .card:hover .img-panel img{transform:scale(1.06)}
 .img-panel--plain svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56%;height:auto;opacity:.9;z-index:1}
-.card__tag{position:absolute;top:14px;left:14px;z-index:2;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.92);font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green-dark)}
+.card__tag{
+  position:absolute;top:14px;left:14px;z-index:2;
+  padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.92);
+  font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green-dark);
+}
 .card__tag--pink{background:var(--pink);color:#4a1f2c}
 .card__body{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1}
 .card__title{font-size:1.32rem;margin-bottom:8px}
@@ -148,10 +233,15 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
 .card__foot{display:flex;align-items:center;justify-content:space-between;margin-top:22px;gap:14px}
 .price{font-family:"Prata",Georgia,serif;font-size:1.3rem;color:var(--green-dark)}
 .price small{font-size:.82rem;color:var(--muted);font-family:"Raleway",sans-serif;font-weight:400}
-.card__link{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;color:var(--green);padding:10px 16px;border-radius:999px;transition:background .35s var(--ease),transform .35s var(--ease)}
+.card__link{
+  display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;color:var(--green);
+  padding:10px 16px;border-radius:999px;transition:background .35s var(--ease),transform .35s var(--ease);
+}
 .card__link:hover{background:rgba(46,125,79,.1);transform:translateX(3px)}
 .card__link svg{width:16px;height:16px;transition:transform .35s var(--ease)}
 .card__link:hover svg{transform:translateX(3px)}
+
+/* ---------- Occasions ---------- */
 .occ-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.4vw,26px);margin-top:clamp(34px,5vw,56px)}
 .occ{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:3/4;background:linear-gradient(160deg,#EAF3E6,#F7F2E9)}
 .occ img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
@@ -161,16 +251,27 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
 .occ__text{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px;color:#fff}
 .occ__text b{font-family:"Prata",Georgia,serif;font-weight:400;font-size:1.3rem;display:block}
 .occ__text span{font-size:.88rem;color:rgba(255,255,255,.85)}
+
+/* ---------- Delivery steps ---------- */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,34px);margin-top:clamp(34px,5vw,56px)}
 .step{position:relative;padding:34px 30px;background:#fff;border-radius:var(--radius);box-shadow:inset 0 0 0 1px var(--line-soft)}
-.step__num{font-family:"Prata",Georgia,serif;font-size:3rem;line-height:1;background:linear-gradient(120deg,var(--green),var(--green-dark));-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.9}
+.step__num{
+  font-family:"Prata",Georgia,serif;font-size:3rem;line-height:1;
+  background:linear-gradient(120deg,var(--green),var(--green-dark));
+  -webkit-background-clip:text;background-clip:text;color:transparent;opacity:.9;
+}
 .step__icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--green-soft);color:var(--green-dark);margin-bottom:18px}
 .step__icon svg{width:26px;height:26px}
 .step h3{font-size:1.25rem;margin-bottom:10px}
 .step p{color:var(--muted);font-size:.95rem}
-.delivery-note{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 26px;background:var(--green-soft);border-radius:var(--radius-sm);padding:20px 26px;align-items:center}
+.delivery-note{
+  margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 26px;
+  background:var(--green-soft);border-radius:var(--radius-sm);padding:20px 26px;align-items:center;
+}
 .delivery-note b{color:var(--green-dark)}
 .delivery-note span{color:var(--muted);font-size:.94rem}
+
+/* ---------- Reviews ---------- */
 .reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,3vw,30px);margin-top:clamp(34px,5vw,56px)}
 .review{background:#fff;border-radius:var(--radius);padding:36px 34px;box-shadow:inset 0 0 0 1px var(--line-soft);position:relative}
 .review::before{content:"“";position:absolute;top:10px;right:26px;font-family:"Prata",Georgia,serif;font-size:6rem;line-height:1;color:var(--pink-soft)}
@@ -181,7 +282,13 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
 .review__ava--pink{background:linear-gradient(135deg,var(--pink),#cf7f95)}
 .review__who b{display:block;font-weight:600}
 .review__who span{font-size:.86rem;color:var(--muted)}
-.cta{background:linear-gradient(135deg,var(--green-dark),var(--green) 70%);color:#fff;border-radius:clamp(24px,4vw,40px);position:relative;overflow:hidden;padding:clamp(40px,6vw,72px) clamp(26px,5vw,72px)}
+
+/* ---------- Contact CTA ---------- */
+.cta{
+  background:linear-gradient(135deg,var(--green-dark),var(--green) 70%);
+  color:#fff;border-radius:clamp(24px,4vw,40px);position:relative;overflow:hidden;
+  padding:clamp(40px,6vw,72px) clamp(26px,5vw,72px);
+}
 .cta::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 66%);top:-220px;right:-120px}
 .cta::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(232,169,184,.35),transparent 66%);bottom:-180px;left:-80px}
 .cta__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,60px);align-items:center;position:relative;z-index:2}
@@ -195,6 +302,8 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
 .cta__line b{font-weight:600;display:block}
 .cta__line a,.cta__line span{font-size:1.08rem;color:rgba(255,255,255,.92)}
 .cta__line a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* ---------- Footer ---------- */
 .footer{background:var(--ink);color:#fff;padding-top:clamp(60px,8vw,90px)}
 .footer__top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:clamp(28px,4vw,56px);padding-bottom:clamp(40px,5vw,60px)}
 .footer__brand p{color:rgba(255,255,255,.66);max-width:34ch;margin-top:18px;font-size:.95rem}
@@ -213,42 +322,121 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
 .demo-tag{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8)}
 .demo-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pink)}
 .footer__disclaim{font-size:.8rem;color:rgba(255,255,255,.48);max-width:52ch}
+
+/* ---------- Wave divider ---------- */
 .wave{position:absolute;top:0;left:0;width:100%;line-height:0;pointer-events:none}
 .wave svg{width:100%;height:70px}
 .wave--flip{bottom:0;top:auto;transform:rotate(180deg)}
+
+/* ---------- Reveal ---------- */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.is-inview{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
-@media (max-width:960px){.nav{position:fixed;inset:76px 0 auto 0;flex-direction:column;align-items:stretch;gap:4px;background:rgba(246,249,243,.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:18px var(--pad) 26px;border-bottom:1px solid var(--line-soft);transform:translateY(-130%);transition:transform .55s var(--ease);box-shadow:var(--shadow-soft)}.nav.is-open{transform:translateY(0)}.nav a{padding:16px 18px;font-size:1.1rem;border-radius:14px}.burger{display:grid}.hero__grid{grid-template-columns:1fr;text-align:left}.hero__actions,.hero__trust{justify-content:flex-start}.flower-stage{max-width:420px;order:-1}.catalog-grid{grid-template-columns:repeat(2,1fr)}.occ-grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.reviews{grid-template-columns:1fr}.cta__grid{grid-template-columns:1fr}.footer__top{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.stats__grid{grid-template-columns:repeat(2,1fr);gap:32px 18px}.stat + .stat::before{display:none}.catalog-grid{grid-template-columns:1fr}.occ-grid{grid-template-columns:1fr 1fr;gap:14px}.occ{aspect-ratio:3/3.6}.footer__top{grid-template-columns:1fr}.header__btn{padding:11px 18px;font-size:.88rem}.logo{font-size:1.3rem}.hero h1{font-size:clamp(2.1rem,9vw,2.8rem)}.btn--lg{padding:16px 28px;font-size:1rem}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}.reveal{opacity:1;transform:none}.marquee__track{animation:none}}
+
+/* ---------- Responsive ---------- */
+@media (max-width:960px){
+  .nav{position:fixed;inset:76px 0 auto 0;flex-direction:column;align-items:stretch;gap:4px;
+    background:rgba(246,249,243,.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    padding:18px var(--pad) 26px;border-bottom:1px solid var(--line-soft);
+    transform:translateY(-130%);transition:transform .55s var(--ease);box-shadow:var(--shadow-soft)}
+  .nav.is-open{transform:translateY(0)}
+  .nav a{padding:16px 18px;font-size:1.1rem;border-radius:14px}
+  .burger{display:grid}
+  .hero__grid{grid-template-columns:1fr;text-align:left}
+  .hero__actions,.hero__trust{justify-content:flex-start}
+  .flower-stage{max-width:420px;order:-1}
+  .catalog-grid{grid-template-columns:repeat(2,1fr)}
+  .occ-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .reviews{grid-template-columns:1fr}
+  .cta__grid{grid-template-columns:1fr}
+  .footer__top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .stats__grid{grid-template-columns:repeat(2,1fr);gap:32px 18px}
+  .stat + .stat::before{display:none}
+  .catalog-grid{grid-template-columns:1fr}
+  .occ-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .occ{aspect-ratio:3/3.6}
+  .footer__top{grid-template-columns:1fr}
+  .header__btn{padding:11px 18px;font-size:.88rem}
+  .logo{font-size:1.3rem}
+  .hero h1{font-size:clamp(2.1rem,9vw,2.8rem)}
+  .btn--lg{padding:16px 28px;font-size:1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .reveal{opacity:1;transform:none}
+  .marquee__track{animation:none}
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Перейти к содержимому</a>
+
+<!-- ================= HEADER ================= -->
 <header class="header" id="top">
   <div class="wrap header__in">
-    <a class="logo" href="#top" aria-label="Букет — на главную"><span class="logo__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-5-2-8-5-8-9a8 8 0 0 1 16 0c0 4-3 7-8 9Z"/><circle cx="12" cy="10" r="2.4" fill="currentColor" stroke="none"/></svg></span>Букет</a>
-    <nav class="nav" id="siteNav" aria-label="Основная навигация"><a href="#catalog">Каталог</a><a href="#occasions">Поводы</a><a href="#delivery">Доставка</a><a href="#contacts">Контакты</a></nav>
-    <div class="header__cta"><a class="btn btn--primary header__btn" href="#catalog">Заказать</a><button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="siteNav"><span></span><span></span><span></span></button></div>
+    <a class="logo" href="#top" aria-label="Букет — на главную">
+      <span class="logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-5-2-8-5-8-9a8 8 0 0 1 16 0c0 4-3 7-8 9Z"/><circle cx="12" cy="10" r="2.4" fill="currentColor" stroke="none"/></svg>
+      </span>
+      Букет
+    </a>
+    <nav class="nav" id="siteNav" aria-label="Основная навигация">
+      <a href="#catalog">Каталог</a>
+      <a href="#occasions">Поводы</a>
+      <a href="#delivery">Доставка</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header__cta">
+      <a class="btn btn--primary header__btn" href="#catalog">Заказать</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="siteNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
+
 <main id="main">
+
+  <!-- ================= HERO ================= -->
   <section class="hero" id="hero" aria-label="Главный оффер">
-    <div class="hero__bg" aria-hidden="true"><span class="hero__blob hero__blob--g"></span><span class="hero__blob hero__blob--p"></span></div>
+    <div class="hero__bg" aria-hidden="true">
+      <span class="hero__blob hero__blob--g"></span>
+      <span class="hero__blob hero__blob--p"></span>
+    </div>
     <div class="wrap hero__grid">
       <div class="hero__content">
         <span class="eyebrow"><span class="eyebrow__dot"></span> Доставка за 60 минут</span>
         <h1>Свежие цветы — <em>у двери</em> за 60&nbsp;минут</h1>
         <p class="hero__sub">Собираем букеты из свежих цветов к любому поводу — и без повода. Курьер привезёт аромат и настроение, пока вы занимаетесь важным.</p>
-        <div class="hero__actions"><a class="btn btn--primary btn--lg" href="#catalog">Собрать букет</a><a class="btn btn--ghost btn--lg" href="tel:+78000000000">Позвонить</a></div>
-        <div class="hero__trust"><span><b>4.9 <i>★</i></b> рейтинг на площадках</span><span><b>7 лет</b> свежей флористики</span><span><b>300+</b> букетов в год</span></div>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="#catalog">Собрать букет</a>
+          <a class="btn btn--ghost btn--lg" href="tel:+78000000000">Позвонить</a>
+        </div>
+        <div class="hero__trust">
+          <span><b>4.9 <i>★</i></b> рейтинг на площадках</span>
+          <span><b>7 лет</b> свежей флористики</span>
+          <span><b>300+</b> букетов в год</span>
+        </div>
       </div>
       <div class="flower-stage" id="flowerStage" aria-hidden="true">
         <div class="flower-fallback">
           <span class="flower-fallback__glow"></span>
           <svg viewBox="0 0 200 200" fill="none" role="img" aria-label="Цветок">
-            <defs><linearGradient id="petalG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7CB88F"/><stop offset="1" stop-color="#2E7D4F"/></linearGradient><linearGradient id="petalP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4CDD7"/><stop offset="1" stop-color="#E8A9B8"/></linearGradient><radialGradient id="coreG" cx="0.5" cy="0.4" r="0.8"><stop offset="0" stop-color="#F6D6DF"/><stop offset="1" stop-color="#E8A9B8"/></radialGradient></defs>
+            <defs>
+              <linearGradient id="petalG" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#7CB88F"/><stop offset="1" stop-color="#2E7D4F"/>
+              </linearGradient>
+              <linearGradient id="petalP" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#F4CDD7"/><stop offset="1" stop-color="#E8A9B8"/>
+              </linearGradient>
+              <radialGradient id="coreG" cx="0.5" cy="0.4" r="0.8">
+                <stop offset="0" stop-color="#F6D6DF"/><stop offset="1" stop-color="#E8A9B8"/>
+              </radialGradient>
+            </defs>
             <g stroke="none">
               <ellipse cx="100" cy="52" rx="19" ry="33" fill="url(#petalG)" opacity=".9" transform="rotate(0 100 100)"/>
               <ellipse cx="100" cy="52" rx="19" ry="33" fill="url(#petalP)" opacity=".8" transform="rotate(45 100 100)"/>
@@ -268,12 +456,16 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
       </div>
     </div>
   </section>
+
+  <!-- ================= MARQUEE ================= -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track">
       <span>Монобукеты</span><span>Авторские букеты</span><span>Композиции в коробках</span><span>Букет за час</span><span>Подписка на цветы</span><span>Свадебная флористика</span>
       <span>Монобукеты</span><span>Авторские букеты</span><span>Композиции в коробках</span><span>Букет за час</span><span>Подписка на цветы</span><span>Свадебная флористика</span>
     </div>
   </div>
+
+  <!-- ================= STATS ================= -->
   <section class="stats" aria-label="Факты о магазине">
     <div class="wrap stats__grid">
       <div class="stat reveal"><span class="stat__num">60<em> мин</em></span><span class="stat__label">доставка по городу</span></div>
@@ -282,50 +474,181 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
       <div class="stat reveal d3"><span class="stat__num">7<em> лет</em></span><span class="stat__label">в свежей флористике</span></div>
     </div>
   </section>
+
+  <!-- ================= CATALOG ================= -->
   <section class="section" id="catalog" aria-labelledby="catalogTitle">
     <div class="wrap">
-      <div class="sec-head reveal"><span class="kicker">Каталог</span><h2 class="sec-title" id="catalogTitle">Букеты, которые говорят за вас</h2><p class="sec-sub">От лаконичного монобукета до пышной свадебной флористики — соберём свежим, красивым и точно в срок.</p></div>
+      <div class="sec-head reveal">
+        <span class="kicker">Каталог</span>
+        <h2 class="sec-title" id="catalogTitle">Букеты, которые говорят за вас</h2>
+        <p class="sec-sub">От лаконичного монобукета до пышной свадебной флористики — соберём свежим, красивым и точно в срок.</p>
+      </div>
       <div class="catalog-grid">
-        <article class="card reveal"><div class="img-panel img-panel--ar"><span class="card__tag">Хит</span><img loading="lazy" decoding="async" width="800" height="1000" alt="Монобукет из свежих роз" src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"></div><div class="card__body"><h3 class="card__title">Монобукет</h3><p class="card__desc">Один сорт цветов в чистой подаче. Лаконично, свежо и очень дорого выглядит.</p><div class="card__foot"><span class="price">от 1 990 <small>₽</small></span><a class="card__link" href="#contacts">Выбрать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></article>
-        <article class="card reveal d1"><div class="img-panel img-panel--ar"><span class="card__tag card__tag--pink">Авторский</span><img loading="lazy" decoding="async" width="800" height="1000" alt="Авторский букет из полевых цветов" src="https://images.unsplash.com/photo-1520763185298-1b434c919102?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"></div><div class="card__body"><h3 class="card__title">Авторский букет</h3><p class="card__desc">Флорист собирает композицию под ваш повод и настроение — единственный в своём роде.</p><div class="card__foot"><span class="price">от 3 490 <small>₽</small></span><a class="card__link" href="#contacts">Выбрать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></article>
-        <article class="card reveal d2"><div class="img-panel img-panel--ar"><span class="card__tag">Подарок</span><img loading="lazy" decoding="async" width="800" height="1000" alt="Композиция из цветов в коробке" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"></div><div class="card__body"><h3 class="card__title">Композиция в коробке</h3><p class="card__desc">Цветы в элегантной коробке-шляпе. Не нужна ваза — нужен только повод.</p><div class="card__foot"><span class="price">от 2 790 <small>₽</small></span><a class="card__link" href="#contacts">Выбрать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></article>
-        <article class="card reveal"><div class="img-panel img-panel--ar"><span class="card__tag card__tag--pink">Экспресс</span><img loading="lazy" decoding="async" width="800" height="1000" alt="Экспресс-букет за час" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"></div><div class="card__body"><h3 class="card__title">Букет за час</h3><p class="card__desc">Внезапно вспомнили про праздник? Соберём и привезём в течение часа.</p><div class="card__foot"><span class="price">от 1 590 <small>₽</small></span><a class="card__link" href="#contacts">Выбрать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></article>
-        <article class="card reveal d1"><div class="img-panel img-panel--ar img-panel--plain" role="img" aria-label="Подписка на свежие цветы"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="44" stroke="#2E7D4F" stroke-width="1.5" opacity=".5"/><g stroke="#2E7D4F" stroke-width="1.5"><path d="M60 28c6-10 20-8 20 3 0 8-8 13-20 24-12-11-20-16-20-24 0-11 14-13 20-3Z"/></g><circle cx="60" cy="72" r="5" fill="#E8A9B8"/><path d="M60 77v14" stroke="#2E7D4F" stroke-width="2" stroke-linecap="round"/></svg><span class="card__tag">Подписка</span></div><div class="card__body"><h3 class="card__title">Подписка на цветы</h3><p class="card__desc">Свежий букет каждую неделю или месяц. Красота на автомате — для дома и офиса.</p><div class="card__foot"><span class="price">от 2 490 <small>₽/мес</small></span><a class="card__link" href="#contacts">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></article>
-        <article class="card reveal d2"><div class="img-panel img-panel--ar img-panel--plain" role="img" aria-label="Свадебная флористика"><svg viewBox="0 0 120 120" fill="none"><path d="M60 96C46 96 34 84 34 68c14 0 26 12 26 28Zm0 0C46 96 34 84 34 68c-4-14 8-26 26-26 18 0 30 12 30 26 0 16-12 28-30 28Zm0-28c18 0 30-12 30-26 0-16-12-28-30-28S30 26 30 42c0 14 12 26 30 26Z" fill="#E8A9B8" opacity=".55"/><path d="M60 20v76" stroke="#2E7D4F" stroke-width="2" stroke-linecap="round"/><circle cx="60" cy="42" r="4" fill="#2E7D4F"/></svg><span class="card__tag">Свадьба</span></div><div class="card__body"><h3 class="card__title">Свадебная флористика</h3><p class="card__desc">Букет невесты, бутоньерки и оформление зала — единый стиль вашего дня.</p><div class="card__foot"><span class="price">от 15 000 <small>₽</small></span><a class="card__link" href="#contacts">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></article>
+        <article class="card reveal">
+          <div class="img-panel img-panel--ar">
+            <span class="card__tag">Хит</span>
+            <img loading="lazy" decoding="async" width="800" height="1000" alt="Монобукет из свежих роз" src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Монобукет</h3>
+            <p class="card__desc">Один сорт цветов в чистой подаче. Лаконично, свежо и очень дорого выглядит.</p>
+            <div class="card__foot"><span class="price">от 1 990 <small>₽</small></span><a class="card__link" href="#contacts">Выбрать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="card reveal d1">
+          <div class="img-panel img-panel--ar">
+            <span class="card__tag card__tag--pink">Авторский</span>
+            <img loading="lazy" decoding="async" width="800" height="1000" alt="Авторский букет из полевых цветов" src="https://images.unsplash.com/photo-1520763185298-1b434c919102?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Авторский букет</h3>
+            <p class="card__desc">Флорист собирает композицию под ваш повод и настроение — единственный в своём роде.</p>
+            <div class="card__foot"><span class="price">от 3 490 <small>₽</small></span><a class="card__link" href="#contacts">Выбрать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="card reveal d2">
+          <div class="img-panel img-panel--ar">
+            <span class="card__tag">Подарок</span>
+            <img loading="lazy" decoding="async" width="800" height="1000" alt="Композиция из цветов в коробке" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Композиция в коробке</h3>
+            <p class="card__desc">Цветы в элегантной коробке-шляпе. Не нужна ваза — нужен только повод.</p>
+            <div class="card__foot"><span class="price">от 2 790 <small>₽</small></span><a class="card__link" href="#contacts">Выбрать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="img-panel img-panel--ar">
+            <span class="card__tag card__tag--pink">Экспресс</span>
+            <img loading="lazy" decoding="async" width="800" height="1000" alt="Экспресс-букет за час" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Букет за час</h3>
+            <p class="card__desc">Внезапно вспомнили про праздник? Соберём и привезём в течение часа.</p>
+            <div class="card__foot"><span class="price">от 1 590 <small>₽</small></span><a class="card__link" href="#contacts">Выбрать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="card reveal d1">
+          <div class="img-panel img-panel--ar img-panel--plain" role="img" aria-label="Подписка на свежие цветы">
+            <svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="44" stroke="#2E7D4F" stroke-width="1.5" opacity=".5"/><g stroke="#2E7D4F" stroke-width="1.5"><path d="M60 28c6-10 20-8 20 3 0 8-8 13-20 24-12-11-20-16-20-24 0-11 14-13 20-3Z"/></g><circle cx="60" cy="72" r="5" fill="#E8A9B8"/><path d="M60 77v14" stroke="#2E7D4F" stroke-width="2" stroke-linecap="round"/></svg>
+            <span class="card__tag">Подписка</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Подписка на цветы</h3>
+            <p class="card__desc">Свежий букет каждую неделю или месяц. Красота на автомате — для дома и офиса.</p>
+            <div class="card__foot"><span class="price">от 2 490 <small>₽/мес</small></span><a class="card__link" href="#contacts">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="card reveal d2">
+          <div class="img-panel img-panel--ar img-panel--plain" role="img" aria-label="Свадебная флористика">
+            <svg viewBox="0 0 120 120" fill="none"><path d="M60 96C46 96 34 84 34 68c14 0 26 12 26 28Zm0 0C46 96 34 84 34 68c-4-14 8-26 26-26 18 0 30 12 30 26 0 16-12 28-30 28Zm0-28c18 0 30-12 30-26 0-16-12-28-30-28S30 26 30 42c0 14 12 26 30 26Z" fill="#E8A9B8" opacity=".55"/><path d="M60 20v76" stroke="#2E7D4F" stroke-width="2" stroke-linecap="round"/><circle cx="60" cy="42" r="4" fill="#2E7D4F"/></svg>
+            <span class="card__tag">Свадьба</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Свадебная флористика</h3>
+            <p class="card__desc">Букет невесты, бутоньерки и оформление зала — единый стиль вашего дня.</p>
+            <div class="card__foot"><span class="price">от 15 000 <small>₽</small></span><a class="card__link" href="#contacts">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
+
+  <!-- ================= OCCASIONS ================= -->
   <section class="section section--tint" id="occasions" aria-labelledby="occTitle">
     <div class="wrap">
-      <div class="sec-head sec-head--center reveal"><span class="kicker">Поводы</span><h2 class="sec-title" id="occTitle">Цветы к любому моменту</h2><p class="sec-sub">Или вовсе без повода — иногда «просто так» звучит лучше всего.</p></div>
+      <div class="sec-head sec-head--center reveal">
+        <span class="kicker">Поводы</span>
+        <h2 class="sec-title" id="occTitle">Цветы к любому моменту</h2>
+        <p class="sec-sub">Или вовсе без повода — иногда «просто так» звучит лучше всего.</p>
+      </div>
       <div class="occ-grid">
-        <a class="occ reveal" href="#catalog"><img loading="lazy" decoding="async" width="800" height="1000" alt="Букет на день рождения" src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"><span class="occ__text"><b>День рождения</b><span>Ярко, щедро, с открыткой</span></span></a>
-        <a class="occ reveal d1" href="#catalog"><img loading="lazy" decoding="async" width="800" height="1000" alt="Букет на свидание" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"><span class="occ__text"><b>Свидание</b><span>Нежно и без пафоса</span></span></a>
-        <a class="occ reveal d2" href="#catalog"><img loading="lazy" decoding="async" width="800" height="1000" alt="Букет в знак благодарности" src="https://images.unsplash.com/photo-1520763185298-1b434c919102?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"><span class="occ__text"><b>Благодарность</b><span>Тепло без лишних слов</span></span></a>
-        <a class="occ reveal d3" href="#catalog"><img loading="lazy" decoding="async" width="800" height="1000" alt="Букет просто так, без повода" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'"><span class="occ__text"><b>Просто так</b><span>Самый приятный повод</span></span></a>
+        <a class="occ reveal" href="#catalog">
+          <img loading="lazy" decoding="async" width="800" height="1000" alt="Букет на день рождения" src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+          <span class="occ__text"><b>День рождения</b><span>Ярко, щедро, с открыткой</span></span>
+        </a>
+        <a class="occ reveal d1" href="#catalog">
+          <img loading="lazy" decoding="async" width="800" height="1000" alt="Букет на свидание" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+          <span class="occ__text"><b>Свидание</b><span>Нежно и без пафоса</span></span>
+        </a>
+        <a class="occ reveal d2" href="#catalog">
+          <img loading="lazy" decoding="async" width="800" height="1000" alt="Букет в знак благодарности" src="https://images.unsplash.com/photo-1520763185298-1b434c919102?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+          <span class="occ__text"><b>Благодарность</b><span>Тепло без лишних слов</span></span>
+        </a>
+        <a class="occ reveal d3" href="#catalog">
+          <img loading="lazy" decoding="async" width="800" height="1000" alt="Букет просто так, без повода" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=1600&auto=format&fit=crop" onerror="this.style.display='none'">
+          <span class="occ__text"><b>Просто так</b><span>Самый приятный повод</span></span>
+        </a>
       </div>
     </div>
   </section>
+
+  <!-- ================= DELIVERY ================= -->
   <section class="section section--white" id="delivery" aria-labelledby="delTitle">
     <div class="wrap">
-      <div class="sec-head reveal"><span class="kicker">Доставка</span><h2 class="sec-title" id="delTitle">Как это работает — 60 минут</h2><p class="sec-sub">Три простых шага от «хочу цветы» до «они уже у двери».</p></div>
-      <div class="steps">
-        <div class="step reveal"><span class="step__num">01</span><div class="step__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg></div><h3>Выбираете букет</h3><p>В каталоге или по телефону — подскажем по цене, цветам и поводу за пару минут.</p></div>
-        <div class="step reveal d1"><span class="step__num">02</span><div class="step__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c3 3 6 7 6 11a6 6 0 0 1-12 0c0-4 3-8 6-11Z"/><path d="M12 10v8"/></svg></div><h3>Флорист собирает</h3><p>Свежие цветы из холодильника, авторская сборка, упаковка и открытка от руки.</p></div>
-        <div class="step reveal d2"><span class="step__num">03</span><div class="step__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg></div><h3>Курьер у двери</h3><p>За 60 минут по городу. Привезём, позвоним, передадим бережно — с улыбкой.</p></div>
+      <div class="sec-head reveal">
+        <span class="kicker">Доставка</span>
+        <h2 class="sec-title" id="delTitle">Как это работает — 60 минут</h2>
+        <p class="sec-sub">Три простых шага от «хочу цветы» до «они уже у двери».</p>
       </div>
-      <div class="delivery-note reveal"><b>Зона и время</b><span>Доставляем ежедневно с 8:00 до 23:00.</span><span>В пределах кольца — 60 минут, отдалённые районы — до 2 часов.</span><span>Доставка — от 290 ₽.</span></div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step__num">01</span>
+          <div class="step__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg></div>
+          <h3>Выбираете букет</h3>
+          <p>В каталоге или по телефону — подскажем по цене, цветам и поводу за пару минут.</p>
+        </div>
+        <div class="step reveal d1">
+          <span class="step__num">02</span>
+          <div class="step__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c3 3 6 7 6 11a6 6 0 0 1-12 0c0-4 3-8 6-11Z"/><path d="M12 10v8"/></svg></div>
+          <h3>Флорист собирает</h3>
+          <p>Свежие цветы из холодильника, авторская сборка, упаковка и открытка от руки.</p>
+        </div>
+        <div class="step reveal d2">
+          <span class="step__num">03</span>
+          <div class="step__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg></div>
+          <h3>Курьер у двери</h3>
+          <p>За 60 минут по городу. Привезём, позвоним, передадим бережно — с улыбкой.</p>
+        </div>
+      </div>
+      <div class="delivery-note reveal">
+        <b>Зона и время</b>
+        <span>Доставляем ежедневно с 8:00 до 23:00.</span>
+        <span>В пределах кольца — 60 минут, отдалённые районы — до 2 часов.</span>
+        <span>Доставка — от 290 ₽.</span>
+      </div>
     </div>
   </section>
+
+  <!-- ================= REVIEWS ================= -->
   <section class="section" id="reviews" aria-labelledby="revTitle">
     <div class="wrap">
-      <div class="sec-head sec-head--center reveal"><span class="kicker">Отзывы</span><h2 class="sec-title" id="revTitle">Нас советуют друзьям</h2></div>
+      <div class="sec-head sec-head--center reveal">
+        <span class="kicker">Отзывы</span>
+        <h2 class="sec-title" id="revTitle">Нас советуют друзьям</h2>
+      </div>
       <div class="reviews">
-        <figure class="review reveal"><div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div><p>Заказала монобукет маме на день рождения утром — к обеду он уже был у неё. Свежие пионы, аккуратная упаковка, открытка от руки. Спасибо!</p><figcaption class="review__who"><span class="review__ava" aria-hidden="true">А</span><span><b>Алина</b><span>заказ монобукета</span></span></figcaption></figure>
-        <figure class="review reveal d1"><div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div><p>Букет приехал ровно за 55 минут, как в описании. Цветы выглядят дороже своей цены. Теперь заказываю только здесь.</p><figcaption class="review__who"><span class="review__ava review__ava--pink" aria-hidden="true">Д</span><span><b>Дмитрий</b><span>доставка на свидание</span></span></figcaption></figure>
+        <figure class="review reveal">
+          <div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+          <p>Заказала монобукет маме на день рождения утром — к обеду он уже был у неё. Свежие пионы, аккуратная упаковка, открытка от руки. Спасибо!</p>
+          <figcaption class="review__who">
+            <span class="review__ava" aria-hidden="true">А</span>
+            <span><b>Алина</b><span>заказ монобукета</span></span>
+          </figcaption>
+        </figure>
+        <figure class="review reveal d1">
+          <div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+          <p>Букет приехал ровно за 55 минут, как в описании. Цветы выглядят дороже своей цены. Теперь заказываю только здесь.</p>
+          <figcaption class="review__who">
+            <span class="review__ava review__ava--pink" aria-hidden="true">Д</span>
+            <span><b>Дмитрий</b><span>доставка на свидание</span></span>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
+
+  <!-- ================= CONTACTS / CTA ================= -->
   <section class="section" id="contacts" aria-labelledby="ctaTitle">
     <div class="wrap">
       <div class="cta reveal">
@@ -334,97 +657,280 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
             <span class="eyebrow"><span class="eyebrow__dot"></span> Соберём за 60 минут</span>
             <h2 id="ctaTitle">Хотите порадовать кого-то уже сегодня?</h2>
             <p>Позвоните или напишите — подберём букет под ваш повод, бюджет и настроение. Или просто нажмите «Заказать».</p>
-            <div class="cta__actions"><a class="btn btn--light btn--lg" href="tel:+78000000000">Позвонить</a><a class="btn btn--ghost btn--lg" href="https://wa.me/78000000000" target="_blank" rel="noopener">WhatsApp</a></div>
+            <div class="cta__actions">
+              <a class="btn btn--light btn--lg" href="tel:+78000000000">Позвонить</a>
+              <a class="btn btn--ghost btn--lg" href="https://wa.me/78000000000" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
           </div>
           <div class="cta__card">
-            <div class="cta__line"><span class="cta__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0 8 7 15 15 15l2-3-4-2-2 1a11 11 0 0 1-6-6l1-2-2-4-4 1Z"/></svg></span><span><b>Телефон</b><a href="tel:+78000000000">+7 (800) 000-00-00</a></span></div>
-            <div class="cta__line"><span class="cta__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg></span><span><b>Адрес</b><span>ул. Цветочная, 1 · ежедневно 8:00–23:00</span></span></div>
-            <div class="cta__line"><span class="cta__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><span><b>Доставка</b><span>60 минут по городу, от 290 ₽</span></span></div>
+            <div class="cta__line">
+              <span class="cta__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0 8 7 15 15 15l2-3-4-2-2 1a11 11 0 0 1-6-6l1-2-2-4-4 1Z"/></svg></span>
+              <span><b>Телефон</b><a href="tel:+78000000000">+7 (800) 000-00-00</a></span>
+            </div>
+            <div class="cta__line">
+              <span class="cta__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg></span>
+              <span><b>Адрес</b><span>ул. Цветочная, 1 · ежедневно 8:00–23:00</span></span>
+            </div>
+            <div class="cta__line">
+              <span class="cta__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+              <span><b>Доставка</b><span>60 минут по городу, от 290 ₽</span></span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
 </main>
+
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer__top">
-      <div class="footer__brand"><a class="logo" href="#top" aria-label="Букет — наверх"><span class="logo__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-5-2-8-5-8-9a8 8 0 0 1 16 0c0 4-3 7-8 9Z"/><circle cx="12" cy="10" r="2.4" fill="currentColor" stroke="none"/></svg></span>Букет</a><p>Цветочный магазин с доставкой за 60 минут. Свежие цветы, живой сервис и повод — даже если его ещё нет.</p></div>
-      <div><h4>Каталог</h4><ul><li><a href="#catalog">Монобукеты</a></li><li><a href="#catalog">Авторские букеты</a></li><li><a href="#catalog">В коробках</a></li><li><a href="#catalog">Подписка</a></li></ul></div>
-      <div><h4>Магазин</h4><ul><li><a href="#occasions">Поводы</a></li><li><a href="#delivery">Доставка</a></li><li><a href="#reviews">Отзывы</a></li><li><a href="#contacts">Контакты</a></li></ul></div>
-      <div><h4>Связаться</h4><ul class="footer__contact"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0 8 7 15 15 15l2-3-4-2-2 1a11 11 0 0 1-6-6l1-2-2-4-4 1Z"/></svg><a href="tel:+78000000000">+7 (800) 000-00-00</a></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span>ул. Цветочная, 1</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Ежедневно 8:00–23:00</span></li></ul></div>
+      <div class="footer__brand">
+        <a class="logo" href="#top" aria-label="Букет — наверх">
+          <span class="logo__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-5-2-8-5-8-9a8 8 0 0 1 16 0c0 4-3 7-8 9Z"/><circle cx="12" cy="10" r="2.4" fill="currentColor" stroke="none"/></svg>
+          </span>
+          Букет
+        </a>
+        <p>Цветочный магазин с доставкой за 60 минут. Свежие цветы, живой сервис и повод — даже если его ещё нет.</p>
+      </div>
+      <div>
+        <h4>Каталог</h4>
+        <ul>
+          <li><a href="#catalog">Монобукеты</a></li>
+          <li><a href="#catalog">Авторские букеты</a></li>
+          <li><a href="#catalog">В коробках</a></li>
+          <li><a href="#catalog">Подписка</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Магазин</h4>
+        <ul>
+          <li><a href="#occasions">Поводы</a></li>
+          <li><a href="#delivery">Доставка</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Связаться</h4>
+        <ul class="footer__contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0 8 7 15 15 15l2-3-4-2-2 1a11 11 0 0 1-6-6l1-2-2-4-4 1Z"/></svg><a href="tel:+78000000000">+7 (800) 000-00-00</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span>ул. Цветочная, 1</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Ежедневно 8:00–23:00</span></li>
+        </ul>
+      </div>
     </div>
     <div class="footer__bottom">
-      <div class="footer__credit"><a href="https://fitfuuxdev.github.io/landing/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c-5-2-8-5-8-9a8 8 0 0 1 16 0c0 4-3 7-8 9Z"/><circle cx="12" cy="10" r="2.2" fill="currentColor" stroke="none"/></svg>Создано Fitfuux</a><span class="demo-tag">демо-страница</span></div>
+      <div class="footer__credit">
+        <a href="https://fitfuuxdev.github.io/landing/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c-5-2-8-5-8-9a8 8 0 0 1 16 0c0 4-3 7-8 9Z"/><circle cx="12" cy="10" r="2.2" fill="currentColor" stroke="none"/></svg>
+          Создано Fitfuux
+        </a>
+        <span class="demo-tag">демо-страница</span>
+      </div>
       <p class="footer__disclaim">Демо-страница портфолио FITFUUX. Контакты и цены — образец.</p>
     </div>
   </div>
 </footer>
+
 <script type="module">
+/* ============================================================
+   Букет — interactions + 3D flower (процедурный, ленивый import)
+   ============================================================ */
 (function(){
   "use strict";
+
+  /* ---------- mobile menu ---------- */
   const burger = document.getElementById('burger');
   const nav = document.getElementById('siteNav');
   if (burger && nav) {
-    burger.addEventListener('click', () => { const open = nav.classList.toggle('is-open'); burger.setAttribute('aria-expanded', String(open)); burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню'); });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); }));
+    burger.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }));
   }
+
+  /* ---------- header shadow on scroll ---------- */
   const header = document.querySelector('.header');
-  const onScrollHeader = () => { if (header) header.classList.toggle('is-scrolled', window.scrollY > 24); };
+  const onScrollHeader = () => {
+    if (header) header.classList.toggle('is-scrolled', window.scrollY > 24);
+  };
   onScrollHeader();
   window.addEventListener('scroll', onScrollHeader, { passive: true });
+
+  /* ---------- scroll reveal ---------- */
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealEls = document.querySelectorAll('.reveal');
-  if (reduced || !('IntersectionObserver' in window)) { revealEls.forEach(el => el.classList.add('is-inview')); }
-  else { const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-inview'); io.unobserve(e.target); } }); }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' }); revealEls.forEach(el => io.observe(el)); }
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('is-inview'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-inview');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  /* ---------- 3D flower ---------- */
   const boot = () => initFlower();
-  function idleThen(fn) { if ('requestIdleCallback' in window) { window.requestIdleCallback(fn, { timeout: 1400 }); } else { setTimeout(fn, 1); } }
-  if (document.readyState === 'complete') { idleThen(boot); } else { window.addEventListener('load', () => idleThen(boot), { once: true }); }
+
+  function idleThen(fn) {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(fn, { timeout: 1400 });
+    } else {
+      setTimeout(fn, 1);
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    idleThen(boot);
+  } else {
+    window.addEventListener('load', () => idleThen(boot), { once: true });
+  }
+
   async function initFlower() {
     const stage = document.getElementById('flowerStage');
     const hero = document.getElementById('hero');
     if (!stage || !hero) return;
+
+    /* --- guards --- */
     if (reduced) return;
     const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     if (conn && (conn.saveData || conn.effectiveType === '2g')) return;
     if (navigator.deviceMemory && navigator.deviceMemory <= 1) return;
-    const webglOk = (() => { try { const c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl') || c.getContext('experimental-webgl'))); } catch (e) { return false; } })();
-    if (!webglOk) return;
+    const webglOk = (() => {
+      try {
+        const c = document.createElement('canvas');
+        return !!(window.WebGLRenderingContext && (
+          c.getContext('webgl2') || c.getContext('webgl') || c.getContext('experimental-webgl')
+        ));
+      } catch (e) { return false; }
+    })();
+    if (!webglOk) return; // static fallback stays
+
+    /* --- lazy dynamic import --- */
     let THREE;
-    try { THREE = await import('./assets/js/three.module.min.js'); } catch (err) { return; }
+    try {
+      THREE = await import('./assets/js/three.module.min.js');
+    } catch (err) {
+      return; // fallback stays
+    }
     if (!THREE || !THREE.Scene) return;
+
     const isMobile = Math.min(window.innerWidth, window.innerHeight) < 700;
+
+    /* --- renderer --- */
     const canvas = document.createElement('canvas');
     canvas.setAttribute('aria-hidden', 'true');
     stage.appendChild(canvas);
     hero.classList.add('is-webgl');
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: true,
+      powerPreference: 'high-performance'
+    });
     renderer.setClearColor(0x000000, 0);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.1;
-    if ('outputColorSpace' in renderer && 'SRGBColorSpace' in THREE) { renderer.outputColorSpace = THREE.SRGBColorSpace; }
-    else if ('outputEncoding' in renderer && 'sRGBEncoding' in THREE) { renderer.outputEncoding = THREE.sRGBEncoding; }
+    if ('outputColorSpace' in renderer && 'SRGBColorSpace' in THREE) {
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+    } else if ('outputEncoding' in renderer && 'sRGBEncoding' in THREE) {
+      renderer.outputEncoding = THREE.sRGBEncoding;
+    }
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(33, 1, 0.1, 100);
     camera.position.set(0, 0, 6.2);
-    const wrap = new THREE.Group();
-    const tilt = new THREE.Group();
-    const flower = new THREE.Group();
+
+    const wrap = new THREE.Group();      // scroll parallax
+    const tilt = new THREE.Group();      // pointer/gyro tilt
+    const flower = new THREE.Group();    // continuous spin
     wrap.add(tilt); tilt.add(flower); scene.add(wrap);
+
+    /* --- lighting --- */
     scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-    const key = new THREE.DirectionalLight(0xffffff, 1.7); key.position.set(3.5, 4.5, 5); scene.add(key);
-    const rim = new THREE.DirectionalLight(0xbfe6d0, 0.9); rim.position.set(-4, -1, -2.5); scene.add(rim);
-    const pinkLight = new THREE.PointLight(0xE8A9B8, 0.7, 12); pinkLight.position.set(1.5, 2.2, 2.5); scene.add(pinkLight);
-    const fill = new THREE.PointLight(0x9fd4b2, 0.5, 10); fill.position.set(-2, 1.5, 3); scene.add(fill);
-    const petalGreen = new THREE.MeshPhysicalMaterial({ color: 0x4c9a68, metalness: 0.02, roughness: 0.2, transmission: 0.28, thickness: 0.5, ior: 1.45, transparent: true, opacity: 0.62, clearcoat: 0.8, clearcoatRoughness: 0.22, side: THREE.DoubleSide });
-    const petalPink = new THREE.MeshPhysicalMaterial({ color: 0xE8A9B8, metalness: 0.02, roughness: 0.24, transmission: 0.3, thickness: 0.5, ior: 1.45, transparent: true, opacity: 0.58, clearcoat: 0.8, clearcoatRoughness: 0.24, side: THREE.DoubleSide });
-    const coreMat = new THREE.MeshPhysicalMaterial({ color: 0xf4c9d3, metalness: 0.0, roughness: 0.18, transmission: 0.2, transparent: true, opacity: 0.72, clearcoat: 1.0, clearcoatRoughness: 0.12 });
-    const calyxMat = new THREE.MeshPhysicalMaterial({ color: 0x2E7D4F, metalness: 0.04, roughness: 0.28, transparent: true, opacity: 0.75, clearcoat: 0.6, clearcoatRoughness: 0.3 });
+    const key = new THREE.DirectionalLight(0xffffff, 1.7);
+    key.position.set(3.5, 4.5, 5);
+    scene.add(key);
+    const rim = new THREE.DirectionalLight(0xbfe6d0, 0.9);
+    rim.position.set(-4, -1, -2.5);
+    scene.add(rim);
+    const pinkLight = new THREE.PointLight(0xE8A9B8, 0.7, 12);
+    pinkLight.position.set(1.5, 2.2, 2.5);
+    scene.add(pinkLight);
+    const fill = new THREE.PointLight(0x9fd4b2, 0.5, 10);
+    fill.position.set(-2, 1.5, 3);
+    scene.add(fill);
+
+    /* --- materials --- */
+    const petalGreen = new THREE.MeshPhysicalMaterial({
+      color: 0x4c9a68,
+      metalness: 0.02,
+      roughness: 0.2,
+      transmission: 0.28,
+      thickness: 0.5,
+      ior: 1.45,
+      transparent: true,
+      opacity: 0.62,
+      clearcoat: 0.8,
+      clearcoatRoughness: 0.22,
+      side: THREE.DoubleSide
+    });
+    const petalPink = new THREE.MeshPhysicalMaterial({
+      color: 0xE8A9B8,
+      metalness: 0.02,
+      roughness: 0.24,
+      transmission: 0.3,
+      thickness: 0.5,
+      ior: 1.45,
+      transparent: true,
+      opacity: 0.58,
+      clearcoat: 0.8,
+      clearcoatRoughness: 0.24,
+      side: THREE.DoubleSide
+    });
+    const coreMat = new THREE.MeshPhysicalMaterial({
+      color: 0xf4c9d3,
+      metalness: 0.0,
+      roughness: 0.18,
+      transmission: 0.2,
+      transparent: true,
+      opacity: 0.72,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.12
+    });
+    const calyxMat = new THREE.MeshPhysicalMaterial({
+      color: 0x2E7D4F,
+      metalness: 0.04,
+      roughness: 0.28,
+      transparent: true,
+      opacity: 0.75,
+      clearcoat: 0.6,
+      clearcoatRoughness: 0.3
+    });
+
+    /* --- geometry (fewer segments on mobile) --- */
     const petalGeo = new THREE.SphereGeometry(0.5, isMobile ? 20 : 32, isMobile ? 14 : 22);
     const coreGeo = new THREE.SphereGeometry(0.34, isMobile ? 20 : 32, isMobile ? 14 : 22);
     const calyxGeo = new THREE.TorusGeometry(0.42, 0.075, isMobile ? 10 : 16, isMobile ? 28 : 48);
+
     const outerCount = isMobile ? 10 : 14;
     const innerCount = isMobile ? 7 : 9;
+
     function addPetal(count, radius, scaleX, scaleY, scaleZ, tiltAngle, matFn, layerGroup) {
       for (let i = 0; i < count; i++) {
         const angle = (i / count) * Math.PI * 2;
@@ -437,54 +943,122 @@ h1,h2,h3,.serif{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.
         layerGroup.add(m);
       }
     }
+
     const outerLayer = new THREE.Group();
     const innerLayer = new THREE.Group();
     flower.add(outerLayer);
     flower.add(innerLayer);
+
     addPetal(outerCount, 1.28, 0.34, 0.13, 0.92, 0.5, (i) => (i % 4 === 0 ? petalPink : petalGreen), outerLayer);
     addPetal(innerCount, 0.86, 0.3, 0.12, 0.78, 0.34, (i) => (i % 3 === 0 ? petalPink : petalGreen), innerLayer);
+
     const core = new THREE.Mesh(coreGeo, coreMat);
     core.position.y = 0.14;
     flower.add(core);
+
     const calyx = new THREE.Mesh(calyxGeo, calyxMat);
     calyx.rotation.x = Math.PI / 2;
     calyx.position.y = -0.18;
     flower.add(calyx);
+
     flower.position.y = 0;
-    function dprCap() { return Math.min(window.devicePixelRatio || 1, isMobile ? 1.4 : 1.75); }
-    function resize() { const w = stage.clientWidth || 1; const h = stage.clientHeight || 1; renderer.setPixelRatio(dprCap()); renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+
+    /* --- sizing --- */
+    function dprCap() {
+      return Math.min(window.devicePixelRatio || 1, isMobile ? 1.4 : 1.75);
+    }
+    function resize() {
+      const w = stage.clientWidth || 1;
+      const h = stage.clientHeight || 1;
+      renderer.setPixelRatio(dprCap());
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
     resize();
     window.addEventListener('resize', resize, { passive: true });
+
+    /* --- pointer tilt (lerp) --- */
     const target = { x: 0, y: 0 };
     const gyro = { x: 0, y: 0 };
     const cur = { x: 0, y: 0 };
+
     function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
-    window.addEventListener('pointermove', (e) => { const nx = (e.clientX / window.innerWidth) * 2 - 1; const ny = (e.clientY / window.innerHeight) * 2 - 1; target.y = nx * 0.5; target.x = ny * 0.34; }, { passive: true });
-    if (window.DeviceOrientationEvent) { window.addEventListener('deviceorientation', (e) => { if (e.gamma == null || e.beta == null) return; gyro.y = clamp(e.gamma / 26, -1, 1) * 0.42; gyro.x = clamp((e.beta - 45) / 45, -1, 1) * 0.3; }); }
+
+    window.addEventListener('pointermove', (e) => {
+      const nx = (e.clientX / window.innerWidth) * 2 - 1;
+      const ny = (e.clientY / window.innerHeight) * 2 - 1;
+      target.y = nx * 0.5;
+      target.x = ny * 0.34;
+    }, { passive: true });
+
+    /* --- gyro --- */
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', (e) => {
+        if (e.gamma == null || e.beta == null) return;
+        gyro.y = clamp(e.gamma / 26, -1, 1) * 0.42;
+        gyro.x = clamp((e.beta - 45) / 45, -1, 1) * 0.3;
+      });
+    }
     const gyroBtn = document.getElementById('gyroToggle');
-    if (gyroBtn && typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') { gyroBtn.style.display = 'inline-flex'; gyroBtn.addEventListener('click', async () => { try { const res = await DeviceOrientationEvent.requestPermission(); if (res === 'granted') gyroBtn.classList.add('is-on'); } catch (err) {} }); }
+    if (gyroBtn && typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+      gyroBtn.style.display = 'inline-flex';
+      gyroBtn.addEventListener('click', async () => {
+        try {
+          const res = await DeviceOrientationEvent.requestPermission();
+          if (res === 'granted') gyroBtn.classList.add('is-on');
+        } catch (err) { /* ignore */ }
+      });
+    }
+
+    /* --- visibility + intersection pause --- */
     let visible = true;
     let tabHidden = document.hidden;
     let raf = null;
-    if ('IntersectionObserver' in window) { const vio = new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; }, { rootMargin: '120px' }); vio.observe(hero); }
-    document.addEventListener('visibilitychange', () => { tabHidden = document.hidden; });
-    canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); if (raf) cancelAnimationFrame(raf); canvas.remove(); hero.classList.remove('is-webgl'); }, false);
+
+    if ('IntersectionObserver' in window) {
+      const vio = new IntersectionObserver((entries) => {
+        visible = entries[0].isIntersecting;
+      }, { rootMargin: '120px' });
+      vio.observe(hero);
+    }
+    document.addEventListener('visibilitychange', () => {
+      tabHidden = document.hidden;
+    });
+
+    /* --- context lost --- */
+    canvas.addEventListener('webglcontextlost', (e) => {
+      e.preventDefault();
+      if (raf) cancelAnimationFrame(raf);
+      canvas.remove();
+      hero.classList.remove('is-webgl');
+    }, false);
+
+    /* --- loop --- */
     let last = performance.now();
     function frame(now) {
       raf = requestAnimationFrame(frame);
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
       if (tabHidden || !visible) return;
+
       const k = 1 - Math.exp(-dt * 4.5);
+
+      // continuous rotation
       flower.rotation.y += dt * 0.32;
+
+      // tilt (pointer + gyro)
       cur.x += (target.x + gyro.x - cur.x) * k;
       cur.y += (target.y + gyro.y - cur.y) * k;
       tilt.rotation.x = cur.x;
       tilt.rotation.y = cur.y;
+
+      // scroll parallax
       const sp = clamp(window.scrollY / Math.max(1, window.innerHeight), 0, 1);
       wrap.position.y = sp * 0.42;
       wrap.position.z = -sp * 0.3;
       wrap.rotation.x = sp * 0.12;
+
       renderer.render(scene, camera);
     }
     raf = requestAnimationFrame(frame);
