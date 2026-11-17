@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Опора L -->
+  <rect x="9" y="13" width="8" height="38" fill="#14161a"/>
+  <!-- Опора R -->
+  <rect x="25" y="13" width="8" height="38" fill="#14161a"/>
+  <!-- Верхний брус -->
+  <rect x="9" y="13" width="31" height="8" fill="#14161a"/>
+  <!-- Перекладина-«F» -->
+  <rect x="9" y="29" width="24" height="8" fill="#14161a"/>
+  <!-- Курсор-пиксель: вплотную к опоре, на оси перекладины -->
+  <rect x="41" y="29" width="11" height="11" fill="#c19a5e"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 238 36" role="img" aria-labelledby="fitfuux-logo-title">
+  <title id="fitfuux-logo-title">FITFUUX</title>
+  <g transform="translate(0 2)">
+    <path fill="currentColor" d="M4 3.6h24.6l-2.2 5.5H10.3v4.6h12.8l-2.2 5.5H10.3v9.2H4V3.6Z"/>
+    <path fill="#C49A6C" d="M24.1 23.8h3.8v3.8h-3.8z"/>
+  </g>
+  <text x="46" y="25" fill="currentColor" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="5.4">FITFUUX</text>
+  <text x="208" y="15" fill="currentColor" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-size="7" font-weight="500">®</text>
+</svg>

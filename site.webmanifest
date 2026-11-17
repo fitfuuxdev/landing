@@ -1,0 +1,16 @@
+﻿{
+  "name": "FITFUUX — digital studio",
+  "short_name": "FITFUUX",
+  "description": "Сайты, которые выбирают. Независимая digital-студия.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080807",
+  "theme_color": "#080807",
+  "lang": "ru",
+  "icons": [
+    { "src": "assets/brand/favicon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

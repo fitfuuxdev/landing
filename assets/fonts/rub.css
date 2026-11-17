@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  src: url(https://fonts.gstatic.com/l/font?kit=UcC73FwrK3iLTeHuS_nVMrMxCp50SjIq14D9k8SM&skey=c491285d6722e4fa&v=v20) format('woff2');
+  unicode-range: U+20bd;
+}
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 400 700;
+  src: url(https://fonts.gstatic.com/l/font?kit=gNMKW3F-SZuj7ymd6nDgkjI&skey=45f9610178ce01c5&v=v11) format('woff2');
+  unicode-range: U+20bd;
+}
