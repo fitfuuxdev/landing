@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -499,6 +499,10 @@
       <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 4h3l1.5 4-2 1.5a11.5 11.5 0 0 0 5 5L14 12.5l4 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 6a2 2 0 0 1 2-2Z"/>
       </symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 11a8 8 0 0 0 11.2 7.3L21 20l-1.7-6.7A8 8 0 1 0 3 11Z"/>
+        <path d="M9.2 10.2c.3-.9 1-1.4 1.6-1.1.4.2.6.7.8 1.1.2.4.1.9-.2 1.2-.2.2-.4.5-.2.8.3.6.8 1.1 1.4 1.4.3.2.6.1.8-.1.3-.3.8-.4 1.2-.2.4.2.9.4 1.1.8.3.6-.2 1.3-1.1 1.6-1 .3-2.4.1-3.5-.8-1.1-.9-1.7-2-1.8-3.2-.1-.9.2-1.5.5-1.5Z"/>
+      </symbol>
       <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 21s-6-5.4-6-10a6 6 0 1 1 12 0c0 4.6-6 10-6 10Z"/><circle cx="12" cy="11" r="2.2"/>
       </symbol>
@@ -879,7 +883,7 @@
               <span><span class="k">Телефон</span><span class="v">+7 (800) 000-00-00</span></span>
             </a>
             <a class="contact-row" href="https://wa.me/78000000000" target="_blank" rel="noopener">
-              <span class="contact-icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <span class="contact-icon"><svg aria-hidden="true"><use href="#i-wa"/></svg></span>
               <span><span class="k">WhatsApp</span><span class="v">Написать нам</span></span>
             </a>
             <div class="contact-row">
@@ -897,6 +901,10 @@
             <p>Осмотр, диагностика и план лечения с точной ценой. Это ни к чему вас не обязывает.</p>
             <a class="btn btn--accent" href="tel:+78000000000">Записаться сейчас
               <svg class="arr" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn--ghost" style="margin-top:12px" href="https://wa.me/78000000000" target="_blank" rel="noopener">
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>
+              Написать в WhatsApp
             </a>
           </div>
         </div>
@@ -931,6 +939,7 @@
           <h4>Контакты</h4>
           <div class="footer-nav">
             <a href="tel:+78000000000">+7 (800) 000-00-00</a>
+            <a href="https://wa.me/78000000000" target="_blank" rel="noopener">WhatsApp</a>
             <a href="#contacts">Москва, Ленинский проспект, 45</a>
           </div>
         </div>
@@ -1046,8 +1055,8 @@
       const camera = new THREE.PerspectiveCamera(33, 1, 0.1, 60);
       camera.position.set(0, 0, 7.2);
 
-      const group1 = new THREE.Group();
-      scene.add(group1);
+      const group = new THREE.Group();
+      scene.add(group);
 
       /* --- lights --- */
       scene.add(new THREE.HemisphereLight(0xffffff, 0xd6ecf2, 0.9));
@@ -1060,6 +1069,9 @@
       const rim = new THREE.DirectionalLight(0x23a9c2, 2.4);
       rim.position.set(-2.5, 2, -4.5);
       scene.add(rim);
+      const rim2 = new THREE.DirectionalLight(0x23a9c2, 1.2);
+      rim2.position.set(2.5, -1.5, -4);
+      scene.add(rim2);
 
       /* --- tooth (LatheGeometry) --- */
       const seg = lowDetail ? 42 : 72;
@@ -1069,7 +1081,7 @@
         [0.28, -0.40], [0.32, -0.60], [0.26, -0.84], [0.09, -1.01], [0.0001, -1.06]
       ].map((p) => new THREE.Vector2(p[0], p[1]));
       const toothGeo = new THREE.LatheGeometry(profile, seg);
-      toothGeo.scale(1, 1, 0.66);
+      toothGeo.scale(1, 1, 0.66); // приплюснуть — как зуб в профиль
       const toothMat = new THREE.MeshPhysicalMaterial({
         color: 0xffffff,
         metalness: 0.0,
@@ -1079,7 +1091,7 @@
       });
       const tooth = new THREE.Mesh(toothGeo, toothMat);
       tooth.position.y = 0.02;
-      group1.add(tooth);
+      group.add(tooth);
 
       /* --- orbit rings --- */
       const makeOrbit = (radius, tube, color, opacity) => {
@@ -1092,10 +1104,10 @@
       };
       const orbit1 = makeOrbit(1.5, 0.007, 0x23a9c2, 0.5);
       orbit1.rotation.set(Math.PI / 2.15, 0.35, 0.32);
-      group1.add(orbit1);
+      group.add(orbit1);
       const orbit2 = makeOrbit(1.9, 0.0045, 0x0e2a33, 0.22);
       orbit2.rotation.set(Math.PI / 1.95, -0.4, -0.2);
-      group1.add(orbit2);
+      group.add(orbit2);
 
       /* --- soft contact shadow --- */
       const shadowCanvas = document.createElement('canvas');
@@ -1114,7 +1126,7 @@
       );
       shadow.rotation.x = -Math.PI / 2;
       shadow.position.y = -1.4;
-      group1.add(shadow);
+      group.add(shadow);
 
       /* --- sizing / DPR --- */
       const resize = () => {
@@ -1125,15 +1137,15 @@
         renderer.setSize(w, h, false);
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
-        group1.scale.setScalar(w < 700 ? 0.82 : 1);
+        group.scale.setScalar(w < 700 ? 0.82 : 1);
       };
 
       /* --- pointer tilt --- */
-      let tX = 0, tY = 0;
-      let cX = 0, cY = 0;
+      let tX = 0, tY = 0;   // targets
+      let cX = 0, cY = 0;   // current
       window.addEventListener('pointermove', (e) => {
-        tX = ((e.clientY / window.innerHeight) * 2 - 1) * 0.32;
-        tY = ((e.clientX / window.innerWidth) * 2 - 1) * 0.55;
+        tX = ((e.clientY / window.innerHeight) * 2 - 1) * 0.32; // -> rotation.x
+        tY = ((e.clientX / window.innerWidth) * 2 - 1) * 0.55;  // -> rotation.y
       }, { passive: true });
 
       /* --- gyro --- */
@@ -1147,6 +1159,7 @@
 
       if (typeof DeviceOrientationEvent !== 'undefined' &&
           typeof DeviceOrientationEvent.requestPermission === 'function') {
+        // iOS: нужен жест пользователя
         gyroBtn.hidden = false;
         gyroBtn.addEventListener('click', async () => {
           try {
@@ -1160,7 +1173,7 @@
           } catch (err) { /* игнорируем */ }
         }, { once: false });
       } else if ('DeviceOrientationEvent' in window) {
-        gyroOn = true;
+        gyroOn = true; // Android/десктоп — работают без разрешения
       }
 
       /* --- scroll parallax --- */
@@ -1193,6 +1206,7 @@
       /* --- loop --- */
       const clock = new THREE.Clock();
       let elapsed = 0;
+
       const animate = () => {
         requestAnimationFrame(animate);
         const delta = Math.min(clock.getDelta(), 0.1);
@@ -1205,10 +1219,10 @@
         cX += (targetX - cX) * k;
         cY += (targetY - cY) * k;
 
-        group1.rotation.y = elapsed * 0.28 + cY;
-        group1.rotation.x = cX + scrollT * 0.22;
-        group1.position.y = scrollT * 1.05;
-        group1.position.z = scrollT * -0.55;
+        group.rotation.y = elapsed * 0.28 + cY;
+        group.rotation.x = cX + scrollT * 0.22;
+        group.position.y = scrollT * 1.05;
+        group.position.z = scrollT * -0.55;
 
         orbit1.rotation.z += delta * 0.16;
         orbit2.rotation.z -= delta * 0.12;
