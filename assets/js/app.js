@@ -735,19 +735,19 @@
     const hero = document.getElementById('top') || heroModelWrap.closest('.hero');
     if (hero) hero.classList.add('is-ready');
 
-    const setParallax = () => {
-      if (!heroModelWrap || !hero) return;
-      const heroRect = hero.getBoundingClientRect();
-      const heroH = heroRect.height || 1;
-      const midY = heroRect.top + heroH / 2;
-      const viewportMid = window.innerHeight / 2;
-      const progress = Math.max(-1, Math.min(1, (midY - viewportMid) / heroH));
-      heroModelWrap.style.transform = 'translateY(' + (progress * -120) + 'px)';
+    const setCrawl = () => {
+      if (!heroModelWrap) return;
+      const doc = document.documentElement;
+      const maxScroll = Math.max(1, (doc.scrollHeight - window.innerHeight));
+      const y = window.scrollY || doc.scrollTop || 0;
+      const progress = Math.min(1, Math.max(0, y / maxScroll));
+      const travel = window.innerHeight * 1.4 - heroModelWrap.offsetHeight;
+      heroModelWrap.style.transform = 'translateY(' + (0 + progress * 140) + 'vh)';
     };
 
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      window.addEventListener('scroll', setParallax, { passive: true });
-      setParallax();
+      window.addEventListener('scroll', setCrawl, { passive: true });
+      setCrawl();
     }
   }
 
