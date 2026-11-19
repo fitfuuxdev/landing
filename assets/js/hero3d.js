@@ -98,11 +98,13 @@
       side: THREE.DoubleSide
     });
 
-    const champagne = new THREE.MeshPhysicalMaterial({
-      color: 0xc9a97c,
-      metalness: 1,
-      roughness: .27,
-      envMapIntensity: 1.7
+    const lime = new THREE.MeshPhysicalMaterial({
+      color: 0xC6FF00,
+      metalness: .92,
+      roughness: .28,
+      envMapIntensity: 1.8,
+      emissive: 0x0d1400,
+      emissiveIntensity: .4
     });
 
     const graphite = new THREE.MeshPhysicalMaterial({
@@ -113,100 +115,37 @@
     });
 
     /* ------------------------------------------------------------------
-       Twisted monolith — a custom swept superellipse
+       Neon core — a compact glowing orb with an inner wireframe,
+       sits well on both desktop and mobile (no tall vertical shape)
     ------------------------------------------------------------------ */
-    const createTwistedMonolith = () => {
-      const segmentsAround = isMobile ? 26 : 42;
-      const segmentsHigh = isMobile ? 72 : 150;
-      const height = 3.16;
-      const width = .57;
-      const depth = .18;
-      const twistTotal = Math.PI * .84;
-      const positions = [];
-      const indices = [];
-      const uvs = [];
+    const coreGroup = new THREE.Group();
+    sculpture.add(coreGroup);
 
-      for (let i = 0; i <= segmentsHigh; i += 1) {
-        const t = i / segmentsHigh;
-        const normalized = t - .5;
-        const y = normalized * height;
-        const twist = normalized * twistTotal;
+    const coreShell = new THREE.Mesh(
+      isMobile
+        ? new THREE.IcosahedronGeometry(.86, 2)
+        : new THREE.IcosahedronGeometry(.9, 3),
+      obsidian
+    );
+    coreGroup.add(coreShell);
 
-        // Softly rounded ends while keeping a monolithic silhouette
-        const endDistance = Math.min(t, 1 - t);
-        const endScale = endDistance < .018
-          ? .55 + .45 * Math.sin((endDistance / .018) * Math.PI * .5)
-          : 1;
+    const wire = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(isMobile ? 1.0 : 1.08, 1),
+      new THREE.MeshBasicMaterial({
+        color: 0xC6FF00,
+        wireframe: true,
+        transparent: true,
+        opacity: .35
+      })
+    );
+    coreGroup.add(wire);
 
-        for (let j = 0; j < segmentsAround; j += 1) {
-          const theta = (j / segmentsAround) * Math.PI * 2;
-          const cos = Math.cos(theta);
-          const sin = Math.sin(theta);
-          const power = 2 / 4.2;
-          const x0 = width * endScale * Math.sign(cos) * Math.pow(Math.abs(cos), power);
-          const z0 = depth * endScale * Math.sign(sin) * Math.pow(Math.abs(sin), power);
-          const x = x0 * Math.cos(twist) - z0 * Math.sin(twist);
-          const z = x0 * Math.sin(twist) + z0 * Math.cos(twist);
-          positions.push(x, y, z);
-          uvs.push(j / segmentsAround, t);
-        }
-      }
-
-      for (let i = 0; i < segmentsHigh; i += 1) {
-        for (let j = 0; j < segmentsAround; j += 1) {
-          const a = i * segmentsAround + j;
-          const b = i * segmentsAround + ((j + 1) % segmentsAround);
-          const c = (i + 1) * segmentsAround + j;
-          const d = (i + 1) * segmentsAround + ((j + 1) % segmentsAround);
-          indices.push(a, c, b, b, c, d);
-        }
-      }
-
-      const bottomCenter = positions.length / 3;
-      positions.push(0, -height / 2, 0);
-      uvs.push(.5, 0);
-      const topCenter = positions.length / 3;
-      positions.push(0, height / 2, 0);
-      uvs.push(.5, 1);
-
-      for (let j = 0; j < segmentsAround; j += 1) {
-        const next = (j + 1) % segmentsAround;
-        indices.push(bottomCenter, next, j);
-        const topOffset = segmentsHigh * segmentsAround;
-        indices.push(topCenter, topOffset + j, topOffset + next);
-      }
-
-      const geometry = new THREE.BufferGeometry();
-      geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-      geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
-      geometry.setIndex(indices);
-      geometry.computeVertexNormals();
-      geometry.computeBoundingSphere();
-
-      const mesh = new THREE.Mesh(geometry, obsidian);
-      mesh.rotation.y = -.22;
-      return mesh;
-    };
-
-    const monolith = createTwistedMonolith();
-    monolith.position.y = .06;
-    sculpture.add(monolith);
-
-    /* A slim, lighter echo of the monolith far behind */
-    const echoGeometry = monolith.geometry.clone();
-    const echoMaterial = new THREE.MeshPhysicalMaterial({
-      color: 0x060606,
-      metalness: .8,
-      roughness: .3,
-      transparent: true,
-      opacity: .35,
-      envMapIntensity: .9
-    });
-    const echo = new THREE.Mesh(echoGeometry, echoMaterial);
-    echo.position.set(.34, .15, -1.4);
-    echo.scale.setScalar(1.08);
-    echo.rotation.y = .6;
-    sculpture.add(echo);
+    const glint = new THREE.Mesh(
+      new THREE.SphereGeometry(.1, 20, 20),
+      new THREE.MeshBasicMaterial({ color: 0xC6FF00 })
+    );
+    glint.position.set(.62, .42, .62);
+    coreGroup.add(glint);
 
     /* ------------------------------------------------------------------
        Orbital rings and small satellite
@@ -215,7 +154,7 @@
     sculpture.add(ringGroup);
 
     const ringGeometryA = new THREE.TorusGeometry(1.28, .0105, 8, isMobile ? 110 : 210);
-    const ringA = new THREE.Mesh(ringGeometryA, champagne);
+    const ringA = new THREE.Mesh(ringGeometryA, lime);
     ringA.rotation.set(1.16, .12, -.25);
     ringA.position.y = .1;
     ringGroup.add(ringA);
@@ -226,11 +165,11 @@
     ringB.position.y = -.1;
     ringGroup.add(ringB);
 
-    const bead = new THREE.Mesh(new THREE.SphereGeometry(.038, 20, 20), champagne);
+    const bead = new THREE.Mesh(new THREE.SphereGeometry(.038, 20, 20), lime);
     bead.position.set(1.06, .34, .77);
     ringGroup.add(bead);
 
-    const shard = new THREE.Mesh(new THREE.OctahedronGeometry(.085, 0), champagne);
+    const shard = new THREE.Mesh(new THREE.OctahedronGeometry(.085, 0), lime);
     shard.position.set(-1.14, -1.04, .34);
     shard.rotation.set(.4, .7, .3);
     ringGroup.add(shard);
@@ -255,7 +194,7 @@
     const dustGeometry = new THREE.BufferGeometry();
     dustGeometry.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3));
     const dustMaterial = new THREE.PointsMaterial({
-      color: 0xcbb18b,
+      color: 0xdCFF2E,
       size: .013,
       transparent: true,
       opacity: .55,

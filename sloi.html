@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>СЛОЙ — студия дизайна и разработки | сайты и бренды с характером</title>
 <meta name="description" content="Студия СЛОЙ. Дизайн брендов, сайтов и интерфейсов. Собираем смысл в форму — аккуратно, продуманно, без шаблонов.">
-<meta name="theme-color" content="#0A0A0A">
+<meta name="theme-color" content="#0F0C14">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0A0A0A;--bg-2:#111111;--ink:#EFEFEA;--ink-soft:#B9B9B2;--muted:#7D7D76;--accent:#C6FF00;--accent-deep:#9ECC00;--accent-soft:#1c2403;--line:rgba(239,239,234,.14);--line-soft:rgba(239,239,234,.08);--ease:cubic-bezier(.22,1,.36,1);--shadow:0 30px 60px -30px rgba(0,0,0,.7);--radius:24px;--pad:clamp(20px,5vw,56px);--maxw:1200px;--header-h:76px}
+:root{--bg:#0F0C14;--bg-2:#17121F;--ink:#EFECF5;--ink-soft:#C2BBD1;--muted:#8F869F;--accent:#B97CFF;--accent-deep:#9A4DFF;--accent-soft:#241436;--line:rgba(239,236,245,.14);--line-soft:rgba(239,236,245,.08);--ease:cubic-bezier(.22,1,.36,1);--shadow:0 30px 60px -30px rgba(0,0,0,.7);--radius:24px;--pad:clamp(20px,5vw,56px);--maxw:1200px;--header-h:76px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 html,body{overflow-x:hidden}
@@ -59,7 +59,7 @@ h2{font-size:clamp(1.8rem,4.2vw,3rem)}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:.95rem;padding:15px 28px;border-radius:999px;border:1px solid transparent;transition:.4s var(--ease);white-space:nowrap}
-.btn-primary{background:var(--accent);color:#0A0A0A;box-shadow:0 16px 34px -16px rgba(0,0,0,.5)}
+.btn-primary{background:var(--accent);color:#0F0C14;box-shadow:0 16px 34px -16px rgba(0,0,0,.5)}
 .btn-primary:hover{transform:translateY(-2px);background:var(--accent-deep)}
 .btn-ghost{border-color:var(--line);color:var(--ink)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
@@ -67,7 +67,7 @@ h2{font-size:clamp(1.8rem,4.2vw,3rem)}
 
 /* hero */
 .hero{position:relative;padding-top:calc(var(--header-h) + clamp(40px,8vh,100px));padding-bottom:clamp(40px,7vh,90px);overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(700px 500px at 85% 20%,rgba(198,255,0,.08),transparent 60%),radial-gradient(600px 500px at 5% 90%,rgba(198,255,0,.04),transparent 55%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(700px 500px at 85% 20%,rgba(185,124,255,.08),transparent 60%),radial-gradient(600px 500px at 5% 90%,rgba(185,124,255,.04),transparent 55%)}
 .hero__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Unbounded',sans-serif;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent)}
@@ -82,7 +82,7 @@ h2{font-size:clamp(1.8rem,4.2vw,3rem)}
 .stage3d.is-webgl canvas{opacity:1}
 .fallback3d{position:absolute;inset:0;display:grid;place-items:center;transition:opacity 1.2s var(--ease)}
 .stage3d.is-webgl .fallback3d{opacity:0}
-.fallback3d .cube{width:min(140px,34vw);height:min(140px,34vw);background:linear-gradient(135deg,#1c2403,var(--accent) 70%);box-shadow:var(--shadow);animation:rot 12s linear infinite}
+.fallback3d .cube{width:min(140px,34vw);height:min(140px,34vw);background:linear-gradient(135deg,#241436,var(--accent) 70%);box-shadow:var(--shadow);animation:rot 12s linear infinite}
 .fallback3d .cube::after{content:"";position:absolute;inset:-20px;border:1px solid var(--accent);opacity:.4;animation:rot 12s linear infinite reverse}
 @keyframes rot{from{transform:rotate(-12deg) translateZ(0)}50%{transform:rotate(12deg)}to{transform:rotate(-12deg)}}
 .section{padding-block:clamp(4rem,9vw,6.5rem);position:relative}
@@ -92,7 +92,7 @@ h2{font-size:clamp(1.8rem,4.2vw,3rem)}
 /* services asym */
 .svc-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1rem}
 .svc{background:#fff;border:1px solid var(--line-soft);border-radius:var(--radius);padding:1.8rem;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s}
-.svc:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(198,255,0,.35)}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(185,124,255,.35)}
 .svc.lg{grid-row:span 2;background:var(--ink);color:#fff}
 .svc .idx{font-family:'Unbounded',sans-serif;font-size:.8rem;color:var(--accent);display:block;margin-bottom:1rem}
 .svc.lg h3{font-size:1.5rem;margin-bottom:1rem;color:#fff}
@@ -103,7 +103,7 @@ h2{font-size:clamp(1.8rem,4.2vw,3rem)}
 
 /* works strips */
 .work-strip{display:flex;align-items:center;gap:clamp(1.5rem,4vw,3rem);padding:clamp(1.5rem,3vw,2rem) 0;border-top:1px solid var(--line-soft);transition:padding-left .4s var(--ease),background .4s}
-.work-strip:hover{padding-left:1.2rem;background:rgba(198,255,0,.05)}
+.work-strip:hover{padding-left:1.2rem;background:rgba(185,124,255,.05)}
 .work-strip .num{font-family:'Unbounded',sans-serif;color:var(--accent);font-size:1rem;flex:none}
 .work-strip h3{font-size:clamp(1.3rem,3.4vw,2rem);flex:1}
 .work-strip .tag{font-size:.8rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
@@ -118,7 +118,7 @@ h2{font-size:clamp(1.8rem,4.2vw,3rem)}
 
 /* contacts */
 .cta{background:var(--ink);color:#fff;border-radius:28px;padding:clamp(2.5rem,6vw,4rem);position:relative;overflow:hidden}
-.cta::after{content:"";position:absolute;right:-100px;top:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(198,255,0,.3),transparent 70%)}
+.cta::after{content:"";position:absolute;right:-100px;top:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(185,124,255,.3),transparent 70%)}
 .cta h2{font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;margin-bottom:1rem;max-width:22ch}
 .cta p{color:rgba(255,255,255,.7);max-width:48ch;margin-bottom:2rem}
 .cta .btn-row{display:flex;flex-wrap:wrap;gap:14px;position:relative;z-index:2}
@@ -287,7 +287,7 @@ function init(T){
   const scene=new T.Scene();const cam=new T.PerspectiveCamera(35,1,.1,60);cam.position.z=7;
   renderer=new T.WebGLRenderer({canvas,antialias:true,alpha:true});renderer.setClearColor(0,0);renderer.setSize(W,H,false);
   renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';
-  const env=document.createElement('canvas');env.width=256;env.height=128;const cx=env.getContext('2d');const g=cx.createLinearGradient(0,0,0,128);g.addColorStop(0,'#222222');g.addColorStop(1,'#0A0A0A');cx.fillStyle=g;cx.fillRect(0,0,256,128);cx.fillStyle='rgba(198,255,0,.85)';cx.fillRect(40,28,48,7);cx.fillStyle='rgba(255,255,255,.5)';cx.fillRect(150,90,30,5);const et=new T.CanvasTexture(env);et.mapping=T.EquirectangularReflectionMapping;scene.environment=et;
+  const env=document.createElement('canvas');env.width=256;env.height=128;const cx=env.getContext('2d');const g=cx.createLinearGradient(0,0,0,128);g.addColorStop(0,'#241436');g.addColorStop(1,'#0F0C14');cx.fillStyle=g;cx.fillRect(0,0,256,128);cx.fillStyle='rgba(185,124,255,.85)';cx.fillRect(40,28,48,7);cx.fillStyle='rgba(255,255,255,.5)';cx.fillRect(150,90,30,5);const et=new T.CanvasTexture(env);et.mapping=T.EquirectangularReflectionMapping;scene.environment=et;
   group=new T.Group();scene.add(group);
   const mats=[new T.MeshStandardMaterial({color:0xE4572E,roughness:.2,metalness:.1,transparent:true,opacity:.55}),new T.MeshStandardMaterial({color:0x1C1B17,roughness:.25,metalness:.1,transparent:true,opacity:.6}),new T.MeshStandardMaterial({color:0xE4572E,roughness:.15,metalness:.2,transparent:true,opacity:.4})];
   [0,1,2].forEach((i)=>{const s=2.4-i*.55;const cube=new T.Mesh(new T.BoxGeometry(s,s,s),mats[i]);cube.rotation.set(.4*i,.2*i,.06*i);group.add(cube);});
