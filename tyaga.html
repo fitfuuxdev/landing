@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>ТЯГА — мужская парикмахерская | стрижка и борода, цена при записи</title>
 <meta name="description" content="Мужская парикмахерская ТЯГА. Стрижка, фейды, борода и бритьё. Классика и современные формы. Цена фиксируется при записи — сюрпризов в кресле нет.">
-<meta name="theme-color" content="#101014">
+<meta name="theme-color" content="#0A0A0A">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
@@ -18,9 +18,9 @@
 <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#101014;--bg-2:#16161c;--ink:#EDE7DE;--ink-dim:rgba(237,231,222,.6);--ink-faint:rgba(237,231,222,.35);--accent:#E0483E;--accent-2:#B9332A;--line:rgba(237,231,222,.12);--line-str:rgba(237,231,222,.22);--ease:cubic-bezier(.22,1,.36,1);--pad:clamp(20px,5vw,64px);--header-h:72px}
+:root{--bg:#0A0A0A;--bg-2:#111111;--ink:#EFEFEA;--ink-dim:rgba(239,239,234,.6);--ink-faint:rgba(239,239,234,.35);--accent:#C6FF00;--accent-2:#9ECC00;--line:rgba(239,239,234,.12);--line-str:rgba(239,239,234,.22);--ease:cubic-bezier(.22,1,.36,1);--pad:clamp(20px,5vw,64px);--header-h:72px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px)}
 html,body{overflow-x:hidden}
@@ -31,7 +31,7 @@ button{font-family:inherit;cursor:pointer}
 ::selection{background:var(--accent);color:var(--bg)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 .container{width:100%;max-width:1240px;margin:0 auto;padding-inline:var(--pad)}
-h1,h2,h3{font-family:'Bebas Neue',sans-serif;font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:.02em}
+h1,h2,h3{font-family:'Unbounded',sans-serif;font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:.02em}
 h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
 .mono{font-family:ui-monospace,'JetBrains Mono',monospace}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
@@ -41,9 +41,9 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
 
 /* header */
 .header{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--header-h);display:flex;align-items:center;border-bottom:1px solid transparent;transition:.4s var(--ease)}
-.header.is-scrolled{background:rgba(16,16,20,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.header.is-scrolled{background:rgba(10,10,10,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
 .header__in{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%}
-.logo{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.06em}
+.logo{font-family:'Unbounded',sans-serif;font-size:1.9rem;letter-spacing:.06em}
 .logo b{color:var(--accent);font-weight:400}
 .nav{display:flex;align-items:center;gap:30px}
 .nav a{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);position:relative;padding:6px 0;transition:color .3s}
@@ -55,9 +55,9 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
 .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
-.mnav{position:fixed;inset:0;z-index:990;background:rgba(16,16,20,.97);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;opacity:0;visibility:hidden;transition:.4s var(--ease)}
+.mnav{position:fixed;inset:0;z-index:990;background:rgba(10,10,10,.97);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;opacity:0;visibility:hidden;transition:.4s var(--ease)}
 .mnav.is-open{opacity:1;visibility:visible}
-.mnav a{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;padding:10px}
+.mnav a{font-family:'Unbounded',sans-serif;font-size:2.2rem;padding:10px}
 .mnav .btn{margin-top:16px}
 
 /* buttons */
@@ -71,7 +71,7 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
 
 /* hero */
 .hero{position:relative;padding-top:calc(var(--header-h) + clamp(30px,7vh,80px));min-height:100svh;display:flex;align-items:center;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 50% at 75% 35%,rgba(224,72,62,.22),transparent 60%),radial-gradient(40% 40% at 10% 90%,rgba(224,72,62,.08),transparent 60%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 50% at 75% 35%,rgba(198,255,0,.12),transparent 60%),radial-gradient(40% 40% at 10% 90%,rgba(198,255,0,.05),transparent 60%)}
 .hero__eyebrow{display:inline-flex;gap:12px;align-items:center;font-family:ui-monospace,monospace;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
 .hero__eyebrow::before{content:"";width:30px;height:1px;background:var(--accent)}
 .hero h1{font-size:clamp(3rem,8.6vw,7rem);margin-bottom:22px}
@@ -86,7 +86,7 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
 .hero-scene.is-webgl canvas{opacity:1}
 .scene-fallback{position:absolute;inset:0;display:grid;place-items:center;transition:opacity 1s var(--ease)}
 .hero-scene.is-webgl .scene-fallback{opacity:0}
-.shard{width:min(220px,60vw);height:min(220px,60vw);background:radial-gradient(120% 120% at 30% 20%,#2b2b33 0%,#1a1a20 50%,#101014 100%);clip-path:polygon(30% 0,100% 22%,72% 100%,0 82%);box-shadow:inset 0 0 0 1px rgba(224,72,62,.35),0 30px 60px rgba(0,0,0,.6);animation:spin 22s linear infinite}
+.shard{width:min(220px,60vw);height:min(220px,60vw);background:radial-gradient(120% 120% at 30% 20%,#222222 0%,#161616 50%,#0A0A0A 100%);clip-path:polygon(30% 0,100% 22%,72% 100%,0 82%);box-shadow:inset 0 0 0 1px rgba(198,255,0,.35),0 30px 60px rgba(0,0,0,.6);animation:spin 22s linear infinite}
 .shard::after{content:"";position:absolute;inset:0;border-top:2px solid var(--accent);opacity:.5}
 .ring{position:absolute;inset:0;margin:auto;border:1px dashed var(--line-str);border-radius:50%}
 .ring--1{width:300px;height:300px;animation:spin 40s linear infinite reverse}
@@ -95,7 +95,7 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
 /* ticker */
 .ticker{overflow:hidden;border-block:1px solid var(--line);padding:15px 0}
 .ticker-track{display:flex;width:max-content;animation:mar 24s linear infinite}
-.ticker-chunk{display:flex;gap:30px;padding-right:30px;white-space:nowrap;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.12em;color:var(--ink-dim)}
+.ticker-chunk{display:flex;gap:30px;padding-right:30px;white-space:nowrap;font-family:'Unbounded',sans-serif;font-size:1.1rem;letter-spacing:.12em;color:var(--ink-dim)}
 .ticker-chunk i{color:var(--accent);font-style:normal}
 @keyframes mar{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
@@ -108,7 +108,7 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
 /* services */
 .services-list{display:flex;flex-direction:column;border-top:1px solid var(--line-str)}
 .service{display:grid;grid-template-columns:52px 1fr auto;gap:20px;align-items:center;padding:clamp(18px,3vw,28px) 4px;border-bottom:1px solid var(--line);transition:.35s var(--ease);position:relative}
-.service:hover{background:rgba(224,72,62,.06);padding-left:16px}
+.service:hover{background:rgba(198,255,0,.06);padding-left:16px}
 .service__idx{font-family:ui-monospace,monospace;font-size:.8rem;color:var(--accent)}
 .service h3{font-size:clamp(1.4rem,3vw,2rem)}
 .service__desc{color:var(--ink-dim);font-size:.9rem;margin-top:4px}
@@ -126,7 +126,7 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .step{border-left:1px solid var(--line-str);padding:4px 0 4px 24px}
-.step__num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--accent);display:block;margin-bottom:8px}
+.step__num{font-family:'Unbounded',sans-serif;font-size:1.8rem;color:var(--accent);display:block;margin-bottom:8px}
 .step h3{font-size:1.4rem;margin-bottom:8px}
 .step p{color:var(--ink-dim);font-size:.92rem}
 
@@ -139,7 +139,7 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
 
 /* contacts */
 .contacts__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:start}
-.contacts__phone{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.4rem);color:var(--ink);display:inline-block;margin-bottom:6px}
+.contacts__phone{font-family:'Unbounded',sans-serif;font-size:clamp(2rem,4vw,3.4rem);color:var(--ink);display:inline-block;margin-bottom:6px}
 .contacts__phone:hover{color:var(--accent)}
 .contacts__label{font-family:ui-monospace,monospace;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
 .contacts__row{margin-bottom:28px}
@@ -277,9 +277,9 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
         <div class="contacts__card reveal" style="--d:100ms">
           <h2 style="font-size:1.6rem;margin-bottom:14px">Что дальше</h2>
           <p style="color:var(--ink-dim);margin-bottom:20px">Позвони или напиши — зафиксируем цену и время. Остальное сделаем сами.</p>
-          <div style="padding:12px 0;border-top:1px solid var(--line)"><strong style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem">Цена не изменится</strong><br><span style="color:var(--ink-faint);font-size:.85rem">фиксируем при записи</span></div>
-          <div style="padding:12px 0;border-top:1px solid var(--line)"><strong style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem">Кофе и музыка</strong><br><span style="color:var(--ink-faint);font-size:.85rem">включены в визит</span></div>
-          <div style="padding:12px 0;border-top:1px solid var(--line)"><strong style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem">60 минут</strong><br><span style="color:var(--ink-faint);font-size:.85rem">уважение к твоему времени</span></div>
+          <div style="padding:12px 0;border-top:1px solid var(--line)"><strong style="font-family:'Unbounded',sans-serif;font-size:1.2rem">Цена не изменится</strong><br><span style="color:var(--ink-faint);font-size:.85rem">фиксируем при записи</span></div>
+          <div style="padding:12px 0;border-top:1px solid var(--line)"><strong style="font-family:'Unbounded',sans-serif;font-size:1.2rem">Кофе и музыка</strong><br><span style="color:var(--ink-faint);font-size:.85rem">включены в визит</span></div>
+          <div style="padding:12px 0;border-top:1px solid var(--line)"><strong style="font-family:'Unbounded',sans-serif;font-size:1.2rem">60 минут</strong><br><span style="color:var(--ink-faint);font-size:.85rem">уважение к твоему времени</span></div>
         </div>
       </div>
     </div>
@@ -319,7 +319,7 @@ function init(T){
   renderer=new T.WebGLRenderer({antialias:true,alpha:true});renderer.setClearColor(0,0);renderer.setSize(w,h,false);
   renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';
   stage.appendChild(renderer.domElement);
-  const envc=document.createElement('canvas');envc.width=256;envc.height=128;const cx=envc.getContext('2d');const g=cx.createLinearGradient(0,0,0,128);g.addColorStop(0,'#2b2b33');g.addColorStop(1,'#101014');cx.fillStyle=g;cx.fillRect(0,0,256,128);cx.fillStyle='rgba(224,72,62,.8)';cx.fillRect(30,20,46,6);cx.fillStyle='rgba(237,231,222,.5)';cx.fillRect(140,90,26,5);const et=new T.CanvasTexture(envc);et.mapping=T.EquirectangularReflectionMapping;scene.environment=et;
+  const envc=document.createElement('canvas');envc.width=256;envc.height=128;const cx=envc.getContext('2d');const g=cx.createLinearGradient(0,0,0,128);g.addColorStop(0,'#222222');g.addColorStop(1,'#0A0A0A');cx.fillStyle=g;cx.fillRect(0,0,256,128);cx.fillStyle='rgba(198,255,0,.8)';cx.fillRect(30,20,46,6);cx.fillStyle='rgba(239,239,234,.5)';cx.fillRect(140,90,26,5);const et=new T.CanvasTexture(envc);et.mapping=T.EquirectangularReflectionMapping;scene.environment=et;
   group=new T.Group();spin=new T.Group();group.add(spin);
   const metal=new T.MeshStandardMaterial({color:0x1d1d24,metalness:.95,roughness:.3,flatShading:true});
   const blade=new T.Mesh(new T.BoxGeometry(.25,2.6,.25),metal);blade.position.set(2.1,0,-1.3);blade.rotation.z=.5;group.add(blade);
