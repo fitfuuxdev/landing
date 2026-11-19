@@ -77,6 +77,17 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
 .hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px}
 .hero__meta{display:flex;flex-wrap:wrap;gap:10px 28px;font-family:ui-monospace,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
 .hero__meta b{color:var(--ink);font-weight:600}
+/* 3d scene */
+.hero-scene{position:relative;height:340px;max-width:560px;margin:2rem 0 0 auto;pointer-events:none}
+.hero-scene canvas{position:absolute;inset:0;width:100%!important;height:100%!important;opacity:0;transition:opacity 1s var(--ease)}
+.hero-scene.is-webgl canvas{opacity:1}
+.scene-fallback{position:absolute;inset:0;display:grid;place-items:center;transition:opacity 1s var(--ease)}
+.hero-scene.is-webgl .scene-fallback{opacity:0}
+.shard{width:min(220px,60vw);height:min(220px,60vw);background:radial-gradient(120% 120% at 30% 20%,#2b2b33 0%,#1a1a20 50%,#101014 100%);clip-path:polygon(30% 0,100% 22%,72% 100%,0 82%);box-shadow:inset 0 0 0 1px rgba(224,72,62,.35),0 30px 60px rgba(0,0,0,.6);animation:spin 22s linear infinite}
+.shard::after{content:"";position:absolute;inset:0;border-top:2px solid var(--accent);opacity:.5}
+.ring{position:absolute;inset:0;margin:auto;border:1px dashed var(--line-str);border-radius:50%}
+.ring--1{width:300px;height:300px;animation:spin 40s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
 
 /* ticker */
 .ticker{overflow:hidden;border-block:1px solid var(--line);padding:15px 0}
@@ -189,6 +200,9 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
         <span><b>60 мин</b> — визит</span>
         <span><b>4.8</b> — рейтинг</span>
         <span><b>8 лет</b> — мастера</span>
+      </div>
+      <div class="hero-scene reveal" data-scene aria-hidden="true" style="--d:280ms">
+        <div class="scene-fallback"><span class="ring ring--1"></span><div class="shard"></div></div>
       </div>
     </div>
   </section>
