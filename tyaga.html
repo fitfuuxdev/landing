@@ -144,7 +144,8 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
 .contacts__label{font-family:ui-monospace,monospace;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
 .contacts__row{margin-bottom:28px}
 .contacts__card{border:1px solid var(--line);padding:28px;background:var(--bg-2)}
-.stamp{display:inline-flex;margin-top:34px;align-items:center;gap:10px;border:2px solid var(--accent);color:var(--accent);font-family:ui-monospace,monospace;font-size:.72rem;letter-spacing:.16em;padding:10px 18px;transform:rotate(-3deg)}
+.contacts__btns{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:8px}
+.stamp{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--accent);color:var(--accent);font-family:ui-monospace,monospace;font-size:.72rem;letter-spacing:.16em;padding:9px 18px}
 
 /* footer */
 .footer{border-top:1px solid var(--line);padding:2.5rem 0}
@@ -237,10 +238,10 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
         <p class="sec-head__lead reveal" style="--d:80ms">Кожа, дерево, кирпич. Место, куда хочется вернуться.</p>
       </div>
       <div class="gallery">
-        <figure class="g-item g-a reveal"><img loading="lazy" decoding="async" width="800" height="600" alt="Интерьер парикмахерской ТЯГА" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1400&auto=format&fit=crop" onerror="this.style.display='none'"><span class="g-item__tag">Кресло №1</span></figure>
-        <figure class="g-item g-b reveal" style="--d:60ms"><img loading="lazy" decoding="async" width="600" height="400" alt="Мастер стрижёт клиента" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1200&auto=format&fit=crop" onerror="this.style.display='none'"><span class="g-item__tag">Зал</span></figure>
-        <figure class="g-item g-c reveal" style="--d:120ms"><img loading="lazy" decoding="async" width="600" height="400" alt="Оформление бороды" src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=1200&auto=format&fit=crop" onerror="this.style.display='none'"><span class="g-item__tag">Борода</span></figure>
-        <figure class="g-item g-d reveal" style="--d:180ms"><img loading="lazy" decoding="async" width="1200" height="300" alt="Инструменты мастера" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1400&auto=format&fit=crop" onerror="this.style.display='none'"><span class="g-item__tag">Инструмент</span></figure>
+        <figure class="g-item g-a reveal"><img loading="lazy" decoding="async" width="800" height="600" alt="Интерьер парикмахерской ТЯГА" src="assets/img/casegallery/case-img-tyaga-1.jpg" onerror="this.style.display='none'"><span class="g-item__tag">Кресло №1</span></figure>
+        <figure class="g-item g-b reveal" style="--d:60ms"><img loading="lazy" decoding="async" width="600" height="400" alt="Мастер стрижёт клиента" src="assets/img/casegallery/case-img-tyaga-2.jpg" onerror="this.style.display='none'"><span class="g-item__tag">Зал</span></figure>
+        <figure class="g-item g-c reveal" style="--d:120ms"><img loading="lazy" decoding="async" width="600" height="400" alt="Оформление бороды" src="assets/img/casegallery/case-img-tyaga-3.jpg" onerror="this.style.display='none'"><span class="g-item__tag">Борода</span></figure>
+        <figure class="g-item g-d reveal" style="--d:180ms"><img loading="lazy" decoding="async" width="1200" height="300" alt="Инструменты мастера" src="assets/img/casegallery/case-img-tyaga-4.jpg" onerror="this.style.display='none'"><span class="g-item__tag">Инструмент</span></figure>
       </div>
     </div>
   </section>
@@ -271,8 +272,7 @@ h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
           <div class="contacts__row"><div class="contacts__label">Телефон</div><a class="contacts__phone" href="tel:+70000000000">+7 (000) 000-00-00</a></div>
           <div class="contacts__row"><div class="contacts__label">WhatsApp</div><a class="btn btn-ghost" href="https://wa.me/70000000000" target="_blank" rel="noopener">Написать →</a></div>
           <div class="contacts__row"><div class="contacts__label">Адрес</div><p style="color:var(--ink-dim)">Центр, ул. Ткачей, 8 · ежедневно 10:00–22:00</p></div>
-          <a class="btn btn-primary btn-lg" href="tel:+70000000000">Записаться <span class="ar">→</span></a>
-          <div class="stamp">ЗАПИСЬ ОТКРЫТА</div>
+          <div class="contacts__btns"><a class="btn btn-primary btn-lg" href="tel:+70000000000">Записаться <span class="ar">→</span></a><div class="stamp">ЗАПИСЬ ОТКРЫТА</div></div>
         </div>
         <div class="contacts__card reveal" style="--d:100ms">
           <h2 style="font-size:1.6rem;margin-bottom:14px">Что дальше</h2>

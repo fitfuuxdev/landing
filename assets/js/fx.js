@@ -90,7 +90,7 @@
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = p.lime
-        ? `rgba(198,255,0,${(p.alpha * tw).toFixed(3)})`
+        ? `rgba(240,169,62,${(p.alpha * tw).toFixed(3)})`
         : `rgba(230,235,255,${(p.alpha * tw * 0.8).toFixed(3)})`;
       ctx.fill();
     }
@@ -104,10 +104,10 @@
       const pulse = 0.9 + Math.sin(state.time * 3.2) * 0.12;
       const r = ring.r * pulse;
       const grad = ctx.createRadialGradient(ring.x, ring.y, r * 0.15, ring.x, ring.y, r);
-      grad.addColorStop(0, 'rgba(198,255,0,0.06)');
-      grad.addColorStop(0.62, 'rgba(198,255,0,0.2)');
-      grad.addColorStop(0.84, 'rgba(198,255,0,0.6)');
-      grad.addColorStop(1, 'rgba(198,255,0,0)');
+      grad.addColorStop(0, 'rgba(240,169,62,0.06)');
+      grad.addColorStop(0.62, 'rgba(240,169,62,0.2)');
+      grad.addColorStop(0.84, 'rgba(240,169,62,0.6)');
+      grad.addColorStop(1, 'rgba(240,169,62,0)');
       ctx.beginPath();
       ctx.arc(ring.x, ring.y, r, 0, Math.PI * 2);
       ctx.fillStyle = grad;
@@ -115,19 +115,19 @@
 
       ctx.beginPath();
       ctx.arc(ring.x, ring.y, r, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(198,255,0,0.75)';
+      ctx.strokeStyle = 'rgba(240,169,62,0.75)';
       ctx.lineWidth = 1.6;
       ctx.stroke();
 
       ctx.beginPath();
       ctx.arc(ring.x, ring.y, r * 0.6, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(198,255,0,0.16)';
+      ctx.strokeStyle = 'rgba(240,169,62,0.16)';
       ctx.lineWidth = 1;
       ctx.stroke();
 
       const sp = ctx.createRadialGradient(pointer.x - 2, pointer.y - 2, 0, pointer.x, pointer.y, 3.5);
       sp.addColorStop(0, 'rgba(255,255,255,0.9)');
-      sp.addColorStop(1, 'rgba(198,255,0,0)');
+      sp.addColorStop(1, 'rgba(240,169,62,0)');
       ctx.beginPath();
       ctx.arc(pointer.x, pointer.y, 3.5, 0, Math.PI * 2);
       ctx.fillStyle = sp;

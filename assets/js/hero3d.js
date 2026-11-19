@@ -99,11 +99,11 @@
     });
 
     const lime = new THREE.MeshPhysicalMaterial({
-      color: 0xC6FF00,
+      color: 0xF0A93E,
       metalness: .92,
       roughness: .28,
       envMapIntensity: 1.8,
-      emissive: 0x0d1400,
+      emissive: 0x2a1900,
       emissiveIntensity: .4
     });
 
@@ -132,7 +132,7 @@
     const wire = new THREE.Mesh(
       new THREE.IcosahedronGeometry(isMobile ? 1.0 : 1.08, 1),
       new THREE.MeshBasicMaterial({
-        color: 0xC6FF00,
+        color: 0xF0A93E,
         wireframe: true,
         transparent: true,
         opacity: .35
@@ -142,7 +142,7 @@
 
     const glint = new THREE.Mesh(
       new THREE.SphereGeometry(.1, 20, 20),
-      new THREE.MeshBasicMaterial({ color: 0xC6FF00 })
+      new THREE.MeshBasicMaterial({ color: 0xF0A93E })
     );
     glint.position.set(.62, .42, .62);
     coreGroup.add(glint);
@@ -194,7 +194,7 @@
     const dustGeometry = new THREE.BufferGeometry();
     dustGeometry.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3));
     const dustMaterial = new THREE.PointsMaterial({
-      color: 0xdCFF2E,
+      color: 0xF0A93E,
       size: .013,
       transparent: true,
       opacity: .55,
@@ -241,6 +241,21 @@
     let slowFrameCount = 0;
     let qualityReduced = false;
 
+    /* Drag control: the user can spin the sculpture by dragging over the stage.
+       While dragging we take over rotation; on release we ease back to the idle motion. */
+    let dragging = false;
+    let pointerDown = false;
+    let pStartX = 0;
+    let pStartY = 0;
+    let holdY = 0;
+    let holdX = 0;
+
+    const userRot = { x: 0, y: 0 };
+    let userWeight = 0;
+
+    const easeOut = (a, b, t) => a + (b - a) * t;
+    const damp = (current, target, lambda, dt) => easeOut(current, target, 1 - Math.exp(-lambda * dt));
+
     const updateLayout = () => {
       const rect = stage.getBoundingClientRect();
       width = Math.max(1, Math.round(rect.width));
@@ -280,6 +295,48 @@
       pointer.y = THREE.MathUtils.clamp((event.clientY / window.innerHeight - .5) * 2, -1, 1);
     };
     window.addEventListener('pointermove', onPointerMove, { passive: true });
+
+    const down = (event) => {
+      if (event.pointerType === 'touch' || event.button !== 0) return;
+      event.preventDefault();
+      pointerDown = true;
+      pStartX = event.clientX;
+      pStartY = event.clientY;
+      stage.classList.add('is-dragging');
+      try { stage.setPointerCapture(event.pointerId); } catch (error) { /* noop */ }
+    };
+    const move = (event) => {
+      if (!pointerDown) return;
+      const dx = event.clientX - pStartX;
+      const dy = event.clientY - pStartY;
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) dragging = true;
+      if (!dragging) return;
+      holdY = holdY + dx * .0085;
+      holdX = holdX + dy * .0055;
+      pStartX = event.clientX;
+      pStartY = event.clientY;
+    };
+    const up = () => {
+      dragging = false;
+      pointerDown = false;
+      stage.classList.remove('is-dragging');
+    };
+    if (window.matchMedia('(pointer: fine)').matches) {
+      stage.classList.add('is-draggable');
+      stage.addEventListener('pointerdown', down);
+      stage.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up);
+      window.addEventListener('pointercancel', up);
+      // Finish the hand-over to WebGL, then let the user grab the model.
+      const handover = () => {
+        if (stage.classList.contains('is-ready')) {
+          stage.style.pointerEvents = 'auto';
+        } else {
+          setTimeout(handover, 150);
+        }
+      };
+      handover();
+    }
 
     const onOrientation = (event) => {
       if (event.gamma == null || event.beta == null) return;
@@ -331,9 +388,20 @@
       tilt.y += (targetY - tilt.y) * .055;
       tilt.x += (targetX - tilt.x) * .055;
 
-      rootGroup.rotation.y = Math.sin(clockTime * .17) * .22 + clockTime * .038 + tilt.y;
-      rootGroup.rotation.x = tilt.x;
-      sculpture.position.y = Math.sin(clockTime * .72) * .035;
+      const idleY = Math.sin(clockTime * .17) * .22 + clockTime * .038 + tilt.y;
+      const idleX = tilt.x;
+
+      if (dragging) {
+        userRot.x = damp(userRot.x, holdX, 12, delta);
+        userWeight = Math.min(1, userWeight + delta * 6);
+      } else {
+        userRot.x = damp(userRot.x, 0, 5, delta);
+        userWeight = damp(userWeight, 0, 6, delta);
+      }
+      userRot.y = holdY * userWeight;
+      rootGroup.rotation.y = idleY * (1 - userWeight) + userRot.y * userWeight;
+      rootGroup.rotation.x = idleX * (1 - userWeight) + userRot.x * userWeight;
+
       sculpture.rotation.y = Math.sin(clockTime * .22) * .045;
 
       ringGroup.rotation.y = clockTime * -.09 + tilt.y * -.28;
