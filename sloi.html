@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>СЛОЙ — студия дизайна и разработки | сайты и бренды с характером</title>
+<meta name="description" content="Студия СЛОЙ. Дизайн брендов, сайтов и интерфейсов. Собираем смысл в форму — аккуратно, продуманно, без шаблонов.">
+<meta name="theme-color" content="#F2EFE8">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="СЛОЙ">
+<meta property="og:title" content="СЛОЙ — студия дизайна и разработки">
+<meta property="og:description" content="Собираем смысл в форму. Бренды, сайты, интерфейсы.">
+<meta property="og:image" content="https://fitfuuxdev.github.io/landing/assets/img/case-sloi.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2EFE8;--bg-2:#E9E4DA;--ink:#1C1B17;--ink-soft:#5A564C;--muted:#8B8678;--accent:#E4572E;--accent-deep:#C23F1B;--accent-soft:#F7E3DB;--line:rgba(28,27,23,.14);--line-soft:rgba(28,27,23,.08);--ease:cubic-bezier(.22,1,.36,1);--shadow:0 30px 60px -30px rgba(28,27,23,.35);--radius:24px;--pad:clamp(20px,5vw,56px);--maxw:1200px;--header-h:76px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.skip{position:absolute;left:-9999px;top:0;z-index:2000;background:var(--ink);color:#fff;padding:12px 20px}
+.skip:focus{left:0}
+h1,h2,h3{font-family:'Unbounded',sans-serif;font-weight:400;line-height:1.12;letter-spacing:-.01em}
+h2{font-size:clamp(1.8rem,4.2vw,3rem)}
+
+/* header */
+.header{position:fixed;inset:0 0 auto 0;z-index:120;height:var(--header-h);display:flex;align-items:center;border-bottom:1px solid transparent;transition:.4s var(--ease)}
+.header.is-scrolled{background:rgba(242,239,232,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line-soft)}
+.header__in{display:flex;align-items:center;justify-content:space-between;width:100%;gap:24px}
+.logo{font-family:'Unbounded',sans-serif;font-weight:600;font-size:1.15rem;letter-spacing:.06em}
+.logo b{color:var(--accent)}
+.nav{display:flex;gap:28px}
+.nav a{font-size:.9rem;color:var(--ink-soft);position:relative;padding:6px 0;transition:color .3s}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--accent);transition:width .35s var(--ease)}
+.nav a:hover{color:var(--ink)}.nav a:hover::after{width:100%}
+.burger{display:none;width:44px;height:44px;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:2px;background:var(--ink);transition:.35s var(--ease)}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:22px}.burger span:nth-child(3){top:28px}
+.burger.is-open span:nth-child(1){top:22px;transform:rotate(45deg)}
+.burger.is-open span:nth-child(2){opacity:0}
+.burger.is-open span:nth-child(3){top:22px;transform:rotate(-45deg)}
+.mmenu{position:fixed;inset:0;z-index:55;background:rgba(242,239,232,.96);backdrop-filter:blur(18px);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;opacity:0;visibility:hidden;transition:.4s var(--ease)}
+.mmenu.is-open{opacity:1;visibility:visible}
+.mmenu a{font-family:'Unbounded',sans-serif;font-size:1.7rem;padding:10px}
+.mmenu .btn{margin-top:16px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:.95rem;padding:15px 28px;border-radius:999px;border:1px solid transparent;transition:.4s var(--ease);white-space:nowrap}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 16px 34px -16px rgba(228,87,46,.7)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--accent-deep)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.btn .ar{transition:transform .3s}.btn:hover .ar{transform:translateX(4px)}
+
+/* hero */
+.hero{position:relative;padding-top:calc(var(--header-h) + clamp(40px,8vh,100px));padding-bottom:clamp(40px,7vh,90px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(700px 500px at 85% 20%,rgba(228,87,46,.14),transparent 60%),radial-gradient(600px 500px at 5% 90%,rgba(228,87,46,.06),transparent 55%)}
+.hero__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Unbounded',sans-serif;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--accent)}
+.hero h1{font-size:clamp(2rem,5.4vw,4rem);margin-bottom:1.2rem}
+.hero h1 b{color:var(--accent);font-weight:400}
+.hero__sub{color:var(--ink-soft);font-size:1.05rem;max-width:46ch;margin-bottom:2rem}
+.hero__meta{display:flex;flex-wrap:wrap;gap:12px 26px;color:var(--muted);font-size:.92rem;margin-top:2rem}
+.hero__meta b{color:var(--ink);font-weight:600}
+/* 3d stage */
+.stage3d{position:relative;aspect-ratio:1/1;max-width:520px;width:100%;margin-inline:auto;pointer-events:none}
+.stage3d canvas{position:absolute;inset:0;width:100%!important;height:100%!important;opacity:0;transition:opacity 1.2s var(--ease)}
+.stage3d.is-webgl canvas{opacity:1}
+.fallback3d{position:absolute;inset:0;display:grid;place-items:center;transition:opacity 1.2s var(--ease)}
+.stage3d.is-webgl .fallback3d{opacity:0}
+.fallback3d .cube{width:min(140px,34vw);height:min(140px,34vw);background:linear-gradient(135deg,#F7E3DB,var(--accent) 70%);box-shadow:var(--shadow);animation:rot 12s linear infinite}
+.fallback3d .cube::after{content:"";position:absolute;inset:-20px;border:1px solid var(--accent);opacity:.4;animation:rot 12s linear infinite reverse}
+@keyframes rot{from{transform:rotate(-12deg) translateZ(0)}50%{transform:rotate(12deg)}to{transform:rotate(-12deg)}}
+.section{padding-block:clamp(4rem,9vw,6.5rem);position:relative}
+.section--alt{background:var(--bg-2)}
+.lead{color:var(--ink-soft);font-size:1.05rem;max-width:54ch;margin-bottom:2.2rem}
+
+/* services asym */
+.svc-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1rem}
+.svc{background:#fff;border:1px solid var(--line-soft);border-radius:var(--radius);padding:1.8rem;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(228,87,46,.3)}
+.svc.lg{grid-row:span 2;background:var(--ink);color:#fff}
+.svc .idx{font-family:'Unbounded',sans-serif;font-size:.8rem;color:var(--accent);display:block;margin-bottom:1rem}
+.svc.lg h3{font-size:1.5rem;margin-bottom:1rem;color:#fff}
+.svc h3{font-size:1.2rem;margin-bottom:.5rem}
+.svc p{color:var(--muted);font-size:.92rem}
+.svc.lg p{color:rgba(255,255,255,.7)}
+.svc.lg .tag{display:inline-block;margin-top:1.2rem;background:var(--accent);color:#fff;font-size:.75rem;padding:6px 12px;border-radius:999px;letter-spacing:.08em}
+
+/* works strips */
+.work-strip{display:flex;align-items:center;gap:clamp(1.5rem,4vw,3rem);padding:clamp(1.5rem,3vw,2rem) 0;border-top:1px solid var(--line-soft);transition:padding-left .4s var(--ease),background .4s}
+.work-strip:hover{padding-left:1.2rem;background:rgba(228,87,46,.04)}
+.work-strip .num{font-family:'Unbounded',sans-serif;color:var(--accent);font-size:1rem;flex:none}
+.work-strip h3{font-size:clamp(1.3rem,3.4vw,2rem);flex:1}
+.work-strip .tag{font-size:.8rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.work-strip .ar{color:var(--accent)}
+
+/* proccess */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;counter-reset:s}
+.step{border-top:2px solid var(--line);padding-top:1.2rem;position:relative}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:'Unbounded',sans-serif;color:var(--accent);font-size:1rem;display:block;margin-bottom:.8rem}
+.step h3{font-size:.95rem;margin-bottom:.4rem}
+.step p{color:var(--muted);font-size:.88rem}
+
+/* contacts */
+.cta{background:var(--ink);color:#fff;border-radius:28px;padding:clamp(2.5rem,6vw,4rem);position:relative;overflow:hidden}
+.cta::after{content:"";position:absolute;right:-100px;top:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(228,87,46,.5),transparent 70%)}
+.cta h2{font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;margin-bottom:1rem;max-width:22ch}
+.cta p{color:rgba(255,255,255,.7);max-width:48ch;margin-bottom:2rem}
+.cta .btn-row{display:flex;flex-wrap:wrap;gap:14px;position:relative;z-index:2}
+.cta .btn-ghost{border-color:rgba(255,255,255,.3);color:#fff}
+
+/* footer */
+.footer{border-top:1px solid var(--line-soft);padding:3rem 0 2.5rem}
+.footer__in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem}
+.footer__fine{font-size:.8rem;color:var(--muted);margin-top:1.5rem}
+.footer__fine a{color:var(--accent);font-weight:600}
+.demo-badge{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px dashed var(--line);padding:6px 12px;border-radius:999px}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.reveal.is-inview{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .nav{display:none}.burger{display:block}.header .btn{display:none}
+  .hero__grid{grid-template-columns:1fr}.stage3d{order:-1;max-width:380px}
+  .svc-grid{grid-template-columns:1fr}.svc.lg{grid-row:auto}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.stage3d{max-width:320px}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  .reveal{opacity:1;transform:none}.fallback3d .cube,.fallback3d .cube::after{animation:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+<header class="header" id="header">
+  <div class="wrap header__in">
+    <a class="logo" href="#top">СЛОЙ<b>.</b></a>
+    <nav class="nav">
+      <a href="#svc">Что делаем</a>
+      <a href="#works">Работы</a>
+      <a href="#how">Как это</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header__cta"><a class="btn btn-primary" href="#contacts">Обсудить проект</a><button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu2"><span></span><span></span><span></span></button></div>
+  </div>
+</header>
+<div class="mmenu" id="menu2">
+  <a href="#svc">Что делаем</a>
+  <a href="#works">Работы</a>
+  <a href="#how">Как это</a>
+  <a href="#contacts">Контакты</a>
+  <a class="btn btn-primary" href="#contacts">Обсудить проект</a>
+</div>
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero__grid">
+      <div class="reveal">
+        <span class="eyebrow">Студия дизайна и разработки</span>
+        <h1>Собираем смысл<br>в <b>форму</b></h1>
+        <p class="hero__sub">Бренды, сайты и интерфейсы, за которыми стоит думающая голова, а не случайность. Работаем мало, но точно.</p>
+        <div class="cta-row" style="display:flex;gap:14px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#contacts">Обсудить проект <span class="ar">→</span></a>
+          <a class="btn btn-ghost" href="#works">Смотреть работы</a>
+        </div>
+        <div class="hero__meta"><span><b>12</b> проектов в год</span><span><b>1</b> ответственный</span><span><b>100%</b> ручная работа</span></div>
+      </div>
+      <div class="stage3d reveal" id="stage3d" aria-hidden="true">
+        <canvas></canvas>
+        <div class="fallback3d"><div class="cube"></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="svc" aria-labelledby="svc-title">
+    <div class="wrap">
+      <span class="eyebrow reveal">Что делаем</span>
+      <h2 id="svc-title" class="reveal">Три направления,<br>один глаз</h2>
+      <div class="svc-grid" style="margin-top:2rem">
+        <div class="svc lg reveal"><span class="idx">01</span><h3>Бренд целиком</h3><p>Имя, логотип, голос и правила. Плотно, чтобы не переделывать.</p><span class="tag">Сначала смысл</span></div>
+        <div class="svc reveal"><span class="idx">02</span><h3>Сайты</h3><p>От посадочных до сервисов. Код чистый, скорость — приоритет.</p></div>
+        <div class="svc reveal" style="--d:.1s"><span class="idx">03</span><h3>Интерфейсы</h3><p>Логика, по которой людям удобно. Без лишних кликов.</p></div>
+        <div class="svc reveal"><span class="idx">04</span><h3>3D и движение</h3><p>Деликатные сцены и анимации, которые не мешают читать.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt" id="works" aria-labelledby="work-title">
+    <div class="wrap">
+      <span class="eyebrow reveal">Работы</span>
+      <h2 id="work-title" class="reveal">Недавнее</h2>
+      <div style="margin-top:1.5rem">
+        <div class="work-strip reveal"><span class="num">01</span><h3>Кофейня MÓKA</h3><span class="tag">Бренд + сайт + меню</span><span class="ar">→</span></div>
+        <div class="work-strip reveal"><span class="num">02</span><h3>Барбершоп ТЯГА</h3><span class="tag">Сайт + запись</span><span class="ar">→</span></div>
+        <div class="work-strip reveal"><span class="num">03</span><h3>Клиника SOLÉ</h3><span class="tag">Сайт + заявки</span><span class="ar">→</span></div>
+        <div class="work-strip reveal"><span class="num">04</span><h3>Ресторан ВЕЧЕР</h3><span class="tag">Сайт + бронирование</span><span class="ar">→</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <span class="eyebrow reveal">Как это</span>
+      <h2 id="how-title" class="reveal">Работаем по-крупному</h2>
+      <div class="steps" style="margin-top:2rem">
+        <div class="step reveal"><h3>Разговор</h3><p>Слушаем задачу и честно говорим, что нужно, а что лишнее.</p></div>
+        <div class="step reveal" style="--d:.08s"><h3>Смысл</h3><p>Ищем главное и формулируем словами. Показываем до пикселей.</p></div>
+        <div class="step reveal" style="--d:.16s"><h3>Форма</h3><p>Дизайн, 3D, код. Живой черновик, который можно открыть.</p></div>
+        <div class="step reveal" style="--d:.24s"><h3>Запуск</h3><p>Публикуем, передаём доступы и остаёмся на связи.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt" id="contacts" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div class="cta reveal">
+        <span class="eyebrow" style="color:var(--accent);position:relative;z-index:2">Связаться</span>
+        <h2 id="cta-title" style="position:relative;z-index:2">Расскажите, что задумали</h2>
+        <p style="position:relative;z-index:2">Первый разговор ни к чему не обязывает. Обсудим, подходит ли нам друг другу.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="mailto:hi@sloi.studio">Написать <span class="ar">→</span></a>
+          <a class="btn btn-ghost" href="tel:+70000000000">Позвонить</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__in">
+      <a class="logo" href="#top">СЛОЙ<b>.</b></a>
+      <span class="demo-badge">демо-страница</span>
+    </div>
+    <p class="footer__fine">Создано <a href="https://fitfuuxdev.github.io/landing/" target="_blank" rel="noopener">Fitfuux</a> · демо-страница портфолио. Контакты и цены — образец.</p>
+  </div>
+</footer>
+<script type="module">
+(function(){'use strict';
+const header=document.getElementById('header');const onS=()=>header.classList.toggle('is-scrolled',scrollY>24);onS();addEventListener('scroll',onS,{passive:true});
+const burger=document.getElementById('burger'),mm=document.getElementById('menu2');const togg=(o)=>{const open=o??!mm.classList.contains('is-open');mm.classList.toggle('is-open',open);burger.classList.toggle('is-open',open);burger.setAttribute('aria-expanded',String(open));document.body.style.overflow=open?'hidden':'';};
+burger.addEventListener('click',()=>togg());mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>togg(false)));
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;const rev=document.querySelectorAll('.reveal');
+if(reduced||!('IntersectionObserver' in window)){rev.forEach(e=>e.classList.add('is-inview'));}
+else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-inview');io.unobserve(e.target);}}),{threshold:.14,rootMargin:'0px 0px -8% 0px'});rev.forEach(e=>io.observe(e));}
+/* 3D layered cube */
+const stage=document.getElementById('stage3d');const canvas=stage.querySelector('canvas');
+if(!stage||!canvas||reduced)return;
+const conn=navigator.connection;if(conn&&(conn.saveData||conn.effectiveType==='2g'))return;
+if(navigator.deviceMemory&&navigator.deviceMemory<=1)return;
+let glOK=false;try{const p=document.createElement('canvas');glOK=!!(window.WebGLRenderingContext&&p.getContext('webgl'));}catch(e){glOK=false;}
+if(!glOK)return;
+const idle=requestIdleCallback?f=>requestIdleCallback(f,{timeout:1400}):f=>setTimeout(f,320);
+let started=false;function boot(){if(started)return;started=true;idle(()=>import('./assets/js/three.module.min.js').then(init).catch(()=>{}));}
+if(document.readyState==='complete')boot();else addEventListener('load',boot,{once:true});
+let renderer,group;let tX=0,tY=0,cX=0,cY=0,raf=0,visible=true;const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+function init(T){
+  const W=innerWidth<700?340:420,H=420;
+  const scene=new T.Scene();const cam=new T.PerspectiveCamera(35,1,.1,60);cam.position.z=7;
+  renderer=new T.WebGLRenderer({canvas,antialias:true,alpha:true});renderer.setClearColor(0,0);renderer.setSize(W,H,false);
+  renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';
+  const env=document.createElement('canvas');env.width=256;env.height=128;const cx=env.getContext('2d');const g=cx.createLinearGradient(0,0,0,128);g.addColorStop(0,'#3a352c');g.addColorStop(1,'#1c1b17');cx.fillStyle=g;cx.fillRect(0,0,256,128);cx.fillStyle='rgba(228,87,46,.85)';cx.fillRect(40,28,48,7);cx.fillStyle='rgba(255,255,255,.5)';cx.fillRect(150,90,30,5);const et=new T.CanvasTexture(env);et.mapping=T.EquirectangularReflectionMapping;scene.environment=et;
+  group=new T.Group();scene.add(group);
+  const mats=[new T.MeshStandardMaterial({color:0xE4572E,roughness:.2,metalness:.1,transparent:true,opacity:.55}),new T.MeshStandardMaterial({color:0x1C1B17,roughness:.25,metalness:.1,transparent:true,opacity:.6}),new T.MeshStandardMaterial({color:0xE4572E,roughness:.15,metalness:.2,transparent:true,opacity:.4})];
+  [0,1,2].forEach((i)=>{const s=2.4-i*.55;const cube=new T.Mesh(new T.BoxGeometry(s,s,s),mats[i]);cube.rotation.set(.4*i,.2*i,.06*i);group.add(cube);});
+  const wire=new T.LineSegments(new T.EdgesGeometry(new T.BoxGeometry(3.2,3.2,3.2)),new T.LineBasicMaterial({color:0xE4572E,transparent:true,opacity:.4}));group.add(wire);
+  const dot=new T.Mesh(new T.SphereGeometry(.08,12,12),new T.MeshBasicMaterial({color:0xE4572E}));dot.position.set(0,-1.9,0);group.add(dot);
+  scene.add(new T.AmbientLight(0xffffff,.7));
+  const key=new T.DirectionalLight(0xffffff,1.4);key.position.set(4,3,6);scene.add(key);
+  const rim=new T.DirectionalLight(0xE4572E,1.2);rim.position.set(-4,0,-3);scene.add(rim);
+  stage.classList.add('is-webgl');
+  addEventListener('pointermove',e=>{tY=cl((e.clientX/innerWidth)*2-1,-1,1)*.5;tX=cl((e.clientY/innerHeight)*2-1,-1,1)*.35;},{passive:true});
+  if('IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(en=>{visible=en.isIntersecting;}),{rootMargin:'120px'}).observe(stage);}
+  const clock=new T.Clock();let t=0;
+  const loop=()=>{raf=requestAnimationFrame(loop);const d=Math.min(clock.getDelta(),.05);if(!visible)return;t+=d;const k=1-Math.exp(-d*4.5);cX+=(tX-cX)*k;cY+=(tY-cY)*k;
+    group.rotation.y=t*.25+cY;group.rotation.x=t*.12+cX;
+    renderer.render(scene,cam);};
+  raf=requestAnimationFrame(loop);
+  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();cancelAnimationFrame(raf);stage.classList.remove('is-webgl');});
+}
+})();</script>
+</body>
+</html>

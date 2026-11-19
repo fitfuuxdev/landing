@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ТЯГА — мужская парикмахерская | стрижка и борода, цена при записи</title>
+<meta name="description" content="Мужская парикмахерская ТЯГА. Стрижка, фейды, борода и бритьё. Классика и современные формы. Цена фиксируется при записи — сюрпризов в кресле нет.">
+<meta name="theme-color" content="#101014">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="ТЯГА">
+<meta property="og:title" content="ТЯГА — мужская парикмахерская">
+<meta property="og:description" content="Стрижка, которая держит форму. Запись по телефону, цена фиксируется.">
+<meta property="og:image" content="https://fitfuuxdev.github.io/landing/assets/img/case-tyaga.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--bg-2:#16161c;--ink:#EDE7DE;--ink-dim:rgba(237,231,222,.6);--ink-faint:rgba(237,231,222,.35);--accent:#E0483E;--accent-2:#B9332A;--line:rgba(237,231,222,.12);--line-str:rgba(237,231,222,.22);--ease:cubic-bezier(.22,1,.36,1);--pad:clamp(20px,5vw,64px);--header-h:72px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px)}
+html,body{overflow-x:hidden}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--accent);color:var(--bg)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.container{width:100%;max-width:1240px;margin:0 auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:'Bebas Neue',sans-serif;font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:.02em}
+h2{font-size:clamp(2.5rem,5.4vw,4.4rem)}
+.mono{font-family:ui-monospace,'JetBrains Mono',monospace}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
+.reveal.is-inview{opacity:1;transform:none}
+.skip{position:absolute;left:-9999px;top:0;z-index:2000;background:var(--ink);color:var(--bg);padding:12px 20px}
+.skip:focus{left:0}
+
+/* header */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--header-h);display:flex;align-items:center;border-bottom:1px solid transparent;transition:.4s var(--ease)}
+.header.is-scrolled{background:rgba(16,16,20,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.header__in{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.06em}
+.logo b{color:var(--accent);font-weight:400}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);position:relative;padding:6px 0;transition:color .3s}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--accent);transition:width .35s var(--ease)}
+.nav a:hover{color:var(--ink)}.nav a:hover::after{width:100%}
+.burger{display:none;width:46px;height:46px;position:relative;border:1px solid var(--line)}
+.burger span{position:absolute;left:13px;right:13px;height:2px;background:currentColor;transition:.35s var(--ease)}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:22px}.burger span:nth-child(3){top:27px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:990;background:rgba(16,16,20,.97);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;opacity:0;visibility:hidden;transition:.4s var(--ease)}
+.mnav.is-open{opacity:1;visibility:visible}
+.mnav a{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;padding:10px}
+.mnav .btn{margin-top:16px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;padding:16px 28px;border:1px solid transparent;transition:.4s var(--ease);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-2);transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line-str);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.btn .ar{transition:transform .3s}
+.btn:hover .ar{transform:translateX(4px)}
+
+/* hero */
+.hero{position:relative;padding-top:calc(var(--header-h) + clamp(30px,7vh,80px));min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 50% at 75% 35%,rgba(224,72,62,.22),transparent 60%),radial-gradient(40% 40% at 10% 90%,rgba(224,72,62,.08),transparent 60%)}
+.hero__eyebrow{display:inline-flex;gap:12px;align-items:center;font-family:ui-monospace,monospace;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.hero__eyebrow::before{content:"";width:30px;height:1px;background:var(--accent)}
+.hero h1{font-size:clamp(3rem,8.6vw,7rem);margin-bottom:22px}
+.hero h1 .r{color:var(--accent)}
+.hero__sub{max-width:520px;color:var(--ink-dim);font-size:1.05rem;margin-bottom:30px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px}
+.hero__meta{display:flex;flex-wrap:wrap;gap:10px 28px;font-family:ui-monospace,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.hero__meta b{color:var(--ink);font-weight:600}
+
+/* ticker */
+.ticker{overflow:hidden;border-block:1px solid var(--line);padding:15px 0}
+.ticker-track{display:flex;width:max-content;animation:mar 24s linear infinite}
+.ticker-chunk{display:flex;gap:30px;padding-right:30px;white-space:nowrap;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.12em;color:var(--ink-dim)}
+.ticker-chunk i{color:var(--accent);font-style:normal}
+@keyframes mar{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.section{padding-block:clamp(4rem,9vw,6.5rem);position:relative}
+.section--alt{background:var(--bg-2);border-block:1px solid var(--line)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(2rem,5vw,3.5rem)}
+.sec-head__num{font-family:ui-monospace,monospace;font-size:.8rem;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;display:block}
+.sec-head__lead{max-width:420px;color:var(--ink-dim)}
+
+/* services */
+.services-list{display:flex;flex-direction:column;border-top:1px solid var(--line-str)}
+.service{display:grid;grid-template-columns:52px 1fr auto;gap:20px;align-items:center;padding:clamp(18px,3vw,28px) 4px;border-bottom:1px solid var(--line);transition:.35s var(--ease);position:relative}
+.service:hover{background:rgba(224,72,62,.06);padding-left:16px}
+.service__idx{font-family:ui-monospace,monospace;font-size:.8rem;color:var(--accent)}
+.service h3{font-size:clamp(1.4rem,3vw,2rem)}
+.service__desc{color:var(--ink-dim);font-size:.9rem;margin-top:4px}
+.service__price{font-family:ui-monospace,monospace;font-size:1.05rem;color:var(--accent);text-align:right;white-space:nowrap}
+.service__price small{display:block;color:var(--ink-faint);font-size:.68rem;letter-spacing:.12em;margin-top:4px}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:200px;gap:14px}
+.g-item{position:relative;overflow:hidden;background:linear-gradient(140deg,#1e1e26,var(--bg-2))}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s;filter:saturate(.92) contrast(1.05)}
+.g-item:hover img{transform:scale(1.05)}
+.g-a{grid-column:span 7;grid-row:span 2}.g-b{grid-column:span 5}.g-c{grid-column:span 5}.g-d{grid-column:span 12}
+.g-item__tag{position:absolute;left:14px;bottom:12px;z-index:2;background:var(--accent);color:#fff;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.step{border-left:1px solid var(--line-str);padding:4px 0 4px 24px}
+.step__num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--accent);display:block;margin-bottom:8px}
+.step h3{font-size:1.4rem;margin-bottom:8px}
+.step p{color:var(--ink-dim);font-size:.92rem}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.review{border:1px solid var(--line);padding:2rem;background:linear-gradient(150deg,#18181f,var(--bg))}
+.review__stars{color:var(--accent);letter-spacing:3px;margin-bottom:14px}
+.review p{font-size:1.05rem;color:var(--ink);font-family:'Manrope',sans-serif}
+.review footer{margin-top:16px;font-family:ui-monospace,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* contacts */
+.contacts__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.contacts__phone{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.4rem);color:var(--ink);display:inline-block;margin-bottom:6px}
+.contacts__phone:hover{color:var(--accent)}
+.contacts__label{font-family:ui-monospace,monospace;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
+.contacts__row{margin-bottom:28px}
+.contacts__card{border:1px solid var(--line);padding:28px;background:var(--bg-2)}
+.stamp{display:inline-flex;margin-top:34px;align-items:center;gap:10px;border:2px solid var(--accent);color:var(--accent);font-family:ui-monospace,monospace;font-size:.72rem;letter-spacing:.16em;padding:10px 18px;transform:rotate(-3deg)}
+
+/* footer */
+.footer{border-top:1px solid var(--line);padding:2.5rem 0}
+.footer__in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem}
+.footer__credit{font-size:.9rem;color:var(--ink-dim)}
+.footer__credit a{color:var(--accent)}
+.demo-badge{font-family:ui-monospace,monospace;font-size:.7rem;letter-spacing:.16em;color:var(--ink-faint);border:1px dashed var(--line-str);padding:6px 12px;text-transform:uppercase}
+.footer__fine{font-size:.8rem;color:var(--ink-faint);margin-top:1.5rem}
+
+@media (max-width:900px){
+  .nav{display:none}.burger{display:block}.header .btn{display:none}
+  .gallery{grid-auto-rows:200px}.g-a,.g-b,.g-c,.g-d{grid-column:span 12;grid-row:span 1}
+  .steps{grid-template-columns:1fr}.reviews{grid-template-columns:1fr}.contacts__grid{grid-template-columns:1fr}
+  .service{grid-template-columns:36px 1fr}.service__price{grid-column:2;text-align:left}
+  .hero{min-height:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}.ticker-track{animation:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+<header class="header" id="header">
+  <div class="container header__in">
+    <a class="logo" href="#top">ТЯ<b>ГА</b></a>
+    <nav class="nav">
+      <a href="#services">Услуги</a>
+      <a href="#gallery">Атмосфера</a>
+      <a href="#steps">Как это</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary" href="#contacts">Записаться</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mnav" id="mnav">
+  <a href="#services">Услуги</a>
+  <a href="#gallery">Атмосфера</a>
+  <a href="#steps">Как это</a>
+  <a href="#contacts">Контакты</a>
+  <a class="btn btn-primary" href="#contacts">Записаться</a>
+</div>
+<main id="main">
+  <section class="hero" id="top">
+    <div class="container">
+      <span class="hero__eyebrow reveal">Мужская парикмахерская · центр</span>
+      <h1 class="reveal" style="--d:60ms">Стрижка,<br>которая держит <span class="r">форму</span></h1>
+      <p class="hero__sub reveal" style="--d:120ms">Классика, фейды, борода и бритьё опасной бритвой. Цена фиксируется при записи — в кресле никаких сюрпризов.</p>
+      <div class="hero__cta reveal" style="--d:180ms">
+        <a class="btn btn-primary btn-lg" href="#contacts">Записаться <span class="ar">→</span></a>
+        <a class="btn btn-ghost btn-lg" href="#services">Прайс</a>
+      </div>
+      <div class="hero__meta reveal" style="--d:240ms">
+        <span><b>60 мин</b> — визит</span>
+        <span><b>4.8</b> — рейтинг</span>
+        <span><b>8 лет</b> — мастера</span>
+      </div>
+    </div>
+  </section>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-chunk">Стрижка <i>/</i> Борода <i>/</i> Фейд <i>/</i> Бритьё <i>/</i> Запись <i>/</i> Цена фикс <i>/</i> 60 минут <i>/</i></span>
+      <span class="ticker-chunk">Стрижка <i>/</i> Борода <i>/</i> Фейд <i>/</i> Бритьё <i>/</i> Запись <i>/</i> Цена фикс <i>/</i> 60 минут <i>/</i></span>
+    </div>
+  </div>
+  <section class="section" id="services" aria-labelledby="svc-title">
+    <div class="container">
+      <div class="sec-head">
+        <div class="reveal"><span class="sec-head__num">01 — Прайс</span><h2 id="svc-title">Услуги и цены</h2></div>
+        <p class="sec-head__lead reveal" style="--d:80ms">Без «уточним по месту». Видишь цену — она и будет.</p>
+      </div>
+      <div class="services-list">
+        <div class="service reveal"><span class="service__idx">01</span><div><h3>Стрижка</h3><p class="service__desc">Мытьё, стрижка, укладка. Классика и фейд под форму головы.</p></div><span class="service__price">1 600 ₽<small>фикс. при записи</small></span></div>
+        <div class="service reveal" style="--d:40ms"><span class="service__idx">02</span><div><h3>Стрижка + борода</h3><p class="service__desc">Полный образ за один визит.</p></div><span class="service__price">2 600 ₽<small>фикс. при записи</small></span></div>
+        <div class="service reveal" style="--d:80ms"><span class="service__idx">03</span><div><h3>Королевское бритьё</h3><p class="service__desc">Опасная бритва, горячее полотенце.</p></div><span class="service__price">2 100 ₽<small>фикс. при записи</small></span></div>
+        <div class="service reveal" style="--d:120ms"><span class="service__idx">04</span><div><h3>Оформление бороды</h3><p class="service__desc">Форма, контур, масло.</p></div><span class="service__price">1 300 ₽<small>фикс. при записи</small></span></div>
+        <div class="service reveal" style="--d:160ms"><span class="service__idx">05</span><div><h3>Стрижка машинкой</h3><p class="service__desc">Одна насадка, чистая линия.</p></div><span class="service__price">1 200 ₽<small>фикс. при записи</small></span></div>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt" id="gallery" aria-labelledby="gal-title">
+    <div class="container">
+      <div class="sec-head">
+        <div class="reveal"><span class="sec-head__num">02 — Атмосфера</span><h2 id="gal-title">Интерьер</h2></div>
+        <p class="sec-head__lead reveal" style="--d:80ms">Кожа, дерево, кирпич. Место, куда хочется вернуться.</p>
+      </div>
+      <div class="gallery">
+        <figure class="g-item g-a reveal"><img loading="lazy" decoding="async" width="800" height="600" alt="Интерьер парикмахерской ТЯГА" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1400&auto=format&fit=crop" onerror="this.style.display='none'"><span class="g-item__tag">Кресло №1</span></figure>
+        <figure class="g-item g-b reveal" style="--d:60ms"><img loading="lazy" decoding="async" width="600" height="400" alt="Мастер стрижёт клиента" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1200&auto=format&fit=crop" onerror="this.style.display='none'"><span class="g-item__tag">Зал</span></figure>
+        <figure class="g-item g-c reveal" style="--d:120ms"><img loading="lazy" decoding="async" width="600" height="400" alt="Оформление бороды" src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=1200&auto=format&fit=crop" onerror="this.style.display='none'"><span class="g-item__tag">Борода</span></figure>
+        <figure class="g-item g-d reveal" style="--d:180ms"><img loading="lazy" decoding="async" width="1200" height="300" alt="Инструменты мастера" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1400&auto=format&fit=crop" onerror="this.style.display='none'"><span class="g-item__tag">Инструмент</span></figure>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="steps" aria-labelledby="step-title">
+    <div class="container">
+      <div class="sec-head"><div class="reveal"><span class="sec-head__num">03 — Как это</span><h2 id="step-title">Три шага</h2></div></div>
+      <div class="steps">
+        <div class="step reveal"><span class="step__num">01</span><h3>Выбрал услугу</h3><p>Прайс выше — цены честные, без сюрпризов.</p></div>
+        <div class="step reveal" style="--d:80ms"><span class="step__num">02</span><h3>Зафиксировал цену</h3><p>Цена при записи. В кресле не изменится.</p></div>
+        <div class="step reveal" style="--d:160ms"><span class="step__num">03</span><h3>Сел в кресло</h3><p>60 минут — и ты другой человек.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt" id="reviews" aria-labelledby="rev-title">
+    <div class="container">
+      <div class="sec-head"><div class="reveal"><span class="sec-head__num">04 — Отзывы</span><h2 id="rev-title">Говорят клиенты</h2></div></div>
+      <div class="reviews">
+        <figure class="review reveal"><div class="review__stars">★★★★★</div><p>Записался на обед — вышел уже другим человеком. Цена как договорились.</p><footer>Дмитрий, 34</footer></figure>
+        <figure class="review reveal" style="--d:80ms"><div class="review__stars">★★★★★</div><p>Бритьё опасной бритвой — отдельный ритуал. Тихо, чисто, результат.</p><footer>Артём, 41</footer></figure>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="contacts" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="sec-head"><div class="reveal"><span class="sec-head__num">05 — Контакты</span><h2 id="cta-title">Садись в кресло</h2></div></div>
+      <div class="contacts__grid">
+        <div class="reveal">
+          <div class="contacts__row"><div class="contacts__label">Телефон</div><a class="contacts__phone" href="tel:+70000000000">+7 (000) 000-00-00</a></div>
+          <div class="contacts__row"><div class="contacts__label">WhatsApp</div><a class="btn btn-ghost" href="https://wa.me/70000000000" target="_blank" rel="noopener">Написать →</a></div>
+          <div class="contacts__row"><div class="contacts__label">Адрес</div><p style="color:var(--ink-dim)">Центр, ул. Ткачей, 8 · ежедневно 10:00–22:00</p></div>
+          <a class="btn btn-primary btn-lg" href="tel:+70000000000">Записаться <span class="ar">→</span></a>
+          <div class="stamp">ЗАПИСЬ ОТКРЫТА</div>
+        </div>
+        <div class="contacts__card reveal" style="--d:100ms">
+          <h2 style="font-size:1.6rem;margin-bottom:14px">Что дальше</h2>
+          <p style="color:var(--ink-dim);margin-bottom:20px">Позвони или напиши — зафиксируем цену и время. Остальное сделаем сами.</p>
+          <div style="padding:12px 0;border-top:1px solid var(--line)"><strong style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem">Цена не изменится</strong><br><span style="color:var(--ink-faint);font-size:.85rem">фиксируем при записи</span></div>
+          <div style="padding:12px 0;border-top:1px solid var(--line)"><strong style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem">Кофе и музыка</strong><br><span style="color:var(--ink-faint);font-size:.85rem">включены в визит</span></div>
+          <div style="padding:12px 0;border-top:1px solid var(--line)"><strong style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem">60 минут</strong><br><span style="color:var(--ink-faint);font-size:.85rem">уважение к твоему времени</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__in">
+      <a class="logo" href="#top">ТЯ<b>ГА</b></a>
+      <span class="demo-badge">демо-страница</span>
+    </div>
+    <p class="footer__fine">Создано <a href="https://fitfuuxdev.github.io/landing/" target="_blank" rel="noopener">Fitfuux</a> · демо-страница портфолио. Контакты и цены — образец.</p>
+  </div>
+</footer>
+<script type="module">
+(function(){'use strict';
+const header=document.getElementById('header');const onS=()=>header.classList.toggle('is-scrolled',scrollY>24);onS();addEventListener('scroll',onS,{passive:true});
+const burger=document.getElementById('burger'),mn=document.getElementById('mnav');const togg=(o)=>{const open=o??!mn.classList.contains('is-open');mn.classList.toggle('is-open',open);burger.setAttribute('aria-expanded',String(open));document.body.style.overflow=open?'hidden':'';};
+burger.addEventListener('click',()=>togg());mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>togg(false)));
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;const rev=document.querySelectorAll('.reveal');
+if(reduced||!('IntersectionObserver' in window)){rev.forEach(e=>e.classList.add('is-inview'));}
+else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-inview');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});rev.forEach(e=>io.observe(e));}
+const year=document.getElementById('year');if(year)year.textContent=String(new Date().getFullYear());
+/* 3D razor */
+const stage=document.querySelector('[data-scene]');if(!stage||reduced)return;
+const conn=navigator.connection;if(conn&&(conn.saveData||conn.effectiveType==='2g'))return;
+if(navigator.deviceMemory&&navigator.deviceMemory<=1)return;
+let glOK=false;try{const p=document.createElement('canvas');glOK=!!(window.WebGLRenderingContext&&p.getContext('webgl'));}catch(e){glOK=false;}
+if(!glOK)return;
+const idle=requestIdleCallback?f=>requestIdleCallback(f,{timeout:1400}):f=>setTimeout(f,1);
+let started=false;function boot(){if(started)return;started=true;idle(()=>import('./assets/js/three.module.min.js').then(init).catch(()=>{}));}
+if(document.readyState==='complete')boot();else addEventListener('load',boot,{once:true});
+let renderer,group,spin;let tX=0,tY=0,cX=0,cY=0,raf=0,visible=true;const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+function init(T){
+  const w=innerWidth<700?300:360,h=360;
+  const scene=new T.Scene();const cam=new T.PerspectiveCamera(35,1,.1,60);cam.position.z=5.4;
+  renderer=new T.WebGLRenderer({antialias:true,alpha:true});renderer.setClearColor(0,0);renderer.setSize(w,h,false);
+  renderer.domElement.style.width='100%';renderer.domElement.style.height='100%';
+  stage.appendChild(renderer.domElement);
+  const envc=document.createElement('canvas');envc.width=256;envc.height=128;const cx=envc.getContext('2d');const g=cx.createLinearGradient(0,0,0,128);g.addColorStop(0,'#2b2b33');g.addColorStop(1,'#101014');cx.fillStyle=g;cx.fillRect(0,0,256,128);cx.fillStyle='rgba(224,72,62,.8)';cx.fillRect(30,20,46,6);cx.fillStyle='rgba(237,231,222,.5)';cx.fillRect(140,90,26,5);const et=new T.CanvasTexture(envc);et.mapping=T.EquirectangularReflectionMapping;scene.environment=et;
+  group=new T.Group();spin=new T.Group();group.add(spin);
+  const metal=new T.MeshStandardMaterial({color:0x1d1d24,metalness:.95,roughness:.3,flatShading:true});
+  const blade=new T.Mesh(new T.BoxGeometry(.25,2.6,.25),metal);blade.position.set(2.1,0,-1.3);blade.rotation.z=.5;group.add(blade);
+  const blade2=new T.Mesh(new T.BoxGeometry(.18,2,.18),metal);blade2.position.set(-2.1,-.5,-.9);blade2.rotation.z=-.6;group.add(blade2);
+  const ico=new T.Mesh(new T.IcosahedronGeometry(1.35,0),metal);spin.add(ico);
+  const edges=new T.LineSegments(new T.EdgesGeometry(ico.geometry),new T.LineBasicMaterial({color:0xE0483E,transparent:true,opacity:.4}));spin.add(edges);
+  scene.add(new T.AmbientLight(0x3a3a44,.6));
+  const key=new T.DirectionalLight(0xEDE7DE,1.6);key.position.set(4,3,6);scene.add(key);
+  const rim=new T.DirectionalLight(0xE0483E,1.4);rim.position.set(-5,1,-3);scene.add(rim);
+  stage.classList.add('is-webgl');
+  addEventListener('pointermove',e=>{tY=cl((e.clientX/innerWidth)*2-1,-1,1)*.4;tX=cl((e.clientY/innerHeight)*2-1,-1,1)*.3;},{passive:true});
+  if('IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(en=>{visible=en.isIntersecting;}),{rootMargin:'120px'}).observe(stage);}
+  const clock=new T.Clock();let t=0;
+  const loop=()=>{raf=requestAnimationFrame(loop);const d=Math.min(clock.getDelta(),.05);if(!visible)return;t+=d;const k=1-Math.exp(-d*4.5);cX+=(tX-cX)*k;cY+=(tY-cY)*k;
+    group.rotation.x=cX;group.rotation.y=cY;spin.rotation.y=t*.3;spin.rotation.z=t*.06;
+    blade.rotation.z=.5+Math.sin(t*.5)*.08;blade2.rotation.z=-.6+Math.cos(t*.4)*.08;
+    renderer.render(scene,cam);};
+  raf=requestAnimationFrame(loop);
+  renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();cancelAnimationFrame(raf);stage.classList.remove('is-webgl');});
+}
+})();</script>
+</body>
+</html>
