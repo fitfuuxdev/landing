@@ -728,6 +728,28 @@
   if (document.readyState === 'complete') loadHero3D();
   else window.addEventListener('load', loadHero3D, { once: true });
 
+  const heroModel = document.getElementById('hero-model');
+  const heroModelWrap = document.getElementById('hero-model-wrap');
+  if (heroModel && heroModelWrap) {
+    const hero = document.getElementById('top') || heroModelWrap.closest('.hero');
+    if (hero) hero.classList.add('is-ready');
+
+    const setParallax = () => {
+      if (!heroModelWrap || !hero) return;
+      const heroRect = hero.getBoundingClientRect();
+      const heroH = heroRect.height || 1;
+      const midY = heroRect.top + heroH / 2;
+      const viewportMid = window.innerHeight / 2;
+      const progress = Math.max(-1, Math.min(1, (midY - viewportMid) / heroH));
+      heroModelWrap.style.transform = 'translateY(' + (progress * -120) + 'px)';
+    };
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.addEventListener('scroll', setParallax, { passive: true });
+      setParallax();
+    }
+  }
+
   /* ------------------------------------------------------------------
      Pointer interaction guard for touch + hover states
   ------------------------------------------------------------------ */
