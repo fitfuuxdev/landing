@@ -680,6 +680,7 @@
   };
 
   const loadHero3D = () => {
+    if (document.querySelector('model-viewer.hero__model')) return; // hero занят Человеком-пауком
     if (!stage || !canvas) return;
     if (reduceMotion) return;
     if (navigator.connection?.saveData) return;
