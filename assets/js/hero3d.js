@@ -279,7 +279,7 @@
       } else {
         world.baseScale = THREE.MathUtils.clamp(height / 940, .82, 1.03);
         world.baseY = viewHeight * .015;
-        world.x = viewWidth * .155;
+        world.x = viewWidth * .105;
       }
 
       rootGroup.scale.setScalar(world.baseScale);
