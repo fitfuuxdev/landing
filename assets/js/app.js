@@ -680,7 +680,6 @@
   };
 
   const loadHero3D = () => {
-    if (document.querySelector('model-viewer.hero__model')) return; // hero занят Человеком-пауком
     if (!stage || !canvas) return;
     if (reduceMotion) return;
     if (navigator.connection?.saveData) return;
@@ -728,28 +727,6 @@
 
   if (document.readyState === 'complete') loadHero3D();
   else window.addEventListener('load', loadHero3D, { once: true });
-
-  const heroModel = document.getElementById('hero-model');
-  const heroModelWrap = document.getElementById('hero-model-wrap');
-  if (heroModel && heroModelWrap) {
-    const hero = document.getElementById('top') || heroModelWrap.closest('.hero');
-    if (hero) hero.classList.add('is-ready');
-
-    const setCrawl = () => {
-      if (!heroModelWrap) return;
-      const doc = document.documentElement;
-      const maxScroll = Math.max(1, (doc.scrollHeight - window.innerHeight));
-      const y = window.scrollY || doc.scrollTop || 0;
-      const progress = Math.min(1, Math.max(0, y / maxScroll));
-      const travel = window.innerHeight * 1.4 - heroModelWrap.offsetHeight;
-      heroModelWrap.style.transform = 'translateY(' + (0 + progress * 140) + 'vh)';
-    };
-
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      window.addEventListener('scroll', setCrawl, { passive: true });
-      setCrawl();
-    }
-  }
 
   /* ------------------------------------------------------------------
      Pointer interaction guard for touch + hover states
